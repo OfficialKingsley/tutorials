@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>useState</h3>
+    <p>
+      The state of an element refers to all the characteristics of the elements.
+      <br />
+      The color, the values, the size, the UI etc. <br />
+      It should however be noted that a state cannot be changed instead it can
+      be recreated and re-rendered automatically to the browser. <br />
+      For example if we are to create a counter app with a button, the counter
+      will increase but won't show on the page. This is because we haven't told
+      react to rerender the state of the counter when the button is clicked
+    </p>
+
+    <fieldset>
+      <code>
+        <pre>
+const StateTutorial = () => {
+    let counter = 0;
+
+    const increment = () => {
+        counter += 1;
+        console.log(counter)
+    }
+
+    return (
+        &lt;div&gt;
+            {counter}
+            &lt;button onClick={increment}&gt;Increment&lt;button&gt;
+        &lt;/div&gt;
+    )
+}
+
+export default StateTutorial;
+                </pre
+        >
+      </code>
+    </fieldset>
+    <h4>useState</h4>
+    <p>
+      The useState hook is used to store the present state of an element and
+      also gives a function to update itself (i.e. the state)
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+import {useState} from react;
+
+const Component = () => {
+    const [name, setName] = useState(defaultValue) 
+
+//The first item in the array is the name of the state
+//The second item in that array is the name of the function that will update
+//that paticular state
+//Notice that the useState() hook was used in the component
+}</pre
+        >
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+import {useState} from react;
+
+const Component = () => {
+    const [count, setCount] = useState(0) 
+    
+//Notice that the useState() hook was used in the component
+//i.e. it wasn't declared outside the component declaration
+
+const increment = () => {
+counter += 1;
+console.log(counter)
+    //using the above method will cause an error because state cannot be changed
+    //Instead we use the function for updating it which is the setCount function as follows
+
+    setCount(count + 1)
+}
+
+    return (
+        &lt;div&gt;
+            {counter}
+            &lt;button onClick={increment}&gt;Increment&lt;button&gt;
+        &lt;/div&gt;
+    )
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>
+      Note that when using the useState() hook, you have to make sure that when
+      setting the state with the setState function you have to make sure that
+      the datatype that you are setting it to is equal to the data type of the
+      initial value
+    </p>
+  </body>
+</html>

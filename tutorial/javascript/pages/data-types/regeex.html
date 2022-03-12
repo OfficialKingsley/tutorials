@@ -1,0 +1,343 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Regular Expressions</h1>
+		<p>
+			A regular expression is a sequence of characters that forms a search
+			pattern. <br />
+			When you search for data in a text, you can use this search pattern to
+			describe what you are searching for.
+			<br />
+			A regular expression can be a single character, or a more complicated
+			pattern. <br />
+			Regular expressions can be used to perform all types of text search and
+			text replace operations.
+		</p>
+		<h3>Syntax</h3>
+		/pattern/modifiers; <br />
+		or <br />
+		/regular Expression/modifier
+		<fieldset>
+			<legend>Example</legend>
+			<code>var patt = /kmavi/i;</code>
+		</fieldset>
+		Example explained: <br />
+		/kmavi/i is a regular expression. <br />
+		kmavi is a pattern (to be used in a search). <br />
+		"i" is a modifier (modifies the search to be case-insensitive).
+
+		<h3>Using String Methods</h3>
+		<p>
+			In JavaScript, regular expressions are often used with the two string
+			methods: <br />
+			<code>search() and replace()</code>. <br />
+			The search() method uses an expression to search for a match, and returns
+			the position of the match. <br />
+			The replace() method on the other hand returns a modified string where the
+			pattern is replaced.
+		</p>
+		<fieldset>
+			<legend>Example</legend>
+			Use a regular expression to do a case-insensitive search for "kmavi" in a
+			string: <br />
+			<fieldset>
+				<code>
+					var str = "Visit kmavi.com"; <br />
+					var n = str.search(/kmavi/i); //The result in n will be: 6
+				</code>
+			</fieldset>
+		</fieldset>
+		<br /><br />
+		<fieldset>
+			Use String replace() With a Regular Expression
+			<legend>Example</legend>
+			Use a case insensitive regular expression to replace palDevs with kmavi in
+			a string:
+			<fieldset>
+				<code>
+					var str = "Visit palDevs!"; <br />
+					var res = str.replace(/paldevs/i, "kmavi");
+				</code>
+			</fieldset>
+			The result in res will be: Visit kmavi
+		</fieldset>
+
+		<h2>Modifiers</h2>
+		<p>
+			These help in making regular Expressions even more powerful. They tell how
+			you want the search to be. For example, take a look at the modifier
+			<q>i</q> It tells the search that the search is case
+			<strong>insensitive</strong>. So whether or not the search is in uppercase
+			or lowercase, it doesn't matter anymore as now it can find it
+		</p>
+		<table>
+			<tr>
+				<th>Modifier</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>i</td>
+				<td>This is case insensitive matching</td>
+			</tr>
+			<tr>
+				<td>g</td>
+				<td>
+					This is global matching. That means the search shouldn't stop at the
+					first place where it is found but should search for every where it is
+					found in the string
+				</td>
+			</tr>
+			<tr>
+				<td>m</td>
+				<td>Perform multiline matching</td>
+			</tr>
+		</table>
+		<h2>Reg Ex Patterns</h2>
+		You can use special characters as your regular expression patterns. We can
+		make use of brackets to perform special types of searches too
+		<table>
+			<tr>
+				<th>Expression</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>[abc]</td>
+				<td>Find any characters within the square brackets</td>
+			</tr>
+
+			<tr>
+				<td>[^abc]</td>
+				<td
+					>Find any characters <strong>not</strong> within the square
+					brackets</td
+				>
+			</tr>
+			<tr>
+				<td>[0-9]</td>
+				<td>Find any digits between the brackets</td>
+			</tr>
+			<tr>
+				<td>(x|y)</td>
+				<td>Find x or y or both</td>
+			</tr>
+		</table>
+		<h3>Meta characters</h3>
+		<p>These are characters with special meaning</p>
+		<table>
+			<tr>
+				<th>Meta Character</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>.</td>
+				<td>Find a single character, except newline or line terminator</td>
+			</tr>
+			<tr>
+				<td>\w</td>
+				<td>Find a word character</td>
+			</tr>
+			<tr>
+				<td>\W</td>
+				<td>Find a non-word character</td>
+			</tr>
+			<tr>
+				<td>\d</td>
+				<td>Find a digit</td>
+			</tr>
+			<tr>
+				<td>\D</td>
+				<td>Find a non-digit character</td>
+			</tr>
+			<tr>
+				<td>\s</td>
+				<td>Find a whitespace character</td>
+			</tr>
+			<tr>
+				<td>\S</td>
+				<td>Find a non-whitespace character</td>
+			</tr>
+			<tr>
+				<td>\b</td>
+				<td>Find a match at the beginning/end of a word</td>
+			</tr>
+			<tr>
+				<td>\B</td>
+				<td>Find a match not at the beginning/end of a word</td>
+			</tr>
+			<tr>
+				<td>\0</td>
+				<td>Find a NUL character</td>
+			</tr>
+			<tr>
+				<td>\n</td>
+				<td>Find a new line character</td>
+			</tr>
+			<tr>
+				<td>\f</td>
+				<td>Find a form feed character</td>
+			</tr>
+			<tr>
+				<td>\r</td>
+				<td>Find a carriage return character</td>
+			</tr>
+			<tr>
+				<td>\t</td>
+				<td>Find a tab character</td>
+			</tr>
+			<tr>
+				<td>\v</td>
+				<td>Find a vertical tab character</td>
+			</tr>
+			<tr>
+				<td>\xxx</td>
+				<td>Find the character specified by an octal number xxx</td>
+			</tr>
+			<tr>
+				<td>\xdd</td>
+				<td>Find the character specified by a hexadecimal number dd</td>
+			</tr>
+			<tr>
+				<td>\uxxxx</td>
+				<td
+					>Find the Unicode character specified by a hexadecimal number xxxx</td
+				>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<h3>Quantifiers</h3>
+		<p>These specify the number of characters to look for</p>
+		<table>
+			<tr>
+				<th>Quantifiers</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>n+</td>
+				<td>Matches any string that contains at least one n</td>
+			</tr>
+			<tr>
+				<td>n*</td>
+				<td>Matches any string that contains zero or more occurrences of n</td>
+			</tr>
+			<tr>
+				<td>n?</td>
+				<td>Matches any string that contains zero or one occurrences of n</td>
+			</tr>
+			<tr>
+				<td>n{X}</td>
+				<td>Matches any string that contains a sequence of X n's</td>
+			</tr>
+			<tr>
+				<td>n{X,Y}</td>
+				<td>Matches any string that contains a sequence of X to Y n's</td>
+			</tr>
+			<tr>
+				<td>n{X,}</td>
+				<td>Matches any string that contains a sequence of at least X n's</td>
+			</tr>
+			<tr>
+				<td>n$</td>
+				<td>Matches any string with n at the end of it</td>
+			</tr>
+			<tr>
+				<td>^n</td>
+				<td>Matches any string with n at the beginning of it</td>
+			</tr>
+			<tr>
+				<td>?=n</td>
+				<td>Matches any string that is followed by a specific string n</td>
+			</tr>
+			<tr>
+				<td>?!n</td>
+				<td>Matches any string that is not followed by a specific string n</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<h3>Regular expressions as objects</h3>
+		<p>
+			Javascript regular expressions are also treated as objects and have
+			predefined properties (without parentheses) and methods (with parentheses)
+		</p>
+		<p
+			>To use regular expressions as objects, they should be assigned to
+			variables</p
+		>
+		<h3>Properties</h3>
+		<table>
+			<tr>
+				<th>Property</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>constructor</td>
+				<td>Returns the function that created the RegExp object's prototype</td>
+			</tr>
+			<tr>
+				<td>global</td>
+				<td>Checks whether the "g" modifier is set</td>
+			</tr>
+			<tr>
+				<td>ignoreCase</td>
+				<td>Checks whether the "i" modifier is set</td>
+			</tr>
+			<tr>
+				<td>lastIndex</td>
+				<td>Specifies the index at which to start the next match</td>
+			</tr>
+			<tr>
+				<td>multiline</td>
+				<td>Checks whether the "m" modifier is set</td>
+			</tr>
+			<tr>
+				<td>source</td>
+				<td>Returns the text of the RegExp pattern</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+
+		<h3>RegExp Object Methods</h3>
+		<table>
+			<tr>
+				<th>Method</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>compile()</td>
+				<td>Deprecated in version 1.5. Compiles a regular expression</td>
+			</tr>
+			<tr>
+				<td>exec()</td>
+				<td>Tests for a match in a string. Returns the first match</td>
+			</tr>
+			<tr>
+				<td>test()</td>
+				<td>Tests for a match in a string. Returns true or false</td>
+			</tr>
+			<tr>
+				<td>toString()</td>
+				<td>Returns the string value of the regular expression</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</body>
+</html>

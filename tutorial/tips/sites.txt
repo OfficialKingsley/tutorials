@@ -1,0 +1,8 @@
+w3schools
+mozilla web development
+stack overflow
+text-shadow-generators
+https://www.caniuse.com
+https://www.autoprefixer.github.io
+google fonts
+https://www.dafont.com/

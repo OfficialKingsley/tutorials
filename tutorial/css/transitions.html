@@ -1,0 +1,73 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset>
+            <code>
+                <pre>
+transform: translate(x, y, z(optional))
+transform: translateX()
+transform: rotate()
+transform: scaleX()
+transform: scale(x, y)
+transform: skewX(20deg);
+transform: skewX(-20deg);
+transform: skew(20deg, 45deg);
+transform: rotateZ(45deg)
+transform: rotate()
+
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+transition-property: background, border-radius ;
+transition-duration: 4s, 2s;
+transition-delay: 2s; delays the transition by 2s
+transition: background duration delay timing-function, border-radius duration2; 
+transition: all duration delay timing-function
+transition-timing-function: ease;
+//Other timing functions include
+ease = slow start fast slow end
+linear
+ease in
+ease-out
+ease-in-out
+                </pre>
+            </code>
+        </fieldset>
+        <h3>Animations</h3>
+        <fieldset>
+            <code>
+                <pre>
+@keyframes move {
+    0% {
+
+    }
+    50% {
+
+    }
+}
+.animation {
+    background: blue;
+    animation-name: move; /*Must be the name of the animation given to the keyframes*/
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    //Short hand
+    animation: name duration iteration-count;
+    animation-fill-mode: backwards; 
+    //forwards: This will stay with the values that it ends up with
+}
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

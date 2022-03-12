@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Understanding URLs</h3>
+    <p>A url consists of four major parts</p>
+    <ul>
+      <li>
+        First is the protocol. For example we http (hyper text transfrer
+        protocol), https (for a secure website), ftp(file transfer protocol)
+        etc.
+      </li>
+      <li>
+        Domain name or the IP address e.g. local host, 192.35.78.785. e.g.
+        google.com is the domain name
+      </li>
+      <li>
+        A port number like 3000. This port number usually comes after a colon
+        after the domain name e.g.
+        <pre>192.35.78.785:3000</pre>
+        <br />
+        By default, port numbers are not seen on browsers because by default we
+        use port 443 for https sites and port 80 for http sites but when working
+        on local servers, we usually use port 3000
+      </li>
+      <li>
+        A then we have routes which usually come after backslashes e.g.
+        /products, 192.35.78.785:3000/products, 192.35.78.785:3000/
+      </li>
+    </ul>
+    <p>
+      When we type a url and hit enter, we send a request to the sever hosting
+      the site and when the server sees the route, it responds back with an html
+      page that is associated with the route specified
+    </p>
+    <p>
+      A multi-page app is one that has different pages and different html files
+      practically. However, react creates what is known as a single page app
+      which has one index,html so we have to use the react router to allow us to
+      transform our react app to be like a multi page app and still maintain its
+      single page application functionality
+    </p>
+
+    <h3>How multi application sites work</h3>
+    <p>
+      We have a browser (the client) and we have a server (the back end) <br />
+      When we go to a route or to a link, we send a get request to the server
+      which has multiple html files each associated with its own route. Then the
+      server sends back a response with the appropriate html file and the user
+      then loads this page and the html file is displayed
+    </p>
+    <p>
+      However, in react, we have only one html file that is loaded to the page.
+      So the web browser can only send the only html and no other file. When the
+      html file is loaded, then the js takes over and then dynamically loads
+      content on the html from the virtual dom
+    </p>
+    <p>
+      So using a react app, if we for example want to go to the contact route,
+      we send a request from the browser and then the server sends back the only
+      html file which is the index.html then the react app then sees that the
+      route is for the /contact page and then the react app loads the Contact.js
+      component and displays it on the index.html
+    </p>
+    <p>
+      For example, if we also want to navigate to the /about route, we send a
+      get request to the server. Well instead of sending the request to the
+      server we send it to the react router. This is done because the server
+      will always load the index.html which is already loaded to the page. So
+      when the react router receives the request, it then tells react to load
+      the About.js component instead of it sending back an index.html. <br />
+      This method is nice as the page is not refreshed but the component is
+      re-rendered. So the user never refreshes the page basically. So that's why
+      it is called a single page application.
+    </p>
+  </body>
+</html>

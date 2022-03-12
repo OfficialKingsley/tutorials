@@ -1,0 +1,101 @@
+<body>
+    <h1><u>Marking-up Quotes</u></h1>
+
+<h3><u>Inline with (q)</u></h3>
+<p>The q element can be used for a quote that is part of a sentence:</p>
+
+<fieldset>
+    (p)She wrote (q)The answer is 42.(/q) and everyone agreed.(/p)
+</fieldset>
+
+<p>She wrote <q>The answer is 42.</q> and everyone agreed.</p>
+
+<h3><u>Quotation marks</u></h3>
+
+<p>Quotation marks should not be added. User agents should (in HTML 4.01) resp. must (in HTML 4.0) render them
+automatically.</p>
+
+<p>Quotation marks must not be added. User agents will render them automatically.</p>
+
+Source URL (cite attribute)
+
+<p>The cite attribute can be used to reference the URL of the quoted source:</p>
+
+<fieldset>
+    (p)She wrote (q cite="http://example.com/blog/hello-world">The answer is 42.(/q) and everyone agreed.(/p)
+</fieldset>
+
+<p>She wrote <q cite="http://example.com/blog/hello-world">The answer is 42.</q> and everyone
+agreed.</p>
+
+<p>Note that browsers typically don’t show this URL, so if the source is relevant, you should add a hyperlink (a element)
+in addition.</p>
+
+<h3><u>Block with (blockquote)</u></h3>
+
+<p>The blockquote element can be used for a (block-level) quote:</p>
+
+<fieldset>
+    (blockquote)<br>
+        (p)The answer is 42.(/p)<br>
+        (/blockquote)
+</fieldset>
+
+<blockquote>
+<p>The answer is 42.</p>
+</blockquote>
+Source URL (cite attribute)
+The cite attribute can be used to reference the URL of the quoted source:
+
+<fieldset>
+    (blockquote cite="http://example.com/blog/hello-world")
+        (p)The answer is 42.(/p)
+        (/blockquote)
+</fieldset>
+
+<blockquote cite="http://example.com/blog/hello-world">
+<p>The answer is 42.</p>
+</blockquote>
+
+<p>Note that browsers typically don’t show this URL, so if the source is relevant, you should add a hyperlink (a element)
+in addition (see the section Citation/Attribution about where to place this link).</p>
+<h3><u>Citation/Attribution</u></h3>
+The citation/attribution should not be part of the blockquote element:
+
+<fieldset>
+    (blockquote cite="http://example.com/blog/hello-world")<br>
+        (p)The answer is 42.(/p)<br>
+        (/blockquote)
+</fieldset>
+
+<blockquote cite="http://example.com/blog/hello-world">
+<p>The answer is 42.</p>
+</blockquote>
+<p>Source: <cite><a href="http://example.com/blog/hello-world" rel="external">Hello
+World</a>/You can add a div element to group the quote and the citation, but it exists no way to associate them semantically.
+The cite element can be used for the reference of the quoted source (but not for the author name).
+
+The citation/attribution (e.g., the hyperlink giving the source URL) can be inside the blockquote, but in that case it
+must be within a cite element (for in-text attributions) or a footer element:
+
+<fieldset>
+    (blockquote cite="http://example.com/blog/hello-world")<br>
+        (p)The answer is 42.(/p)<br>
+        (footer)<br>
+        (p)Source: (cite)(a href="http://example.com/blog/hello-world" rel="external">Hello World(/a)(/cite)(/p)<br>
+        (/footer)<br>
+        (/blockquote)
+        
+</fieldset>
+
+<blockquote cite="http://example.com/blog/hello-world">
+<p>The answer is 42.</p>
+<footer>
+<p>Source: <cite><a href="http://example.com/blog/hello-world" rel="external">Hello
+World</a></cite></p>
+</footer>
+</blockquote>
+
+
+<p>The cite element can be used for the reference of the quoted source, or for the name of the quote’s author.</p>
+</body>

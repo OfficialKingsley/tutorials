@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>React Context API</h1>
+    <p>
+      React context helps us with an easy and clean way to share state without
+      passing props down even to the components that do not need the props. This
+      thereby makes react cleaner and easier<br />
+      The components that don't use the props act as carrier components for the
+      props <br />
+      Using react with hooks the context api helps us to get something relative
+      to redux. <br />
+      You can share state within a component tree. <br />
+    </p>
+    <h2>Examples and Usage</h2>
+    <p>
+      To use the context api, we have to first create a context then we make
+      this context available to the component tree where it might be needed
+      <br />
+      To make it available or (known as providing it) using a context provider
+      which is a react tag. We wrap the tree where we will need this data in the
+      context provider element and then any element in the tree can access the
+      context state.
+    </p>
+    <h2>When to use the context</h2>
+    <p>
+      It is advised to use the context api when the state to be shared can be
+      considered as global or will likely be used by a lot of components. For
+      example, a theme, a current authenticated user, preferred language.
+    </p>
+    <h2>Consuming a context</h2>
+    <p>This simply means accessing the data in the context</p>
+  </body>
+</html>

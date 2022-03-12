@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Next we create a new Schema which is basically a blueprint or the
+      structure of our data that we're going to save into our Mongo DB
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const fruitSchema = new mongoose.Schema ({
+  name: String,
+  rating: Number,
+  review: String
+})
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      This is what our fruit schema would look like and this lays the foundation
+      for every new fruit document that will be added to our database
+    </p>
+    <p>
+      After we create a schema, we use the schema to create a mongoose model
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+//format
+//const type_of_document = mongoose.model(
+  "singular_form_of_collection_name",
+  schema to follow
+)
+const Fruit = mongoose.model("Fruit", fruitSchema)
+
+//This Fruit before the equal to sign is called a model
+//By default, mongoose will create a collection of Fruits
+//It will automatically pluralize the collection name
+        </pre>
+      </code>
+    </fieldset>
+    <p>Now to actually create a fruit, we do the following</p>
+    <fieldset>
+      <code>
+        <pre>
+const fruit = new Fruit ({
+  name: "Apple",
+  rating: 7,
+  review: "Pretty good fruit"
+})
+
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      And then to finally add the fruit to the collection called Fruits, we do:
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+fruit.save()
+        </pre>
+      </code>
+    </fieldset>
+    <p>What if you want to add many things</p>
+    <fieldset>
+      <code>
+        <pre>
+Fruit.insertMany([kiwi, orange, banana], (err) => {
+  if (err) {
+    console.log(err)
+  } else {
+    successfully added fruits
+  }
+})
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>useLayoutEffect hook</h3>
+    <p>
+      This is very similar to the useEffect but there is a very slight
+      difference. If you write a code to log out something both with useEffect
+      and useLayoutEffect you'll see that the one with the useLayoutEffect will
+      be done first.
+    </p>
+    <p>
+      The difference between the two is that useEffect is called after the page
+      has been rendered and then rerenders the page. However the useLayoutEffect
+      is called well before the page is rendered. It can be used for something
+      like showing the default values.
+    </p>
+  </body>
+</html>

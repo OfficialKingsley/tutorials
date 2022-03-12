@@ -1,0 +1,46 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            If there's a case that you won't want to commit something like personal info or computer
+            settings or api keys <br />
+            DS_store files may not want to be committed
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+touch .gitignore
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+git rm --cached -r .
+
+To remove everything you added
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+.ds_store
+hidden file.txt
+
+*.text This will make sure anything with the .txt file extension
+will be ignored and not added or uploaded to github
+A comment can be written with a pound sign "#""
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

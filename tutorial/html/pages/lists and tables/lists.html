@@ -1,0 +1,262 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>HTML</h1>
+        <p>HTML offers three ways for specifying lists:</p>
+        <ul>
+            <li>ordered lists,</li>
+            <li>unordered lists</li>
+            <li>description lists.</li>
+        </ul>
+
+        <h3>Ordered Lists</h3>
+        <p>
+            Ordered lists use ordinal sequences to indicate the order of list elements
+            <br />
+            An ordered list can be created with the &lt;ol> tag and each list item can be created
+            with the &lt;li> tag as in the example below:
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;ol>
+    &lt;li>Item&lt/li>
+    &lt;li>Another Item&lt/li>
+    &lt;li>Yet Another Item&lt/li>
+&lt;/ol></pre
+                >
+            </code>
+        </fieldset>
+        <fieldset>
+            <ol>
+                <li>Item</li>
+                <li>Another Item</li>
+                <li>Yet Another Item</li>
+            </ol>
+        </fieldset>
+        <h4>Changing the numbers of ordered lists</h4>
+        <p>
+            There are a couple of ways you can play with which numbers appear on the list items in
+            an ordered list. <br />
+            The first way is to set a starting number, using the start attribute. The list will
+            start at this defined number, and continue incrementing by one as usual.
+        </p>
+
+        <fieldset>
+            &lt;ol start="3"><br />
+            &lt;li>Item&lt;/li><br />
+            &lt;li>Some Other Item&lt;li><br />
+            &lt;li>Yet Another Item&lt;/li><br />
+            &lt;/ol>
+        </fieldset>
+
+        <p>
+            You can also explicitly set a certain list item to a specific number. <br />
+            Further list items after one with a specified value will continue incrementing by one
+            from that list item's value, ignoring where the parent list was at.
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+&lt;li value="7">&lt;/li>
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            It is also worth noting that, by using the value attribute directly on a list item, you
+            can override an ordered list's existing numbering system by restarting the numbering at
+            a lower value. So if the parent list was already up to value 7, and encountered a list
+            item at value 4, then that list item would still display as 4 and continue counting from
+            that point again.
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;ol start="5"><br />
+    &lt;li>Item&lt;/li><br />
+    &lt;li>Some Other Item&lt;/li><br />
+    &lt;li value="4">A Reset Item&lt;/li><br />
+    &lt;li>Another Item&lt;/li><br />
+    &lt;li>Yet Another Item&lt;/li> <br />
+&lt;/ol></pre>
+            </code>
+        </fieldset>
+        <p>
+            So the example above will produce a list that follows the numbering pattern of <br />
+            <output>5, 6, 4, 5, 6</output> <br />
+            - starting again at a number lower than the previous and duplicating the number 6 in the
+            list.
+        </p>
+        <ol start="5">
+            <li>Item</li>
+            <li>Some Other Item</li>
+            <li value="4">A Reset Item</li>
+            <li>Another Item</li>
+            <li>Yet Another Item</li>
+        </ol>
+
+        <p>
+            Note: The start and value attributes only accept a number - even if the ordered list is
+            set to display as Roman numerals or letters.
+        </p>
+
+        <p>You can reverse the numbering by adding reversed in your ol element:</p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;ol reversed><br />
+    &lt;li>Item&lt;/li><br />
+    &lt;li>Some Other Item&lt;/li><br />
+    &lt;li value="4">A Reset Item&lt;/li><br />
+    &lt;li>Another Item&lt;/li><br />
+    &lt;li>Yet Another Item&lt;/li><br />
+&lt;/ol>
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            Reverse numbering is helpful if you're continually adding to a list, such as with new
+            podcast episodes or presentations, and you want the most recent items to appear first.
+        </p>
+
+        <h4>
+            <u>Changing the type of numeral</u>
+        </h4>
+        <p>
+            You can easily change the type of numeral shown in the list item marker by using the
+            type attribute <br />
+            <code>&lt;ol type="1|a|A|i|I"></code>
+        </p>
+
+        <fieldset>
+            <legend>Type attribute possible values</legend>
+            <ol>
+                <li>1 Default value - Decimal numbers 1,2,3,4</li>
+                <li>a Alphabetically ordered (lowercase) a,b,c,d</li>
+                <li>A Alphabetically ordered (uppercase) A,B,C,D</li>
+                <li>i Roman Numerals (lowercase) i,ii,iii,iv</li>
+                <li>I Roman Numerals (uppercase) I,II,III,IV</li>
+            </ol>
+        </fieldset>
+        <p>
+            You should use ol to display a list of items, where the items have been intentionally
+            ordered and order should be emphasized. If changing the order of the items does NOT make
+            the list incorrect, you should use &lt;ul>.
+        </p>
+
+        <h3>Unordered Lists</h3>
+        <p>
+            unordered lists use a defined symbol such as a bullet to list elements in no designated
+            order <br />
+            An unordered list can be created with the &lt;ul> tag and each list item can be created
+            with the &lt;li> tag as shown by the example below:
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+                </pre>
+            </code>
+        </fieldset>
+
+        <fieldset>
+            <ul>
+                <li>Item</li>
+                <li>Another Item</li>
+                <li>Yet Another Item</li>
+            </ul>
+        </fieldset>
+
+        <p>This will produce a bulleted list (which is the default style):</p>
+
+        <ul>
+            <li>Item</li>
+            <li>Another Item</li>
+            <li>Yet Another Item</li>
+        </ul>
+
+        You should use ul to display a list of items, where the order of the items is not important.
+        If changing the order of the items makes the list incorrect, you should use &lt;ol>.
+        <h3>Nested Lists</h3>
+        <p>You can nested lists to represent sub-items of a list item.</p>
+        <fieldset>
+            <code>
+                <pre>
+&lt;ul>
+    &lt;li>item 1&lt;/li>
+    &lt;li>
+    item 2
+        &lt;ul>
+            &lt;li>sub-item 2.1&lt;/li>
+            &lt;li>sub-item 2.2&lt;/li>
+        &lt;/ul>
+    &lt;/li>
+    &lt;li>item 3&lt;/li>
+&lt;/ul>
+                </pre>
+            </code>
+        </fieldset>
+        <ul>
+            <li>item 1</li>
+            <li>
+                item 2
+                <ul>
+                    <li>sub-item 2.1</li>
+                    <li>sub-item 2.2</li>
+                </ul>
+            </li>
+            <li>item 3</li>
+        </ul>
+        <p>The nested list has to be a child of the li element.</p>
+
+        <p>You can nest different types of list, too:</p>
+        <ol>
+            <li>Hello, list!</li>
+            <li>
+                <ul>
+                    <li>Hello, nested list!</li>
+                </ul>
+            </li>
+        </ol>
+        <h3>Description List</h3>
+        <p>
+            Description lists use indents to list elements with their children. This topic explains
+            the implementation and combination of these lists in HTML markup. <br />
+            A description list (or definition list, as it was called before HTML5) can be created
+            with the dl element. It consists of name-value groups, where the name is given in the dt
+            element, and the value is given in the dd element.
+        </p>
+
+        <dl>
+            <dt>name 1</dt>
+            <dd>value for 1</dd>
+            <dt>name 2</dt>
+            <dd>value for 2</dd>
+        </dl>
+        Live demo A name-value group can have more than one name and/or more than one value (which
+        represent alternatives):
+        <dl>
+            <dt>name 1</dt>
+            <dt>name 2</dt>
+            <dd>value for 1 and 2</dd>
+            <dt>name 3</dt>
+            <dd>value for 3</dd>
+            <dd>value for 3</dd>
+        </dl>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<body>
+<h1><u>Content Languages</u></h1>
+<h3><u>Base Document Language</u></h3>
+<p>It’s a good practice to declare the primary language of the document in the html element:</p>
+
+<fieldset>
+    (html lang="en")
+</fieldset>
+<html lang="en">
+
+<p>If no other lang attribute is specified in the document, it means that everything (i.e., element content and attribute
+text values) is in that language.<br>
+If the document contains parts in other languages, these parts should get their own lang attributes to "overwrite"
+the language declaration.</p>
+<h4><u>Element Language</u></h4>
+<p>The lang attribute is used to specify the language of element content and attribute text values:</p>
+
+<fieldset>
+    (p lang="en")The content of this element is in English.(/p)<br>
+(p lang="en" title="The value of this attribute is also in English.")The content of this element is in English.(/p)
+
+</fieldset>
+<p lang="en">The content of this element is in English.</p>
+<p lang="en" title="The value of this attribute is also in English.">The content of this element is in English.</p>
+<p></p>
+<p>The language declaration gets inherited:</p>
+
+<fieldset>
+    (div lang="en")<br>
+        (p)This element contains English content.(/p)<br>
+        (p title="This attribute, too.")Same with this element.(/p)<br>
+        (/div)
+</fieldset>
+
+<p></p>
+
+<div lang="en">
+<p>This element contains English content.</p>
+<p title="This attribute, too.">Same with this element.</p>
+</div>
+
+
+<h4><u>Elements with Multiple Languages</u></h4>
+<p>You can "overwrite" a language declaration:</p>
+
+<fieldset>
+    (p lang="en")This English sentence contains the German word (span lang="de")Hallo(/span).(/p)
+</fieldset>
+
+<p lang="en">This English sentence contains the German word <span lang="de">Hallo</span>.</p>
+
+
+<h4><u>Regional URLs</u></h4>
+
+<p>It is possible to add the attribute hreflang to the elements (a) and (area) that create hyperlinks. Such it specifies
+the language of the linked resource. The language defined must be a valid BCP 47[1] language tag.</p>
+
+<fieldset>
+    <p>
+        (a href="example.org" hreflang="en")example.org(/a) is one of IANA's example domains.
+        </p>
+</fieldset>
+<p>
+<a href="example.org" hreflang="en">example.org</a> is one of IANA's example domains.
+</p>
+<p>1. ↑ IETF Network Working Group: RFC 5646 Tags for Identifying Languages, IETF, September 2009</p>
+
+<h4><u>Handling Attributes with Dierent Languages</u></h4>
+<p>You can "overwrite" a parent element's language declaration by introducing any element apart from applet, base,
+basefont, br, frame, frameset, hr, iframe, meta, param, script (of HTML 4.0) with an own lang attribute:</p>
+
+<fieldset>
+    (p lang="en" title="An English paragraph")<br>
+    (span lang="de" title="A German sentence")Hallo Welt!(/span)<br>
+        (/p)<br>
+</fieldset>
+<p lang="en" title="An English paragraph">
+    <span lang="de" title="A German sentence">Hallo Welt!</span>
+    </p>
+</body>

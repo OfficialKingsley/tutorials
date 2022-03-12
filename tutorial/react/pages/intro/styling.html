@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Styling</h3>
+    <p>
+      There are different ways. You can use the style sheet index.css you can
+      also use something like styled components.
+    </p>
+    <p>You can also use inline like this</p>
+    <fieldset>
+      <code>
+        <pre>
+&lt;h1 style= {{color: 'red', backgroundColor: 'black'}}&gt;Hello this is my style&lt;/h1&gt;
+
+//Note the double curly braces
+//And also notice that we use camel case naming syntax
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>Another thing you could do is to do this:</p>
+    <fieldset>
+      <code>
+        <pre>
+&lt;h1 style = {headerStyle}&gt;Hello my Styled title &lt;/h1&gt;
+
+//A variable containing the styles
+const headerStyle = {
+    color: 'red',
+    backgroundColor: 'black'
+}</pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

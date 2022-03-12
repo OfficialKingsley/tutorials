@@ -1,0 +1,134 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Building a todo app</h3>
+    <header>
+      <p>Pre-requisites</p>
+      <ul>
+        <li>Classes</li>
+        <li>Destructuring</li>
+        <li>High Order Array methods</li>
+        <li>Arrow functions</li>
+        <li>Fetch api and promises</li>
+        <li></li>
+      </ul>
+    </header>
+    <p>In react every part of the app is actually a component</p>
+
+    <h3>React components also have state</h3>
+    <p>
+      Components have state. <br />
+      These states are like the properties of the components
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+state = {
+  title: "This is my title",
+  body: "This is the body of the book",
+  isFeatured: true
+}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+import React, {Component} from "react";
+class ThisComponent extends Component {
+  state = {
+    todos: [/*Array of todos*/]
+  }
+  render () {
+    return (
+      &lt;Todos /&gt;
+    )
+  }
+}
+        </pre>
+      </code>
+    </fieldset>
+    <p>The render method is called immediately the component is initialized</p>
+    <p>
+      The state object in class based components are actually mutable. To update
+      a state though, we use the this.setState() function.
+    </p>
+    <p>
+      When you want to use a defined function or method in class components, we
+      have to bind it to the this keyword.
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+getStyle() {
+  return (&lt;Hello world&gt;)
+}
+this.getStyle.bind(this)
+
+//The above is the syntax
+//This binds it to the function
+//The reason that happens is because
+//The this keyword is attached to the function
+//The reason we can use this.state is because
+//These are part of the component class which was imported from react
+        </pre>
+      </code>
+    </fieldset>
+    <p>A way to avoid this binding is by using arrow functions</p>
+    <fieldset>
+      <code>
+        <pre>
+getStyle = () => {
+  return (&lt;Hello world&gt;)
+}
+this.getStyle
+
+//Now we see that we don't have to bind
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      However, if we want to pass in parameters into the function, we will have
+      to bind. When we use the bind method, the first parameter has to be the
+      this keyword and the following parameters will refer to the arguments of
+      the function
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+getStyle() {
+  return (&lt;Hello world&gt;)
+}
+this.getStyle.bind(this, myFirstArgument, mySecondArgument)
+
+        </pre>
+      </code>
+    </fieldset>
+    <p>We can also destructure the props</p>
+    <fieldset>
+      <code>
+        <pre>
+{} = this.props
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Setting state</h3>
+    <fieldset>
+      <code>
+        <pre>
+this.setState({
+  itemToChange: "What you wanna change it to",
+})
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

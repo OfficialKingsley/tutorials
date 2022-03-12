@@ -1,0 +1,53 @@
+<body>
+<h1><u>Marking up computer code</u></h1>
+
+<h3><u>Block with (pre) and (code)</u></h3>
+<p>If the formatting (white space, new lines, indentation) of the code matters, use the pre element in combination with
+the code element:</p>
+<fieldset>
+    (pre)<br>
+        (code)<br>
+        x = 42<br>
+        if x == 42:<br>
+        print "x is … … 42"<br>
+        (/code)<br>
+        (/pre)
+</fieldset>
+
+<pre>
+<code>
+x = 42
+if x == 42:
+print "x is … … 42"
+</code>
+</pre>
+
+<p>You still have to escape characters with special meaning in HTML (like with &lt;), so for displaying a block of HTML
+code ({p}This is a paragraph.{/p}), it could look like this:
+
+<fieldset>
+    (pre)
+    (code)
+    &lt;p>This is a paragraph.&lt;/p>
+        (/code)
+        (/pre)
+</fieldset>
+
+<pre>
+<code>
+&lt;p>This is a paragraph.&lt;/p>
+</code>
+</pre>
+
+
+<h4><u>Inline with (code)</u></h4>
+
+<p>If a sentence contains computer code (for example, the name of an HTML element), use the code element to mark it
+up:</p>
+
+<fieldset>
+    (p)The (code)a(/code) element creates a hyperlink.(/p)
+</fieldset>
+
+<p>The <code>a</code> element creates a hyperlink.</p>
+</body>

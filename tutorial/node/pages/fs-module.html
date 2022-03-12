@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>File system module</h3>
+    <p>This helps us to work with files and folders</p>
+    <fieldset>
+      <code>
+        <pre>
+const fs = require("fs");
+
+//Create a file
+//syntax
+fs.writeFile("filename.extension", "Content of file", (error)=>{
+  //do something with the error
+  if (error) {
+    console.log("There was an error")
+  } else {
+    //do something else
+  }
+})
+fs.writeFile("example.txt", "This is an example", (err)=>{
+  if (err)
+    console.log(err);
+  else {
+    console.log("The new file was created")
+    //To read the file
+    fs.readFile("example.txt", "UTF-8",(err, file)=>{
+      //If you don't pass in the encoding type,
+      //It will output something in buffer-binary state
+      //&lt;Buffer 75 64 7c> ...
+      <!--  -->
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(file)
+      }
+    })
+  }    
+})
+
+//To rename a file
+
+fs.rename("example.txt", "example2.txt", (err)=>{
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(successfully renamed the file)
+  }
+})
+
+//To append data
+
+fs.appendFile("example2.txt", "Some data being appended", (err)=>{
+  if (err) {
+
+  } else {
+    successfully appended data
+  }
+})
+
+//To delete the file
+
+fs.unlink("example2.txt", (err)=> {
+  if (err) {
+
+  } else {
+    successfully deleted the file
+  }
+})
+        </pre>
+      </code>
+    </fieldset>
+    <h4>Working with folders</h4>
+
+    <fieldset>
+      <code>
+        <pre>
+fs.mkdir("tutorial", (err) => {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log("folder successfully created")
+  }
+})
+
+fs.rmdir("tutorial", (err) => {
+  if (err) {
+
+  } else {
+    successfully deleted folder
+  }
+})
+
+//To make a file in a folder
+
+fs.writeFile("./tutorial/example.txt", "123", (err)=>{
+  if () {
+
+  } else {
+
+  }
+})
+
+//To delete a folder with something in it,
+//Do not use rmdir because this only works for empty folders
+
+//You have to first delete the file before you can delete the the folder
+
+//If you want to delete multiple files,
+
+fs.readdir("example", (err, files)=>{
+  //files is gonna be an array
+  if (err) {
+
+  } else {
+    files
+
+    //You can then use a for loop to delete a file
+  }
+})
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Readable and Writable Streams</h3>
+    <fieldset>
+      <code>
+        <pre>
+const readStream = fs.createReadStream("./example.txt","utf-8");
+const writeStream = fs.createWriteStream("./example.txt");
+//This stream wil create and write into in when ever it is called
+
+readStream.on("data", (chunk)=>{
+  console.log(chunk)
+  writeStream.write(chunk)
+})
+
+Working with chunk is better as you don't have to wait for
+the whole file to load before you start working with data.
+
+//Also, the stream helps to load large files 
+//as you read the in chunks since it uses smaller buffer sizes
+//It is space efficient
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Pipes</h3>
+    <p>This helps us to</p>
+    <fieldset>
+      <code>
+        <pre>
+readStream.on("data", (chunk)=>{
+  console.log(chunk)
+  writeStream.write(chunk)
+})
+//Is the same as
+
+readStream.pipe(writeStream)
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Pipe Chaining</h3>
+    <p>zlib is a module for compressing files</p>
+    <p>
+      A transformed stream takes an input and manipulates the data into
+      something else
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const zlib = require("zlib")
+const gzip = zlib.createGzip(); This will return the transformed stream
+
+readStream.pipe(gzip).pipe(writeStream);
+
+/The above will get the data then the gzip will transform it (or compress it)
+//The it will be piped to the writeStream
+
+//However note that the write stream will have a different extension
+//as the data that you are passing into it is no longer a txt file
+//const writeStream = fs.createWriteStream("example.txt.gz")
+//.gz is the file extension
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+const zlib = require("zlib")
+const gunzip = zlib.createGunzip();
+const readStream = fs.createReadStream("./example2.txt.gz")
+const writeStream = fs.createWriteStream("uncompressed.txt")
+readStream.pipe(gunzip).pipe(writeStream)
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

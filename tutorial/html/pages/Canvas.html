@@ -1,0 +1,113 @@
+<body>
+<h1><u>Canvas</u></h1>
+Attribute --- Description<br>
+<b>height:</b> Specifies the canvas height<br>
+<b>width:</b> Specifies the canvas width<br>
+S
+<h3><u>Basic Example</u></h3>
+<p>The canvas element was introduced in HTML5 for drawing graphics.</p>
+
+<fieldset>
+    (canvas id="myCanvas")<br>
+        Cannot display graphic. Canvas is not supported by your browser (IE<9>)<br>
+        (/canvas)
+</fieldset>
+
+<p></p>
+<canvas id="myCanvas">
+Cannot display graphic. Canvas is not supported by your browser (IE<9>)
+</canvas>
+
+<p>The above will create a transparent HTML (canvas) element of 300×150 px in size.
+You can use the canvas element to draw amazing stuff like shapes, graphs, manipulate images, create engaging
+games etc. with JavaScript.</p>
+<p>The canvas's 2D drawable layer surface Object is referred to as CanvasRenderingContext2D; or from a
+HTMLCanvasElement using the .getContext("2d") method:</p>
+<fieldset> 
+    ctx = document.getElementById("myCanvas").getContext("2d");
+</fieldset>
+<p></p>
+// now we can refer to the canvas's 2D layer context using `ctx`
+<p></p>
+<fieldset>
+ctx.fillStyle = "#f00";<br>
+ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height); // x, y, width, height<br>
+ctx.fillStyle = "#000";<br>
+ctx.fillText("My red canvas with some black text", 24, 32); // text, x, y<br>
+</fieldset>
+<p></p>
+
+
+
+jsFiddle example
+
+<h4><u> two rectangles on a (canvas)</u></h4>
+
+<fieldset>
+    (!DOCTYPE html)<br>
+(html lang="en")<br>
+(head)<br>
+(meta charset="utf-8" /)<br>
+(title)Draw two rectangles on the canvas(/title)<br>
+(style)<br>
+canvas{<br>
+border:1px solid gray;<br>
+}<br>
+(/style)<br>
+(script async)<br>
+window.onload = init; // call init() once the window is completely loaded<br>
+function init(){<br>
+// #1 - get reference to (canvas) element<br>
+var canvas = document.querySelector('canvas');<br>
+// #2 - get reference to the drawing context and drawing API<br>
+var ctx = canvas.getContext('2d');<br>
+// #3 - all fill operations are now in red<br>
+ctx.fillStyle = 'red';<br>
+// #4 - fill a 100x100 rectangle at x=0,y=0<br>
+ctx.fillRect(0,0,100,100);<br>
+// #5 - all fill operations are now in green<br>
+ctx.fillStyle = 'green';<br>
+// #6 - fill a 50x50 rectangle at x=25,y=25<br>
+ctx.fillRect(25,25,50,50);<br>
+}<br>
+(/script)<br>
+(/head)<br>
+(body)<br>
+(canvas width=300 height=200)Your browser does not support canvas.(/canvas)<br>
+(/body)<br>
+(/html)<br>
+</fieldset>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Draw two rectangles on the canvas</title>
+<style>
+canvas{
+border:1px solid gray;
+}
+</style>
+<script async>
+window.onload = init; // call init() once the window is completely loaded
+function init(){
+// #1 - get reference to <canvas> element
+var canvas = document.querySelector('canvas');
+// #2 - get reference to the drawing context and drawing API
+var ctx = canvas.getContext('2d');
+// #3 - all fill operations are now in red
+ctx.fillStyle = 'red';
+// #4 - fill a 100x100 rectangle at x=0,y=0
+ctx.fillRect(0,0,100,100);
+// #5 - all fill operations are now in green
+ctx.fillStyle = 'green';
+// #6 - fill a 50x50 rectangle at x=25,y=25
+ctx.fillRect(25,25,50,50);
+}
+</script>
+</head>
+<body>
+<canvas width=300 height=200>Your browser does not support canvas.</canvas>
+</body>
+</html>
+</body>

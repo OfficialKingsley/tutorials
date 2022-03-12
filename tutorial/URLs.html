@@ -1,0 +1,85 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>URLs</h2>
+        <p>
+            A URL is just a basic way of identifying a unique resource on a site. A url could mean a unique blog in a
+            blog post
+        </p>
+        <p>
+            Taking amazon for example, when we go to amazon.com, we load the home page but if we click on a product, we
+            see a relatively different link. This link is important as it always points to that product. So anytime we
+            want to see that product, if we copy the exact link, it will always direct us to that product
+        </p>
+        <p>
+            in SPAs, we don't refresh the page as it clears our state. This creates a problem as we never actually
+            update the url because we are not going to different url because we are not sending a request to the backend
+            server to get a new html document. Each resource on a website is actually assigned a url. In SPAs we don't
+            link to different pages so we can't even bookmark the page as it still refers to the same html page <br />
+            Another disadvantage of SPA is that we can't go back and forward to the pages we visited since it is still
+            the same domain and the same index.html that we are loading
+        </p>
+        <h3>HTML history api</h3>
+        <p>
+            This helps us to get unique urls for each resource on our page so that our users can bookmark and have
+            specific links to take them to that exact resource
+        </p>
+        <p>
+            The history is an object of constructor History that has a state object which contains the id and another
+            object in it called the
+        </p>
+        <p>
+            Some methods include <code>go();</code>, <code>back();</code>, <code>forward();</code>,
+            <code>pushState();</code>, <code>replaceState();</code> methods
+        </p>
+        <p>We can use this to navigate back and forth with its methods like go, forward and back</p>
+        <p>To push or add a url to the history api, we use the push state method</p>
+        <p>
+            This is similar to the replace state in action but the replace state actually replaces the current url with
+            the new one assigned to it. pushState increases the length of the history object while replace doesn't
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+//Syntax
+//history.pushState({passed_data}.. "Title", "url that you want to fo to or add to state")
+//The passed data is any data we will like to pass to the url that we are pushing to the state e.g.
+
+//if we are on twitter.com,
+
+history.push({}. "", "/leKing")
+
+//It may look like nothing happened on the page but we changed the url if you look at the input field of the browser
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            React interacts with the history api, when we create a new Link element, react router goes to push a new
+            state then the route looks for the script with that link or url and renders it
+        </p>
+        <p>
+            React router dom has given us a way to interact with the history api using the hook called
+            <code>useHistory();</code> <br />
+            If we access the history object directly as in <code>window.history.go(-3) </code> for example, we'll see
+            that we do not change the content on the page that is why the react-router-dom handles the change for us
+            when we use the useHistory hook
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+const history = useHistory();
+
+//It should however be noted that some of the methods are quite different like pushState is actually push.
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

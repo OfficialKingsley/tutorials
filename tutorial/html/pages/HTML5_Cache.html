@@ -1,0 +1,27 @@
+<body>
+<h1><u>HTML 5 Cache</u></h1>
+<h3><u>Basic Example of HTML5 cache</u></h3>
+This is our index.html file
+
+<fieldset>
+    {!DOCTYPE html}<br>
+    {html manifest="index.appcache"}<br>
+    {body}<br>
+    {p}Content{/p}<br>
+    {/body}<br>
+    {/html}<br>
+    {/fieldset}
+
+<!DOCTYPE html>
+<html manifest="index.appcache">
+<body>
+<p>Content</p>
+</body>
+</html>
+<p>Tthen we will create index.appcache file with below codes</p>
+
+CACHE MANIFEST<br>
+index.html<br>
+write those files that you want to be cached load index.html then go for offline mode and reload the tab<br>
+Note: The two files must be in the same folder in this example
+</body>

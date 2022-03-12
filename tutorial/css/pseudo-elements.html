@@ -1,0 +1,84 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset>
+            <code>
+                <pre>
+p::after {
+    content: "Hello"; //This will add content to the html
+    //That content property in the pseudo selector is compulsory
+}
+p::before {
+    content: '';
+}
+            </pre
+                >
+            </code>
+        </fieldset>
+        <p>However, you can't add the before and after pseudo elements to an image</p>
+        <fieldset>
+            <code>
+                <pre>
+p::first-line {
+
+}
+p::first-letter {
+
+}
+                </pre>
+            </code>
+        </fieldset>
+
+        <h3>Pseudo classes</h3>
+        <fieldset>
+            <code>
+                <pre>
+p:hover {
+    do something
+    font-size: 2rem;
+}
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            This means when you hover over the element, it should do something like change something
+            which in the above example is to change the fontsize
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+a:link{
+    color: aqua;
+}
+a:visited{
+    color: red;
+}
+a:active{
+    color: blue;
+}
+a:hover{
+    color: green;
+}
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+:root {
+    background-color: red;
+}
+                </pre>
+            </code>
+        </fieldset>
+        <p>This is almost the same as selecting the value</p>
+    </body>
+</html>

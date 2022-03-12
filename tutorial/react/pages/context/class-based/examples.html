@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Class based examples</h3>
+    <fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre>
+import React from "react";
+import Navbar from "./components/Navbar";
+import Booklist from "./components/Booklist";
+import ThemeContextProvider from "./contexts/ThemeContext"
+
+function App(){
+    return (
+        &lt;ThemeContextProvider&gt;
+            &lt;div class="App"&gt;
+                &lt;Navbar /&gt;
+                &lt;Booklist /&gt;
+            &lt;/div&gt;
+        &lt;/ThemeContextProvider&gt;
+    );
+}
+                    </pre
+          >
+        </code>
+      </fieldset>
+      <p>
+        //When we use a tag as a parent for other elements in react, <br />
+        <br />
+        //these elements can actually be accessed as props from the new parent
+        element
+        <br />
+        //Now that the context provider has wrapped those elements,
+        <br />
+        //we can use the context state in all its descendant elements (not just
+        the children)
+        <br />
+        //We can use a context type to consume a context (only) in a class based
+        component
+      </p>
+      <fieldset>
+        <legend>Navbar.js</legend>
+        <code>
+          <pre>
+import React, {Component} from "react";
+import {ThemeContext} from "../contexts/ThemeContext"
+
+class Navbar extends Component {
+    //To consume the context we do:
+    //static contextType = name_of_context_you_want_to_consume;
+    //Note we don't use the theme_context_provider;
+
+
+    static contextType = ThemeContext;
+
+    //The above code finds the first occurrence of the context provider as it goes up its parents
+    //Now it will have all the data we passed into the value attribute in the context Provider
+    //The ThemeContext is now assigned to a variable called context
+    //If we log out the context, we will see the object that was passed into the value property of the context provider
+
+
+    
+    render() {
+        console.log(this.context) 
+        //This will output 
+    //    {
+    //    isLightTheme: true,
+    //    light: {syntax: "#555", ui: "#ddd", bg:"#eee"},
+    //    dark: {syntax: "#ddd", ui: "#333", bg:"#555"}
+    //}
+
+
+    //we can destructure the context variable as such
+
+    const { isLightTheme, light, dark } = this.context;
+    const theme = isLightTheme ? light : dark;
+        return (
+            &lt;nav&gt; 
+                &lt;h1&gt; &lt;/h1&gt; 
+                &lt;ul&gt; 
+                    &lt;li&gt; Home&lt;/li&gt; 
+                    &lt;li&gt; About&lt;/li&gt; 
+                    &lt;li&gt; Contact&lt;/li&gt; 
+                &lt;/ul&gt; 
+            &lt;/nav&gt; 
+        )
+    }
+}
+                    </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>Booklist.js</legend>
+        <code>
+          <pre></pre>
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>ThemeContext.js</legend>
+        <code>
+          <pre>
+import React, { createContext, Component } from "react";
+
+//The createContext is a function that will create a new context for us
+//To create a new context, we do this:
+
+
+//Since we would like to export the context, we do:
+
+// export const context_name = createContext;
+
+
+export const ThemeContext = createContext(); 
+
+//Like this, the context will have no significance since we haven't provided any data for the context.
+
+//Now we create a (class based) component (since we are dealing with classes now).
+//We then define a state in the component.
+//This state will automatically be the data for the context that we want to share
+
+
+//The created component will be a component that provides the context or data of the context to other components.
+//So we will wrap our component tree in the context provider
+
+
+
+class ThemeContextProvider extends Component {
+    state = {
+        isLightTheme: true,
+        light: {syntax: "#555", ui: "#ddd", bg:"#eee"},
+        dark: {syntax: "#ddd", ui: "#333", bg:"#555"}
+    }
+    render() {
+        return (
+            &lt;ThemeContext.Provider value={{...this.state}}&gt;
+                {this.props.children} //We have to do this to display its children or data.
+
+            &lt;/ThemeContext.Provider&gt;
+            //Notice that we returned the provider as an element
+            //The value attribute specifies what data we want to share from the context
+            //In this case, we want to share everything in the context state so we used the spread operator
+            //Notice that the value we passed in was an object
+        )
+    }
+}
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+
+    <h3>Using the themeContext to consume a context</h3>
+    <p>
+      Another way of consuming context in components is by using a context
+      consumer <br />
+      Just the way we can can access a Context.Provider, we also get a
+      Context.Consumer
+    </p>
+    <p>
+      The advantage of using this method is that it works both for functional
+      and class based components <br />
+      Another advantage is that it can accept multiple contexts, in the
+      parameters you pass into the function of the theme consumer
+    </p>
+    <p>
+      If we want to use the context Consumer in for example, our navbar.js, we
+      do this:
+    </p>
+    <fieldset>
+      <legend>Navbar.js</legend>
+      <code>
+        <pre>
+import React, {Component} from "react";
+import {ThemeContext} from "../contexts/ThemeContext"
+
+class Navbar extends Component {
+        return (
+            &lt;ThemeContext.Consumer"&gt;
+                {(context) => {
+                    const { isLightTheme, light, dark } = context;
+                    const theme = isLightTheme ? light : dark;
+                    return (
+                        &lt;nav&gt; 
+                            &lt;h1&gt; &lt;/h1&gt; 
+                            &lt;ul&gt; 
+                                &lt;li&gt; Home&lt;/li&gt; 
+                                &lt;li&gt; About&lt;/li&gt; 
+                                &lt;li&gt; Contact&lt;/li&gt; 
+                            &lt;/ul&gt; 
+                        &lt;/nav&gt; 
+                    )
+                }}
+            &lt;/ThemeContext.Consumer&gt;
+        )
+}
+
+//In this method, we are using the context consumer.
+//This context consumer then takes in a function.
+//The function takes in the context (the theme context in this case) as a parameter
+
+//In the above example, we destructured the context
+
+                    </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>
+      You can pas other properties that are not in the state as props in the
+      value property of the provider
+    </p>
+    <fieldset>
+      <fieldset>
+        <code>
+          <pre>
+{function_we_want_to_take_from_context} = this.context;
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+
+    <p>
+      It should be noted that not all the contexts have to be in one file, they
+      have to be in different files. For example if we have an authentication
+      user context, it can't be put in the same context as the theme context
+    </p>
+
+    <h3>Consuming two different contexts inside a component</h3>
+    <p>You can do this first by wrapping the context consumers in each other</p>
+    <fieldset>
+      <fieldset>
+        <legend>Navbar.js</legend>
+        <code>
+          <pre>
+import React, {Component} from "react";
+import {ThemeContext} from "../contexts/ThemeContext"
+import {AuthContext} from "../contexts/AuthContext"
+
+class Navbar extends Component {
+        return (
+            &lt;AuthContext.Consumer&gt;{(authContext) => (
+                    &lt;ThemeContext.Consumer"&gt;
+                    {(context) => {
+                        const { isLightTheme, light, dark } = context;
+                        const theme = isLightTheme ? light : dark;
+                        const {isAuthenticated,  toggleAuth} = authContext;
+                        return (
+                            &lt;nav&gt; 
+                                &lt;h1&gt; &lt;/h1&gt; 
+                                &lt;div&gt;
+                                    {isAuthenticated ? "Logged In" : "Logged out"}
+                                &lt;/div&gt;
+                                &lt;ul&gt; 
+                                    &lt;li&gt; Home&lt;/li&gt; 
+                                    &lt;li&gt; About&lt;/li&gt; 
+                                    &lt;li&gt; Contact&lt;/li&gt; 
+                                &lt;/ul&gt; 
+                            &lt;/nav&gt; 
+                        )
+                    }}
+                    &lt;/ThemeContext.Consumer&gt;
+                )}
+                
+            &lt;/AuthContext.Consumer&gt;
+        )
+}
+
+                    </pre
+          >
+        </code>
+      </fieldset>
+
+      <fieldset>
+        <legend>AuthContext</legend>
+        <code>
+          <pre>
+import React, { Component, createContext } from "react";
+
+export const AuthContext = createContext();
+class AuthContextProvider extends Component {
+    state = {
+        isAuthenticated: false,
+    }
+    toggleAuth = () => {
+        this.setState({ isAuthenticated: !this.state.isAuthenticated })
+    }
+    render() {
+        return (
+            &lt;AuthContext.Provider value={{...this.state, toggleAuth: this.toggleAuth}}&gt;
+                {this.props.children}
+            &lt;/AuthContext.Provider&gt;
+        )
+    }
+}
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+  </body>
+</html>

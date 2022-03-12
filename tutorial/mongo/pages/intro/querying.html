@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <code>
+        <pre>
+
+db.users.find()
+//This will bring out an array of all the fields or items
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+
+db.users.find().pretty();
+db.users.find().limit(2)
+//This will limit the results of the find method to 2
+
+db.users.find().sort({name: 1}).limit(2)
+
+This will sort the data according to the name from A to Z
+
+db.users.find().sort({name: -1}).limit(2)
+
+db.users.find().sort({age: 1, name: -1}).limit(2)
+
+//The above shows that you can sort according to 
+//two parameters. 
+//First the age and then the name
+
+db.users.find().skip(1).limit(2)
+
+//This will skip the first item
+        </pre>
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+db.users.find({name: "Kyle"})
+db.users.find({age: 17})
+Note:
+db.users.find({age: 17}) is not the same as
+db.users.find({age: "17"})
+
+db.users.find({name: "Kyle"}, {name:1, age: 1, _id: 0})
+
+//The above line says find the object with name Kyle and then 
+//Look for only the name and the age
+//Also, do not return the _id field
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+db.users.find({name: {$eq: "Kyle"}})
+//Everything equal
+db.users.find({name: {$ne: "Kyle"}})
+//Everything not equal to
+db.users.find({name: {$eq: "Kyle"}})
+db.users.find({age: {$gt: 19}})
+db.users.find({age: {$gte: 19}})
+db.users.find({age: {$lt: 19})
+db.users.find({age: {$lte: 19})
+
+db.users.find({name: {$in: ["Kyle", "Sally"]}})
+This will find the recordes with names in array
+db.users.find({name: {$nin: ["Kyle", "Sally"]}})
+
+db.users.find({age: {$exists: true}})
+//Check for the records that have age
+
+db.users.find({age: {$lte: 19, gte: 6}, {name: "Kyle"})
+
+db.users.find({$or: [{}, {}]})
+db.users.find({$and: [{}, {}]})
+db.users.find({$not: {}})
+
+db.users.find({$expr: { $gt: ["$debt", "$balance"]}})
+
+db.users.findOne()
+db.users.countDocuments()
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

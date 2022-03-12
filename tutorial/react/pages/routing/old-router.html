@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Weird behavior of the react router</h3>
+    <p>
+      For example, if we change the path of the home page to just "/", it works
+      but if we try to load the "/about" component, we see that both the home
+      page and the about page are loaded
+    </p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+
+function App() {
+    return (
+        &lt;BrowserRouter>
+            &lt;div className="App">
+                &lt;Route path="/">
+                    &lt;Home />
+                &lt;/Route>
+                &lt;Route path="/about">
+                    &lt;About />
+                &lt;/Route>
+
+                &lt;Route path="/contact">
+                    &lt;Contact />
+                &lt;/Route>
+                &lt;Route path="/blog">
+                    &lt;Blog />
+                &lt;/Route>
+            &lt;/div>
+        &lt;/BrowserRouter>
+    );
+}
+
+export default App;
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>
+      This is because react-router doesn't look for an exact match of the url.
+      It goes down the list of routes and sees if it matches "/" path and since
+      the home page has slash, it loads the home page also, the about page also
+      the slash in its path it loads the about page too. The same applies to the
+      contact page. Although it doesn't also load the about page but it loads
+      the home and contact page togethter
+    </p>
+
+    <p>
+      To fix this we put an exact attribut. What this attribute does is that it
+      tells the react-router to match only when it is a "/". So if we find
+      "/about" since it is not an exact match to the "/" path.
+    </p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+
+function App() {
+    return (
+        &lt;BrowserRouter>
+            &lt;div className="App">
+                &lt;Route exact path="/">
+                    &lt;Home />
+                &lt;/Route>
+                &lt;Route path="/about">
+                    &lt;About />
+                &lt;/Route>
+
+                &lt;Route path="/contact">
+                    &lt;Contact />
+                &lt;/Route>
+                &lt;Route path="/blog">
+                    &lt;Blog />
+                &lt;/Route>
+            &lt;/div>
+        &lt;/BrowserRouter>
+    );
+}
+
+export default App;
+
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>
+      Another thing we need to know is that when we load a path, the react
+      router still goes down the list of routes to find any other route that
+      matches the url path or route. So if we have two routes with the same
+      path, they'll both be loaded if the url contains their path
+    </p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+
+function App() {
+    return (
+        &lt;BrowserRouter>
+            &lt;div className="App">
+                &lt;Route exact path="/">
+                    &lt;Home />
+                &lt;/Route>
+                &lt;Route path="/about">
+                    &lt;About />
+                &lt;/Route>
+
+                &lt;Route path="/contact">
+                    &lt;Contact />
+                &lt;/Route>
+
+                &lt;Route path="/contact">
+                    &lt;About />
+                &lt;/Route>
+                &lt;Route path="/blog">
+                    &lt;Blog />
+                &lt;/Route>
+            &lt;/div>
+        &lt;/BrowserRouter>
+    );
+}
+
+export default App;
+
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>
+      incase we don't want this behavior, we can wrap all the routes in a switch
+      tag (or switch method as it is otherwise called)
+    </p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+
+function App() {
+    return (
+        &lt;BrowserRouter>
+            &lt;Switch>
+                &lt;Route exact path="/">
+                    &lt;Home />
+                &lt;/Route>
+                &lt;Route path="/about">
+                    &lt;About />
+                &lt;/Route>
+
+                &lt;Route path="/contact">
+                    <Contact />
+                &lt;/Route>
+
+                &lt;Route path="/contact">
+                    &lt;About />
+                &lt;/Route>
+                &lt;Route path="/blog">
+                    &lt;Blog />
+                &lt;/Route>
+            &lt;/Switch>
+        &lt;/BrowserRouter>
+    );
+}
+
+export default App;
+
+                </pre>
+      </code>
+    </fieldset>
+    <p>
+      So what the switch statement does is that it tells the react router to
+      stop looking for the route in the url after the first result has been
+      found
+    </p>
+  </body>
+</html>

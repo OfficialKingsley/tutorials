@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>useEffect</h3>
+    <p>
+      This is a function called whenever any item in the page re-renders. <br />
+      It is also powerful because you can call it only when specific states are
+      re-rendered. <br />
+      You can also specify that it should be called once on first load of the
+      page
+    </p>
+
+    <fieldset>
+      <fieldset>
+        <legend>Called every time the page re-renders a state</legend>
+        <code>
+          <pre>
+useEffect(()=> {
+    //Do something
+})
+                    </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>Called when a specific state is changed</legend>
+        <code>
+          <pre>
+useEffect(()=> {
+    //Do something when the state called hello is re-rendered.
+}, [hello])
+//Notice the use of the an array to hold the specific states
+//These specific states are called the dependencies
+//And the array is called a dependency array
+                    </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>Called first on page load</legend>
+        <code>
+          <pre>
+useEffect(()=> {
+    //Do something when the state called hello is re-rendered.
+}, [])
+//Notice the use of the an array that has no values
+//So after the first time it is called, it doesn't render again
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+  </body>
+</html>

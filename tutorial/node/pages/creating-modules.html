@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Node modules</h3>
+    <p>
+      Node comes with some core modules like path, fs and http. <br />You can
+      create your own modules and you can install modules via npm
+    </p>
+    <p>
+      Node comes with what is called a repl which stands for read, eval, print,
+      loop which helps us write js
+    </p>
+    <p>A module is a js file that has closely related functions together</p>
+    <p>To export a function from a module, we can do</p>
+    <fieldset>
+      <code>
+        <pre>
+const sum(one, two) => return one + two; 
+//Function we wanna export
+
+module.exports = sum; 
+//Now you've exported the function
+        </pre>
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+const tutorial = require("./tutorial") 
+//Now we have imported the sum function
+
+console.log(tutorial); 
+//Output [function: sum]
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>Now what if we want to export multiple items</p>
+
+    <fieldset>
+      <code>
+        <pre>
+const sum(one, two) => return one + two; //Function we wanna export
+module.exports.sum = sum; //Now you've exported the function
+        </pre>
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+const tutorial = require("./tutorial") 
+//Now we have imported the sum function
+
+console.log(tutorial.sum); 
+//Output [function: sum]
+
+console.log(tutorial)
+//An object
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>This can further be simplified as</p>
+
+    <fieldset>
+      <code>
+        <pre>
+const sum(one, two) => return one + two; //Function we wanna export
+const PI = 3.14;
+module.exports = {sum: sum, PI : PI}; //Now you've exported the function
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

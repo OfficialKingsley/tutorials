@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>useImperativeHandle hook</h3>
+    <p>
+      This is used if we want to change a state from an external component
+      without setting the state outside.
+      <br />
+      For example if we have two buttons. The first button has a state of toggle
+      set to true but we want to change the state with the second button, that
+      is where the useImperativeHandle comes in.
+    </p>
+    <p>
+      To do this we can useRef hook to reference a component and call functions
+      inside of the component. <br />
+      Actually, you can't use the ref attribute on a component but you can
+      import the {forwardRef}. <br />
+      This is a forwardRef is a function allows us to form a functional
+      component and allows it to accept a reference from the the parent or
+      whereever the component is called
+    </p>
+    <p>
+      The useImperativeHandle hook helps us to define functions based on a ref
+      that can be called using the ref
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const Button = forwardRef((props, ref)=>{  //Note that ref comes after the props
+    const [toggle, setToggle] = useState(true)
+    useImperativeHandle(ref, ()=> ({
+        alterToggle() {
+            setToggle(!toggle)
+        }
+    }))
+})
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>In the code where it is accessed, we can do this</p>
+    <fieldset>
+      <code>
+        <pre>
+const buttonRef = useRef(null)
+&lt;button onClick={()=>{buttonRef.current.alter}}&gt;Button First&lt;/button&gt; 
+//Notice how we accessed the alter function which was defined in the Button component
+&lt;Button ref={buttonRef}/&gt;
+                </pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

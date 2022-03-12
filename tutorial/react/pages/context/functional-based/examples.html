@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>
+      Using the use Context hook for functional based components to consume
+      context
+    </h3>
+    <fieldset>
+      <legend>AuthContext</legend>
+      <code>
+        <pre>
+import React, { Component, createContext } from "react";
+
+export const AuthContext = createContext();
+class AuthContextProvider extends Component {
+    state = {
+        isAuthenticated: false,
+    }
+    toggleAuth = () => {
+        this.setState({ isAuthenticated: !this.state.isAuthenticated })
+    }
+    render() {
+        return (
+            &lt;AuthContext.Provider value={{...this.state, toggleAuth: this.toggleAuth}}&gt;
+                {this.props.children}
+            &lt;/AuthContext.Provider&gt;
+        )
+    }
+}
+                    </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <fieldset>
+        <legend>Navbar.js</legend>
+        <code>
+          <pre>
+import React, { useContext } from "react";
+import {ThemeContext} from "../contexts/ThemeContext"
+import {AuthContext} from "../contexts/AuthContext"
+
+const BookList = () => {
+    const { isLightTheme, light, dark } = useContext(ThemeContext);
+
+
+    //Just as simple as that
+    //The advantage of using the useContext is that it is neater
+    //Another advantage is that it can be used as many times as we want to consume as many contexts as we need
+
+
+    const { isAuthenticated, toggleAuth} = useContext(AuthContext)
+    const theme = isLightTheme ? light : dark;
+    return (
+        &lt;nav&gt; 
+            &lt;h1&gt; &lt;/h1&gt; 
+            &lt;div&gt;
+                {isAuthenticated ? "Logged In" : "Logged out"}
+            &lt;/div&gt;
+            &lt;ul&gt; 
+                &lt;li&gt; Home&lt;/li&gt; 
+                &lt;li&gt; About&lt;/li&gt; 
+                &lt;li&gt; Contact&lt;/li&gt; 
+            &lt;/ul&gt; 
+        &lt;/nav&gt; 
+    )
+}
+
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+  </body>
+</html>

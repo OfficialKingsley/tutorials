@@ -1,0 +1,97 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Remember to download react dev tools on chrome</p>
+
+    <p>
+      When you map through an array using the .map, and you output it in a JSX,
+      you create a list. Each item in the list must have a unique key prop.
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+tasks.map((task)=> (
+    &lt;h3 key={task.id}&gt;{task.text}&lt;/h3&gt;
+))
+
+//Notice that we used the normal brackets instead of the curly braces
+//This is called an instant return since we are returning jsx instantly
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <h3>Using states</h3>
+    <p>
+      In functional based components, to use state, we import the useState hook
+      from react
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+import { useState } from 'react'
+//Then in the component,
+
+const Tasks = () => {
+    const [tasks, setTasks] = useState(
+      [
+        {
+            id:
+            text:
+            day:
+            reminder:
+        }
+        {
+            id:
+            text:
+            day:
+            reminder:
+        }
+        {
+            id:
+            text:
+            day:
+            reminder:
+        }
+        {
+            id:
+            text:
+            day:
+            reminder:
+        }
+      ]
+    )
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      //Note that states are immutable. So if we type something like
+      tasks.push(), we will most likely get an error. You basically recreate it
+      and send it. It is called a one way data
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+//To use the function we defined setTasks,
+setTasks ([New array of values]) //This will create a new array of values
+setTasks ([...tasks, {}])
+
+
+//This will add a new item to the tasks 
+//since we re-assign the values to tasks using the spread operator 
+//and we added a new empty object</pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

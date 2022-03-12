@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Mongoose is an <abbr title="Object Document Mapper">ODM</abbr> which
+      stands for object document mapper. <br />
+      It allows your node js app which speaks the language of JS objects to be
+      able to talk to your mongo DB which speaks in the language of documents
+      and collections and the rest <br />
+      The main objective of this framework is to simplify the writing of
+      validation code, the writing of business logic boiler plate and to make
+      the code shorter and easier to work with
+    </p>
+    <p>Mongoose could be seen as jQuery to Javascript</p>
+    <p>First of all, make sure you have an active mongo DB server running</p>
+    <fieldset>
+      <code>
+        <pre>
+const mongoose = require("mongoose")
+
+mongoose.connect("/database-server-url/database-name", { useNewUrlParser: true })
+//The above will connect to the database
+        </pre>
+      </code>
+    </fieldset>
+    <p>To close a collection with mongoose, we can type this</p>
+    <fieldset>
+      <code>
+        <pre>
+mongoose.connection.close()
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

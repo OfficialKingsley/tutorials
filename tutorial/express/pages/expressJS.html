@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset
+      style="
+        background-color: rgb(36, 36, 36);
+        color: white;
+        border: none;
+        max-width: 100vw;
+      "
+    >
+      <code>
+        <pre
+          style="
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+              sans-serif;
+          "
+        >
+<span style="color: yellow;">const</span> <span style="color: crimson;">express</span> = <span style="color: blue;">require(</span><span style="color: green;">"express"</span><span style="color:blue;">)</span>;
+
+//init express
+const app = express();
+
+//create your endpoints/route handlers
+app.get("/", (req, res) => {
+  res.send("Hello world!");
+});
+
+//listen on a port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`)
+});</pre>
+      </code>
+    </fieldset>
+    <br />
+    <br />
+
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+const PORT = process.env.PORT || 3000;
+//listen on a port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Notice that we used the <code>app.get()</code> method to create a route
+    </p>
+
+    <p>
+      The above is not ideal as you will have to put a separate route manually
+      for every single page you want to render
+    </p>
+
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 3000;
+//listen on a port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Notice that we used the <code>app.use()</code> method to create a static
+      folder
+    </p>
+    <p>
+      With the above, we can go to any route and our page will be loaded If we
+      go to <code>/about</code> If we are in the <code>/</code> (home) route
+      <br />
+      <br />
+      We also do not need to add a content-type or anything like that. Once we
+      have put it the static folder and we create our files, express
+      automatically does that for us
+    </p>
+
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+
+const app = express();
+
+const members = [
+  { id: 1, name: "King", email: "Some-email 1", status: "active" },
+  { id: 2, name: "Kings", email: "Some-email 2", status: "inactive" },
+  { id: 3, name: "Kingsley", email: "Some-email 3", status: "active" },
+];
+
+//Gets all members
+app.get("/api/members", (req, res) => {
+  res.json(members);
+});
+
+//The .json method will convert the JS into JSON
+//So we don't have to do that ourselves
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 3000;
+//listen on a port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+        </pre>
+      </code>
+    </fieldset>
+    <p>You can make the members into a new file</p>
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+const members = require("./Members");
+
+const app = express();
+
+//Gets all members
+app.get("/api/members", (req, res) => {
+  res.json(members);
+});
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 3000;
+//listen on a port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>
+      A middle ware function is a function that basically has access to the
+      request
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+const members = require("./Members");
+
+const app = express();
+
+//middle ware
+const logger = (req, res, next) => {
+  //the next is the next middle ware function
+  console.log("Hello");
+  next(); //Make sure to always add the next
+};
+
+//init middleware
+app.use(logger());
+
+//anytime we make a request,
+//this middle ware is going to run
+//So it can be seen that:
+//the app.use() method is used to run middle ware
+
+//Gets all members
+app.get("/api/members", (req, res) => {
+  res.json(members);
+});
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 3000;
+//listen on a port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+        </pre>
+      </code>
+    </fieldset>
+    <br />
+    <br />
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+const members = require("./Members");
+const logger = require("./Middleware/logger");
+
+const app = express();
+//init middleware
+//app.use(logger);
+
+//Gets all members
+app.get("/api/members", (req, res) => {
+  res.json(members);
+});
+
+//Get a single member
+app.get("/api/members/:id", (req, res) => {
+  const found = members.some((member) => {
+    member.id === parseInt(req.params.id)
+  });
+  //The some method returns true or false
+  //if the condition is true
+
+  if (found) {
+    res.json(members.filter((member) => {
+      member.id === parseInt(req.params.id))
+    });
+  } else {
+    res
+      .status(400)
+      .json({ message: `No member with the id of ${req.params.id}` });
+  }
+});
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = process.env.PORT || 3000;
+//listen on a port
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>We can actually clean up our code a little bit</p>
+    <fieldset>
+      <legend>index.js</legend>
+      <code>
+        <pre>
+const express = require("express");
+const path = require("path");
+const logger = require("./Middleware/logger");
+
+const app = express();
+//app.use(logger);
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/api/members", require("./routes/api/members"));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+        </pre>
+      </code>
+    </fieldset>
+    <p>Then in the routes/api/members.js</p>
+    <fieldset>
+      <legend>routes/api/members.js</legend>
+      <code>
+        <pre>
+const express = require("express");
+const router = express.Router();
+const members = require("../../Members");
+//Gets all members
+router.get("/", (req, res) => {
+  res.json(members);
+});
+
+//Get a single member
+router.get("/:id", (req, res) => {
+  const found = members.some((member) => {
+    member.id === parseInt(req.params.id);
+  });
+
+  if (found) {
+    res.json(
+      members.filter((member) => {
+        member.id === parseInt(req.params.id);
+      })
+    );
+  } else {
+    res
+      .status(400)
+      .json({ message: `No member with the id of ${req.params.id}` });
+  }
+});
+
+module.exports = router;
+    </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      Notice that we used the inbuilt router of express and also notice that the
+      url we used for the router was the <code>/</code>. <br />
+      This is because the <code>app.use()</code> method in the index.js will
+      pass down that parameter as the request thereby making the
+      <code>/api/members</code> The home url for the router's request object
+    </p>
+
+    <fieldset>
+      <legend>This contains all the major requests</legend>
+      <code>
+        <pre>
+const express = require("express");
+const router = express.Router();
+const members = require("../../Members");
+//Gets all members
+router.get("/", (req, res) => {
+  res.json(members);
+});
+
+//Get a single member
+router.get("/:id", (req, res) => {
+  const found = members.some((member) => {
+    member.id === parseInt(req.params.id);
+  });
+
+  if (found) {
+    res.json(
+      members.filter((member) => {
+        member.id === parseInt(req.params.id);
+      })
+    );
+  } else {
+    res
+      .status(400)
+      .json({ message: `No member with the id of ${req.params.id}` });
+  }
+});
+
+//Create Member
+router.post("/", (req, res) => {
+  const newMember = {
+    name: req.body.name,
+    id: members.length + 1,
+    status: "active",
+  };
+
+  if (!newMember.name || !newMember.email) {
+    return res
+      .status(400)
+      .json({ message: "Please insert the name and/or email" });
+  }
+  members.push(newMember);
+  res.json(members);
+});
+
+//Update member
+router.put("/:id", (req, res) => {
+  const found = members.some((member) => {
+    member.id === parseInt(req.params.id);
+  });
+
+  if (found) {
+    const updMember = req.body;
+    members.forEach((member) => {
+      if (member.id === parseInt(req.params.id)) {
+        member.name = updMember.name ? updMember.name : member.name;
+        member.email = updMember.email ? updMember.email : member.email;
+
+        res.json({ message: "Member was updated", member });
+      }
+    });
+  } else {
+    res
+      .status(400)
+      .json({ message: `No member with the id of ${req.params.id}` });
+  }
+});
+
+router.delete("/:id", (req, res) => {
+  const found = members.some((member) => {
+    member.id === parseInt(req.params.id);
+  });
+
+  if (found) {
+    res.json({
+      message: "A member was deleted",
+      members: members.filter((member) => {
+        member.id !== parseInt(req.params.id);
+      }),
+    });
+  } else {
+    res
+      .status(400)
+      .json({ message: `No member with the id of ${req.params.id}` });
+  }
+});
+
+module.exports = router;
+
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

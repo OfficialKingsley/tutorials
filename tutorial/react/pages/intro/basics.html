@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <code>
+        <pre>
+ReactDOM.render(
+    &lt;React.StrictMode&gt;
+        &lt;App /&gt;
+    &lt;/React.StrictMode&gt;,
+    document.getElementById("root")
+)
+</pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      In the above, we are telling react to render the app in strict mode inside
+      the html with an id of root
+    </p>
+    <h3>JSX</h3>
+    <p>
+      JSX is actually a new extension added to react to make writing both the
+      HTML and the logic in the same component possible
+    </p>
+    <p>
+      In the app.js, we must have only one container that is the container for
+      all your work.
+    </p>
+    <p>You can put javaScript in JSX using curly braces.</p>
+    <fieldset>
+      <code>
+        <pre>
+const Header = (props) => {
+    return {
+        &lt;header>
+            &lt;h1>{props.title}&lt;/h1>
+        &lt;/header>
+    }
+}
+export default Header
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Naming convention of Components</h3>
+    <p>
+      The naming convention for components is to start it with a capital letter
+      - just like when naming classes
+    </p>
+    <fieldset>
+      <code>
+        <pre>Header.js</pre>
+      </code>
+    </fieldset>
+    <p>
+      To use a component, you need to import the component from the folder where
+      it was defined
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+import Header from Header.js
+// If it was exported as default
+import { Header } from Header.js
+//If it was exported but not as default</pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      This imported component can be embedded into the JSX as an XML e.g. if we
+      have a Header Component, &lt;Header /&gt;
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+import Header from Header
+
+const App = () => {
+  return (
+    &lt;Header/>
+  )
+}
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Remember to always put the backslash before the closing brackets (because
+      react uses strict mode)
+    </p>
+    <p>
+      Also remember that if you want to use a component, outside where it was
+      defined, you have to export it
+    </p>
+  </body>
+</html>

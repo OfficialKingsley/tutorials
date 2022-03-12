@@ -1,0 +1,102 @@
+<body>
+<h1><u>IFrames</u></h1>
+<p>Attribute Details<br>
+<b>name:</b> Sets the element's name, to be used with an a tag to change the iframe's src.<br>
+<b>width:</b> Sets the element's width in pixels.<br>
+<b>height:</b> Sets the element's height in pixels.<br>
+<b>src:</b> Specifies the page that will be displayed in the frame.<br>
+<b>srcdoc:</b> Specifies the content that will be displayed in the frame, assuming the browser supports it. The content must be valid HTML.<br>
+<b>sandbox:</b>
+When set, the contents of the iframe is treated as being from a unique origin and features
+including scripts, plugins, forms and popups will be disabled. Restrictions can be selectively
+relaxed by adding a space separated list of values. See the table in Remarks for possible values.<br>
+<b>allowfullscreen:</b> Whether to allow the iframe’s contents to use requestFullscreen()
+</p>
+
+<h4><u>Basics of an Inline Frame</u></h4>
+<p>The term "IFrame" means Inline Frame. It can be used to include another page in your page. This will yield a small
+frame which shows the exact contents of the base.html.</p>
+
+<fieldset>
+    (iframe src="base.html")(/iframe)
+</fieldset>
+<p></p>
+<iframe src="base.html"></iframe>
+<p></p>
+
+<h4><u>Sandboxing</u></h4>
+<p>The following embeds an untrusted web page with all restrictions enabled</p>
+
+<fieldset>
+    (iframe sandbox src="http://example.com/")(/iframe)    
+</fieldset>
+
+<iframe sandbox src="http://example.com/"></iframe>
+
+<p>To allow the page to run scripts and submit forms, add allow-scripts and allow-forms to the sandbox attribute.</p>
+
+<fieldset>
+    (iframe sandbox="allow-scripts allow-forms" src="http://example.com/")(/iframe)
+</fieldset>
+
+<iframe sandbox="allow-scripts allow-forms" src="http://example.com/"></iframe>
+<p>If there is untrusted content (such as user comments) on the same domain as the parent web page, an iframe can
+be used to disable scripts while still allowing the parent document to interact with it's content using JavaScript.</p>
+
+<fieldset>
+    (iframe sandbox="allow-same-origin allow-top-navigation" src="http://example.com/untrusted/comments/page2")(/iframe)
+</fieldset>
+<iframe sandbox="allow-same-origin allow-top-navigation" src="http://example.com/untrusted/comments/page2">
+
+
+<p>The parent document can add event listeners and resize the IFrame to fit its contents. This, along with allow-topnavigation,
+can make the sandboxed iframe appear to be part of parent document.<br>
+This sandbox is not a replacement for sanitizing input but can be used as part of a defense in depth strategy.
+Also be aware that this sandbox can be subverted by an attacker convincing a user to visit the iframe's source
+directly. The Content Security Policy HTTP header can be used to mitigate this attack.</p>
+
+<h4><u>Setting the Frame Size</u></h4>
+<p>The IFrame can be resized using the width and height attributes, where the values are represented in pixels (HTML
+4.01 allowed percentage values, but HTML 5 only allows values in CSS pixels).</p>
+
+<fieldset>
+    (iframe src="base.html" width="800" height="600")(/iframe)
+</fieldset>
+<iframe src="base.html" width="800" height="600"></iframe>
+
+<h4><u>Using the "srcdoc" Attribute</u></h4>
+<p>The srcdoc attribute can be used (instead of the src attribute) to specify the exact contents of the iframe as a
+whole HTML document. This will yield an IFrame with the text "IFrames are cool!"</p>
+
+<fieldset>
+    (iframe srcdoc="(p)IFrames are cool!(/p)")(/iframe)
+</fieldset>
+<p></p>
+<iframe srcdoc="<p>IFrames are cool!</p>"></iframe>
+
+<p>If the srcdoc attribute isn't supported by the browser, the IFrame will instead fall back to using the src attribute,
+but if both the src and srcdoc attributes are present and supported by the browser, srcdoc takes precedence.</p>
+
+<fieldset>
+    (iframe srcdoc="<p>Iframes are cool!</p>" src="base.html")(/iframe)
+</fieldset>
+<iframe srcdoc="<p>Iframes are cool!</p>" src="base.html"></iframe>
+
+
+<p>In the above example, if the browser does not support the srcdoc attribute, it will instead display the contents of
+the base.html page.</p>
+
+<h4><u>Using Anchors with IFrames</u></h4>
+<p>Normally a change of webpage within an Iframe is initiated from with the Iframe, for example, clicking a link inside
+the Iframe.<br>However, it is possible to change an IFrame's content from outside the IFrame. You can use an anchor
+tag whose href attribute is set to the desired URL and whose target attribute is set to the iframe's name attribute.</p>
+
+<fieldset>
+    (iframe src="webpage.html" name="myIframe")(/iframe)<br>
+(a href="different_webpage.html" target="myIframe")Change the Iframe content to different_webpage.html(/a)
+</fieldset>
+<iframe src="webpage.html" name="myIframe"></iframe>
+<a href="different_webpage.html" target="myIframe">Change the Iframe content to different_webpage.html</a>
+
+
+</body>

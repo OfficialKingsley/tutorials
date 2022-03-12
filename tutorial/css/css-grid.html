@@ -1,0 +1,288 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>CSS grid</h1>
+        <p>To create a grid we set the display of the element (or container). E.g.</p>
+        <fieldset>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                }
+            </code>
+        </fieldset>
+        <p>
+            You can specify the number of columns by defining the grid-template-colum. <br />
+            The number of values you specify represent the number of columns you want while the values represent the
+            actual size of the columns.
+        </p>
+        <fieldset>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-template-columns: 100px 300px <br />
+                }
+            </code>
+        </fieldset>
+        <p>You can also specify the number of rows using the grid-template-rows property.</p>
+        <p>
+            You can also set the size of the row or column to auto. This value makes the row/column take up all the
+            space that is left.
+        </p>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-template-columns: 100px 300px auto<br />
+                }
+            </code>
+        </fieldset>
+        <p>
+            Now we are going to have three columns. The first two columns have non-responsive values while the third has
+            a responsive value and it takes up any remaining space after the first two have filled their positions.
+        </p>
+        <p>
+            Another value that can be used in grids is the fraction unit (represented as <code>"fr"</code>).
+            <br />
+            What this unit does is that it divides the remaining space into the number of specified fractions. For
+            example, if there are 3 columns with each having a value of 1fr, this will divide the screen into three
+            equal parts with each column taking one fraction. This value is very helpful as it is responsive.
+            <br />
+            <br />
+            Also, if you make let's say the second one 2fr, the screen will be divided into four as the total sum of the
+            fractions is 4fr. The second one is however going to take 2fr i.e. it is going to be bigger that the other
+            two columns
+        </p>
+        <h2>The repeat function</h2>
+        <p>
+            This is used if you want to create rows or columns with the same size. <br />
+            This function takes in two parameters which are the number of columns/rows that you want to apply it to and
+            the second parameter is the size of each
+        </p>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-template-columns: repeat(3, 1fr)<br />
+                }
+            </code>
+        </fieldset>
+        <h2>Grid template</h2>
+        <p>This is the short hand for the grid template columns and grid-template-rows</p>
+        <fieldset>
+            <legend></legend>
+            <code>grid-template: grid-template-rows / grid-template-columns</code>
+        </fieldset>
+        <h2>Grid-row-gap</h2>
+        <p>This sets a gap between rows</p>
+        <h2>Grid-column-gap</h2>
+        <p>This sets a defined gap between the columns</p>
+
+        <h2>Grid-column-start and end</h2>
+        <p>
+            The grid-column-start is a property that is given to the items with the display of grid. It is not defined
+            in the container. What this does is that it shows what line you want that column to start from. This also
+            depends on the number of columns.
+            <br />
+            For example, if we have two columns defined in the container, we have three lines. The first line is the
+            line or space before the start of the column. The second column line is the space between the two columns
+            and the third column line ids the line the line after the second column
+        </p>
+        <h2>grid-column</h2>
+        <p>This is the shorthand for the grid-column-start and end</p>
+        <fieldset>
+            <legend></legend>
+            <code>grid-column: 1 / 3</code>
+        </fieldset>
+        <p>If you want it to span across till the end, you use -1 as the line end</p>
+        <fieldset>
+            <legend></legend>
+            <code>grid-column: 1 / -1</code>
+        </fieldset>
+        <p>
+            You can also use the span keyword. This now specifies the number of columns you want to span across. Note
+            that this doesn't use column lines. It uses the actual columns
+        </p>
+        <fieldset>
+            <legend></legend>
+            <code>grid-column: 1 / span 2;</code>
+        </fieldset>
+        <p>Note that when using the grid make sure they don't cut across each other</p>
+
+        <h2>Grid-template-areas</h2>
+        <p>
+            This is put in the container. <br />
+            It is like a visual representation of how you want the grid to look like. You are like naming the defined
+            rows and columns.
+        </p>
+        <fieldset>
+            <legend></legend>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-gap: 3px; grid-template-columns: repeat(12, 1fr); <br />
+                grid-template-rows: 48px auto 48px; <br />
+                grid-template-areas: <br />
+                "h h h h h h h h h h h h" <br />
+                "m c c c c c c c c c c c" <br />
+                "f f f f f f f f f f f f"
+            </code>
+        </fieldset>
+        <p>Each pair of quotes represents a row and each letter in the row represents a cell</p>
+        <h2>Grid-area</h2>
+        <p>
+            This property is given to the items and not the container. Here, the item is assigned a value. This value is
+            a name of a cell defined in the grid-template-areas. So this item then takes up the space given to the cell
+        </p>
+        <fieldset>
+            <legend></legend>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-gap: 3px; grid-template-columns: repeat(12, 1fr); <br />
+                grid-template-rows: 48px auto 48px; <br />
+                grid-template-areas: <br />
+                "h h h h h h h h h h h h" <br />
+                "m c c c c c c c c c c c" <br />
+                "f f f f f f f f f f f f"; <br />
+                } <br />
+                .header { <br />
+                grid-area: h; <br />
+                } <br />
+                .main { <br />
+                grid-area: m; <br />
+                } <br />
+                .content { <br />
+                grid-area: c; <br />
+                } <br />
+                .footer { <br />
+                grid-area: f; <br />
+                }
+            </code>
+        </fieldset>
+        <p>You can also use dots(.) in css grid-template-areas to create empty spaces</p>
+
+        <h2>auto-fit</h2>
+        <p>
+            this states that the grid should create the number of columns or rows based on the size of the screen of
+            view width. However there is a downside to this as if the size of the space is not equal to the size of the
+            column, then there will be extra space left which doesn't look nice. Also if you try repeat(autofit, 1fr),
+            this will just create one column because autofit tries to fill up the grid with as many columns as possible
+            until there's not enough space. But when you use 1fr both the width of the container and the column are the
+            same
+        </p>
+        <p>You can fix this using the minmax function</p>
+        <fieldset>
+            <legend></legend>
+            <code>repeat (auto-fit, minmax(100px, 1fr))</code>
+        </fieldset>
+        <p>
+            The columns will always fit the entire grid irrespective of whether or not the container adds up to 100px.
+            If the container has more space it distributes it across all the columns. This feature has more preference
+            for the minimum than the maximum
+        </p>
+
+        <h2>Grid auto rows</h2>
+        <p>
+            This sets a value for the rows implicitly created apart from we defined with the grid template rows. For
+            example, if we defined just two rows, the and we have two columns but we have multiple cells, new rows will
+            automatically be created. These new
+        </p>
+        <p>When auto rows is used, you can remove</p>
+
+        <fieldset>
+            <legend></legend>
+            <code>grid-column: auto / span 2</code>
+        </fieldset>
+        <p>Same as</p>
+        <fieldset>
+            <legend></legend>
+            <code>grid-column: span 2</code>
+        </fieldset>
+        <h2>Grid-auto-flow</h2>
+        <p>By default it is set to row therefore the grid tries to arrange or flow the items in rows.</p>
+        <p>You can set it to dense making everythig to come together therefore removing any space</p>
+
+        <h2>Named lines</h2>
+        <p>
+            When defining your grid template column or grid template rows, you can give names to the column lines. his
+            can be done using the square brackets
+        </p>
+
+        <fieldset>
+            <legend></legend>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-gap: 3px; grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+                &lt;!--Notice that I used two names--&gt;
+                <br />
+                grid-template-rows: [main-start]48px [content-start] auto [content-end] 48px [main-end]; <br />
+                .header { <br />
+                grid-column: main-start/ main-end; <br />
+                } <br />
+                .menu { <br />
+                grid-area: ; <br />
+                } <br />
+                .content { <br />
+                grid-area: c; <br />
+                } <br />
+                .footer { <br />
+                grid-area: f; <br />
+                }
+            </code>
+        </fieldset>
+        <p>SInce the content part forms a box, and also because of the syntax we used for the naming, we can do</p>
+        <fieldset>
+            <legend></legend>
+            <code>
+                .container { <br />
+                display: grid; <br />
+                grid-gap: 3px; grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+                &lt;!--Notice that I used two names--&gt;
+                <br />
+                grid-template-rows: [main-start]48px [content-start] auto [content-end] 48px [main-end]; <br />
+                .header { <br />
+                grid-column: main; //!-start to -end<br />
+                } <br />
+                .menu { <br />
+                grid-area: main-start / content-start; <br />
+                } <br />
+                .content { <br />
+                grid-area: content; <br />
+                } <br />
+                .footer { <br />
+                grid-column: main; <br />
+                }
+            </code>
+        </fieldset>
+
+        <h2>Justify Content and Align Content</h2>
+        <p>Justify-content: controls the content along the x-axis. Values are:</p>
+        <ul>
+            <li>start: Places all the content in the start of the grid</li>
+            <li>end</li>
+            <li>center</li>
+            <li></li>
+        </ul>
+        <h2>Justify Items and Align-items</h2>
+        <p>
+            Justify items is used to set the justification of the content. It is by default set to stretch so it can
+            fill its container but it can also be set to start which places them in the center of their container.
+        </p>
+
+        <h2>Justify self and align self</h2>
+        <h2>Autofit and autofill</h2>
+        <p>auto fill will add a space and not collapse the created</p>
+        <p>However, auto-fit</p>
+    </body>
+</html>

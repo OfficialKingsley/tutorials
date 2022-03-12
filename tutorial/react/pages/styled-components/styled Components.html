@@ -1,0 +1,224 @@
+<!-- @format -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <fieldset>
+        <legend>Container.styled.js</legend>
+        <code>
+          <pre>
+      import styled from "styled-components"
+      
+      //const name_of_component = styled.name_of_element_you_want_it_to_be``
+      //inside the backticks (``), we have our styles or css
+      
+      export const Container = styled.div`
+          width: 100px;
+          max-width: 100%;
+          padding: 0 20px;
+          margin: 0 auto;
+      `
+              </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre>
+import { Container } from ".components/styled/Container.styled"
+
+//Note that we put it in curly braces. This is because we didn't say export default for it. So it is not the default export <br/>
+
+function App() {
+    return (
+        &lt;Container&gt;
+            &lt;h1&gt;Hello&lt;/h1&gt;
+        &lt;/Container&gt;
+    )
+}
+
+export default App;
+
+//You'll see that when it is compiled, it will be compiled to a div
+</pre>
+        </code>
+      </fieldset>
+    </fieldset>
+    <p>You can also nest in styled components just like in sass or less</p>
+
+    <fieldset>
+      <legend>Container.styled.js</legend>
+      <code>
+        <pre>
+      import styled from "styled-components"
+      
+      export const Container = styled.div`
+          width: 100px;
+          max-width: 100%;
+          padding: 0 20px;
+          margin: 0 auto;
+
+          h1 {
+              color: red;
+          }
+          &:hover {
+              background-color: green;
+          }
+      `
+              </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>Styled components can also take in props</p>
+
+    <fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre>
+      import { Container } from ".components/styled/Container.styled"
+      
+      function App() {
+          return (
+              &lt;Container bg="red"&gt;
+                  &lt;h1&gt;Hello&lt;/h1&gt;
+              &lt;/Container&gt;
+          )
+      }
+      
+      export default App;
+      
+      //You'll see that when it is compiled, it will be compiled to a div
+      </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>Container.styled.js</legend>
+        <code>
+          <pre>
+            import styled from "styled-components"
+            
+            export const Container = styled.div`
+                width: 100px;
+                max-width: 100%;
+                padding: 0 20px;
+                margin: 0 auto;
+                //If we want to use it here,
+                background-color: ${(props) => props.bg}
+                //now the background-color will be red
+                //You can also do:
+                background-color: ${({ bg }) => bg}
+            `
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+    <h3>Using themes in styled components</h3>
+    <p>To do this, we import the ThemeProvider from styled components</p>
+    <fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre>
+        import { Container } from ".components/styled/Container.styled"
+        import { ThemeProvider } from "styled-components";
+        //Notice that it was imoprted in the App.js
+        //The ThemeProivider takes in a prop called theme which accepts an object
+        
+        const theme = {
+            colors: {
+                header: "#ebfbff"
+                body: "#fff"
+                footer: "#003333"
+            }
+        }
+        function App() {
+            return (
+                &lt;ThemeProvider theme={theme}&gt;
+                    &lt;Container bg="red"&gt;
+                        &lt;h1&gt;Hello&lt;/h1&gt;
+                    &lt;/Container&gt;
+                &lt;/ThemeProvider&gt;
+            )
+            //So we wrap everything around the ThemeProvider
+        }
+        
+        export default App;
+        
+        //You'll see that when it is compiled, it will be compiled to a div
+        </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>Container.styled.js</legend>
+        <code>
+          <pre>
+              import styled from "styled-components"
+              
+              export const Container = styled.div`
+                  width: 100px;
+                  max-width: 100%;
+                  padding: 0 20px;
+                  margin: 0 auto;
+                  //If we want to use it here,
+                  background-color: ${({ theme }) => theme.colors.header}
+                  //now the background-color will be red
+                  //You can also do:
+                  background-color: ${({ bg }) => bg}
+              `
+                      </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+
+    <h3>Global styles</h3>
+    <p>
+      If you want a style to be global or to be applied to all components, we
+      use the createGlobalStyle from styled-component
+    </p>
+
+    <fieldset>
+      <code>
+        <pre>
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+    * {
+        box-sizing: border-box;
+    }
+`
+exprt default GlobalStyles;
+            </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+import GlobalSyles from "Globals.styled.js";
+
+//right after it has been wrapped, by the ThemeProvider,
+//We make it the first component.
+
+function App() {
+    <ThemeProvider>
+        <GlobalStyles />
+    </ThemeProvider>
+}
+            </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

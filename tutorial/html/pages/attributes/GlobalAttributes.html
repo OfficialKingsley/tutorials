@@ -1,0 +1,45 @@
+<body>
+<h1><u>Global Attributes</u></h1>
+Attribute --- Description<br>
+<b>class:</b> Defines one or more class names for an element. See Classes and IDs.<br>
+<b>contenteditable:</b> Sets whether the content of an element can be edited.<br>
+<b>contextmenu:</b> Defines a context menu shown when a user right-clicks an element.<br>
+<b>dir:</b> Sets the text direction for text within an element.<br>
+<b>draggable:</b> Sets whether an element can be dragged.<br>
+<b>hidden:</b> Hides an element not currently in use on the page.<br>
+<b>id:</b> Defines a unique identifier for an element. See Classes and IDs.<br>
+<b>lang:</b> Defines the language of an element's content and its text attribute values. See Content Languages.<br>
+<b>spellcheck:</b> Sets whether to spell/grammar check the content of an element.</b>
+<b>style:</b> Defines a set of inline CSS styles for an element.<br>
+<b>tabindex:</b> Sets the order in which elements on a page are navigated by the tab keyboard shortcut.<br>
+<b>title:</b> Defines additional information about an element, generally in the form of tooltip text on
+mouseover.
+<b>translate:</b> Defines whether to translate the content of an element.
+
+<h3><u>Contenteditable Attribute</u></h3>
+
+<fieldset>
+    <legend>Editable paragraph</legend>
+    {p contenteditable}This is an editable paragraph.{/p}
+</fieldset>
+<p contenteditable>This is an editable paragraph.</p>
+
+<p>Upon clicking on the paragraph, the content of it can be edited similar to an input text field.
+When the contenteditable attribute is not set on an element, the element will inherit it from its parent. So all child
+text of a content editable element will also be editable<br>
+However, you can turn it off for specific text, like so:</p>
+
+<fieldset>
+    {p contenteditable}
+        This is an editable paragraph.
+        {span contenteditable="false"}But not this.{/span}
+        {/p}
+</fieldset>
+
+<p contenteditable>
+This is an editable paragraph.
+<span contenteditable="false">But not this.</span>
+</p>
+<p>Note that an uneditable text element inside an editable element will still have a text cursor as inherited from its
+parent as well.</p>
+</body>

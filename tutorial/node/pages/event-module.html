@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Event Module and Event Emitter Class</h3>
+    <p>
+      Particularly, this helps to bring event driven programming to node js
+      <br />
+      First we have to require the Event Module
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const EventEmitter = require("events")
+//The above is the class we get from requiring the event module
+
+//Create a new instance of the EventEmitter.
+//The class which we got from the events module
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on("event_name", ("can have arguments") => {
+  function to be executed
+})
+eventEmitter.emit("event_name",parameters)
+
+//Example
+eventEmitter.on("tutorial", () => {
+  console.log("Tutorial Event has occurred")
+})
+//What this does is that anytime an event is emitted (or ran)
+//The what is in the function will run
+
+//To emit the event, we do:
+
+eventEmitter.emit("tutorial")
+
+//With a function with parameters,
+eventEmitter.on("tutorial", (num1, num2) => {
+  console.log("Tutorial Event has occurred", num1,num2)
+})
+
+//how to run it,
+eventEmitter.emit("tutorial", 1, 2)
+        </pre>
+      </code>
+    </fieldset>
+    <p>You can also create a class that extends the EventEmitter class</p>
+  </body>
+</html>

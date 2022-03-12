@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>This is actually using</p>
+    <fieldset>
+      <code>
+        <pre>
+const fruitSchema = new mongoose.Schema({
+  name: {
+    type: String
+    required: [true, "Why is there no name?"] 
+    //You can also type
+    //required: [1, "Why is there no name?"]
+  }, //This is the type of data
+  rating: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 10,
+  }
+})
+</pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      All the stuff in that schema object for the rating are used for the
+      validation of the data entered into the database. <br />
+      This keeps the data saved
+    </p>
+  </body>
+</html>

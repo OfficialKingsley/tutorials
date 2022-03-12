@@ -1,0 +1,74 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Factory functions</h2>
+    <p>
+      When an object has one or more methods, it has a behavior. Creating an
+      object with object literals may be an issue if it has methods. Also if you
+      want to duplicate an object, you will have to re-write the code or copy
+      and paste over and over again.
+      <br />
+      To solve this issue, we can define functions for creating objects. These
+      functions are generally divided into two which are Factories and
+      Constructors
+    </p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+function createCircle (rad) {
+    return {
+        radius: rad,
+        draw:function() {
+            console.log("draw")
+        }
+    }
+}
+        </pre>
+      </code>
+      <code> const circle = createCircle(1) </code>
+    </fieldset>
+    <fieldset class="constructor">
+      <legend>constructor</legend>
+      <code>
+        <pre>
+function Circle(rad) {
+    this.radius = rad, //Notice the this keyword
+    this.draw = function() {
+        console.log("draw")
+    }
+}
+                </pre
+        >
+      </code>
+      <code> const anotherCircle = new Circle(1); </code>
+    </fieldset>
+    Every object in JS has a property called construction which shows the
+    function used to create the object. Even functions ini JavaScript also have
+    constructors
+
+    <h3>New properties to objects</h3>
+    <p>
+      <code>circle.location = { x: 1};</code>
+    </p>
+    You can delete an object property using the delete keyword
+
+    <h3>Looping through an object with the for in loop</h3>
+
+    <h3>General Object Methods</h3>
+    <code>const keys = Object.keys(name of object)</code>
+    The above produces an array of all the properties and methods The above
+    produces an array of all the properties and methods
+
+    <h3>The in operator</h3>
+    if ("radius" in circle)
+  </body>
+</html>

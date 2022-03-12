@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>To update data, we need to use the fruit model</p>
+    <p>
+      There are many update methods which include:
+      <br />
+      <code>.updateOne()</code>
+      <br />
+      <code>.updateMany()</code>
+    </p>
+    <p>
+      The updateOne method accepts four possible parameters; three of which are
+      required
+    </p>
+    <ul>
+      <li>Condition query</li>
+      <li>What you want to update about it</li>
+    </ul>
+    <fieldset>
+      <code>
+        <pre>
+Fruit.updateOne({_id: "487q4hjb874"}, {name: "Peach"}, (err)=> {
+  if (err) {
+
+  } else {
+    console.log("Item updated")
+  }
+})
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

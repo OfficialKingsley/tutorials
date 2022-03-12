@@ -1,0 +1,85 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>SASS tutorial</h1>
+    <p>Sass is compiled to CSS</p>
+
+    <h3>SASS variables</h3>
+    <fieldset>
+      <code>
+        <pre>
+$my-color: #005dff;
+body {
+    background-color: $my-color;
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>In these, it appears as</p>
+    <fieldset>
+      <code>
+        <pre>
+body {
+    background-color: #005dff;
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <h3>SASS maps</h3>
+    <fieldset>
+      <code>
+        <pre>
+$colors: (
+    primary: #005dff;
+    accent: #fff6bb;
+)
+/* syntax: 
+selector {
+    property: map-get(variable-name, property in map)
+}*/
+body {
+    background-color: map-get($colors, primary);
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>CSS output</p>
+    <h3>Functions</h3>
+    <fieldset>
+      <code>
+        <pre>
+@function function-name($parameter) {
+    @return do-something-with-the-parameter
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+body {
+    #bg {
+        background-color: color(primary); 
+    }
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <h3>mixins</h3>
+  </body>
+</html>

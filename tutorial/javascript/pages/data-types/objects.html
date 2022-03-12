@@ -1,0 +1,188 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Javascript Objects</title>
+    </head>
+    <body>
+        <h1>Objects</h1>
+        <p>
+            In real life, a car is an object. A car has properties like weight and color, and methods (functions) like
+            start and stop: Examples of a car's properties are its name, model, weight, year etc. Examples of a car's
+            methods are start, stop, accelerate.
+        </p>
+        <fieldset>
+            <legend>example</legend>
+            <fieldset>
+                <legend>Properties</legend>
+                <code>
+                    car.name = Fiat; <br />
+                    car.model = 500; <br />
+                    car.weight = 850kg; <br />
+                    car.color = white
+                </code>
+            </fieldset>
+            <fieldset>
+                <legend>Methods</legend>
+                <code>
+                    car.start(); <br />
+                    car.drive(); <br />
+                    car.brake(); <br />
+                    car.stop();
+                </code>
+            </fieldset>
+        </fieldset>
+        <p>
+            All cars (which are objects) have the same properties but different property values. The same applies for
+            methods but these methods are performed at different times
+        </p>
+        <h2>Basic definition</h2>
+        <p>
+            Objects in JavaScript are also variables which can contain many values. These values usually come in
+            <q>key: value</q> or <q>name: value</q> pairs.
+        </p>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                var car = { <br />
+                type: "", <br />
+                color: "white", <br />
+                makeYear: "2020", <br />
+                }
+            </code>
+        </fieldset>
+        <p>In other words JavaScript objects could be defined as the containers for named values</p>
+
+        <h3>Object Properties</h3>
+        <p>
+            The <q>name: value</q> pairs are called the properties. To access these property values, you need to know
+            the name
+        </p>
+        <fieldset>
+            <code>
+                var person = { <br />
+                firstName:"John", <br />
+                lastName:"Doe", <br />
+                age:50, <br />
+                eyeColor:"blue" <br />
+                };
+            </code>
+        </fieldset>
+        <br /><br />
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>Property Values</th>
+            </tr>
+            <tr>
+                <td>firstName</td>
+                <td>John</td>
+            </tr>
+            <tr>
+                <td>lastName</td>
+                <td>Doe</td>
+            </tr>
+            <tr>
+                <td>age</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>eyeColor</td>
+                <td>blue</td>
+            </tr>
+        </table>
+
+        <h3>Accessing object properties</h3>
+        <p>There are two ways to access the object properties</p>
+        <ol>
+            <li>Using the dot operator</li>
+            <li>Using the square brackets</li>
+        </ol>
+
+        <fieldset>
+            <legend>with the dot</legend>
+            <code>
+                var person = { <br />
+                firstName:"John", <br />
+                lastName:"Doe", <br />
+                age:50, <br />
+                eyeColor:"blue" <br />
+                };
+            </code>
+            <br />
+            <code> console.log(person.firstName) //This will yield "John" </code>
+        </fieldset>
+        <fieldset>
+            <legend>With the square brackets</legend>
+            <code>
+                var person = { <br />
+                firstName:"John", <br />
+                lastName:"Doe", <br />
+                age:50, <br />
+                eyeColor:"blue" <br />
+                };
+            </code>
+            <br />
+            <code> console.log(person["firstName"]) //This will also yield "John" </code>
+        </fieldset>
+        <h2>Methods</h2>
+        <p>
+            These are simply actions that can be performed on objects. They can also be simply defined as the functions
+            of objects
+        </p>
+        <p>To create a method, you add a property which has a value of a function</p>
+
+        <fieldset>
+            <legend>With the square brackets</legend>
+            <code>
+                var person = { <br />
+                firstName:"John", <br />
+                lastName:"Doe", <br />
+                age:50, <br />
+                eyeColor:"blue" <br />
+                <br />
+                getMe: function() {code to be executed} <br />
+                };
+            </code>
+            <br />
+            <code> person.getMe() //Notice the parentheses</code>
+        </fieldset>
+
+        <fieldset>
+            <legend>With the square brackets</legend>
+            <code>
+                var person = { <br />
+                firstName:"John", <br />
+                lastName:"Doe", <br />
+                age:50, <br />
+                eyeColor:"blue" <br />
+                <br />
+                getFullName: function() {firstName + " " + lastName} <br />
+                };
+            </code>
+            <br />
+            <code> person.getFullName() //This will yield "John Doe" </code>
+        </fieldset>
+        <p>
+            <strong>Note:</strong>
+        </p>
+        <ul>
+            <li>Do Not Declare Stri ngs, Numbers, and Booleans as Objects!</li>
+            <li>
+                When a JavaScript variable is declared with the keyword "new", the variable is created as an object.
+            </li>
+        </ul>
+        <p>
+            <code>
+                var x = new String(); // Declares x as a String object <br />
+                var y = new Number(); // Declares y as a Number object <br />
+                var z = new Boolean(); // Declares z as a Boolean object <br />
+            </code>
+            [';[p;[;
+        </p>
+    </body>
+</html>

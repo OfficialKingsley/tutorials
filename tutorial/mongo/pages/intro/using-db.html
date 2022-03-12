@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Using a database</h3>
+    <p>
+      In mongo db, you can use a db even if it is not created. It will
+      automatically create the database for you when you input data into it
+    </p>
+    <p>
+      Also note that in Mongo DB, we have collections(like the tables in the
+      database) and we have databases(like in sql)
+    </p>
+    <fieldset>
+      <legend>To use a db</legend>
+      <code>
+        <pre>use dbname</pre>
+      </code>
+    </fieldset>
+    <p>To show collections, we do this</p>
+    <fieldset>
+      <code>
+        <pre>show collections</pre>
+      </code>
+    </fieldset>
+    <p>
+      If you are in a database and you want to delete the database, you can just
+      type <br />
+      <code>db.dropDatabase()</code>
+      <code>db.dropCollection() to drop the collection </code> like a Javascript
+      code <br />
+      However, if we delete a database, we will still appear to be in that
+      database but if you type <code>show dbs</code>, you'll see that the
+      database is no longer in the list even though we appear to be in that
+      database
+    </p>
+    <p>To get your current database, you type <code>db</code></p>
+  </body>
+</html>

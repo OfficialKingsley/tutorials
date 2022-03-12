@@ -1,0 +1,175 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Javascript Date Object</h1>
+        <p>
+            Javascript dates help us to work with dates on our website. For example if we want to add a calendar to our
+            site. A new date object can be created using the new keyword as shown below.
+        </p>
+        <fieldset>
+            <code>let myDate = new Date(); //Nothing in the parentheses</code>
+        </fieldset>
+        <p>Now that you have created a new date object, you can assign methods to it like</p>
+        <fieldset class="code">
+            <code>myDate.getFullYear()</code>
+        </fieldset>
+        <h3>Working with specifics</h3>
+        <p>You can have the date and time written with specific values in the parentheses</p>
+        <h4>Using milliseconds</h4>
+        <p>
+            When writing dates, javascript uses what is known as the time stamp to get the date but displays the date in
+            a human readable form. The time stamp is the number of milliseconds that have passed since
+            <q>Jan 1st 1970</q> and is based something we call UNIX time
+        </p>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                let milliseconds = new Date(988746938423); <br />
+                console.log(milliseconds)
+            </code>
+
+            <fieldset class="output">
+                <legend>Output</legend>
+                <pre>Tue May 01 2001 20:55:38 GMT+0100 (West African Time)</pre>
+            </fieldset>
+        </fieldset>
+        <h4>Using the date string</h4>
+
+        <fieldset>
+            <code>let dateString = new Date("Jan 21 2021 05:30:00")</code>
+        </fieldset>
+        <p>OR</p>
+        <fieldset>
+            <code
+                >let dateString = new Date("2021-01-03T5:30:00+01:00") <br />
+                //Here, moths are not zero indexed but just note that by default they are <br />
+                //The T separates the date from the time <br />
+                //The + sign shows the time zone that the user is in
+            </code>
+        </fieldset>
+
+        <h4>Date and time components</h4>
+        <fieldset>
+            <legend>Syntax</legend>
+            <code>let components = new Date(year, month, date, hours, minutes, seconds, milliseconds)</code>
+        </fieldset>
+        <br />
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                let componentDate = new Date(2021, 00, 03) <br />
+                console.log(componentDate) <span class="comment">//Jan 03 2021 00:00:00</span>
+            </code>
+        </fieldset>
+        <p>
+            If only the year and month parameters are specified, Javascript will use default values for the other values
+        </p>
+
+        <h2>Javascript date methods</h2>
+        <p>Generally, javascript date methods can be broadly classified into two which are:</p>
+        <ul>
+            <li>Get methods</li>
+            <li>Set Methods</li>
+        </ul>
+        <h3>Get Methods</h3>
+        <ul>
+            <li>getFullYear()</li>
+            <li>getMonth()</li>
+            <li>getDate()</li>
+            <li>getDay()</li>
+            <li>getHours()</li>
+            <li>getMinutes()</li>
+            <li>getSeconds()</li>
+            <li>getMilliSeconds()</li>
+        </ul>
+        <p>
+            There are so many other get methods but the above are often used to get time based on the user's time zone.
+            However, we can get the UTC time zone which is the primary standard by which the world regulates time.
+            <br />
+            Each of the main get methods has a UTC version
+        </p>
+
+        <h3>Set Methods</h3>
+        <p>
+            These are relatively easy. As get methods get an already pre-defined time, the set method actually sets the
+            value of the time. For every get method there is a set method
+        </p>
+        <ul>
+            <li>setFullYear()</li>
+            <li>setMonth()</li>
+            <li>setDate()</li>
+            <li>setDay()</li>
+            <li>setHours()</li>
+            <li>setMinutes()</li>
+            <li>setSeconds()</li>
+            <li>setMilliSeconds()</li>
+        </ul>
+        <p>Just like the get method, there are many more set methods</p>
+
+        <h2>Getting the date/time in text</h2>
+        <p>
+            Normally, when we get dates, we get them in numbers but this can be resolved using the toLocaleString method
+        </p>
+        <fieldset>
+            <legend>syntax</legend>
+            <code> currentDate.toLocaleString("language", object ) </code>
+        </fieldset>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                let currentDate = new Date(); <br />
+                currentDate.toLocaleString("default", {month: "long"} )
+            </code>
+        </fieldset>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                let currentDate = new Date(); <br />
+                currentDate.toLocaleString("en", { <br />
+                month: "long" <br />
+                weekday: "short" <br />
+                timezone: "" <br />
+                } );
+            </code>
+        </fieldset>
+
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                let currentDate = new Date(); <br />
+                currentDate.toString()
+            </code>
+        </fieldset>
+        <h3></h3>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                let currentDate = new Date(); <br />
+                currentDate.toISOString()
+            </code>
+            <fieldset>
+                <legend>result</legend>
+                <code>2021-09-08T04:10:45.000Z</code>
+            </fieldset>
+        </fieldset>
+        <p>The above yields an ISO-86-01 formatted date time string in UTC</p>
+        <h3>Using the JSON stringify</h3>
+        <fieldset>
+            <legend>Example</legend>
+            <code>
+                console.log(JSON.stringify({ <br />
+                myDate: newDate <br />
+                }));
+            </code>
+        </fieldset>
+        <p>What the above does is that it also produces an ISO string</p>
+    </body>
+</html>

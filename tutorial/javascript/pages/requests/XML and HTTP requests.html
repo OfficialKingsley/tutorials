@@ -1,0 +1,113 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>XML HTTP requests (xhr)</h2>
+        <p>
+            The name XMLHttpRequest has historic reasons, it is NOT restricted to fetching XML only.
+            JSON is typically used nowadays
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+const getData = () => {
+  const xhr = new XMLHttpRequest();  //This xhr is an object
+  xhr.open("GET", "https://myAPI/all/users");  //It prepares http requests to be made
+  //This first parameter specifies the type of method you want to perform on the API
+  //The second parameter is the API
+
+  xhr.onload = () => {
+    const data = JSON.parse(xhr.response)  //This refers to the response from the API
+  }
+
+  //We can also do xhr.responseType = "json";
+  //const data = 
+  xhr.send(); //now we send the request
+
+  //xhr.send(JSON.stringify(data))
+}
+        </pre
+                >
+            </code>
+        </fieldset>
+
+        <fieldset>
+            <legend></legend>
+            <code>
+                <pre>
+const sendHttpRequest = (method, url) => {
+  const xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.responseType = "json";
+
+}
+        </pre
+                >
+            </code>
+        </fieldset>
+        <h2>Promises</h2>
+
+        <fieldset>
+            <legend></legend>
+            <code>
+                <pre>
+const sendHttpRequest = (method, url) => {
+  const promise = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.responseType = "json";
+    xhr.onload = () => {
+      resolve(xhr.response)
+    }
+  });
+
+  return promise;
+}
+
+const getData = () => {
+  sendHttpRequest("GET", "https://myAPI/all").then((responseData)=> {
+    console.log(responseData)
+  })
+}
+        </pre
+                >
+            </code>
+        </fieldset>
+
+        <h2>Headers</h2>
+
+        <fieldset>
+            <code>
+                <pre>
+xhr.setRequestHeader("Content-type", "application/json")
+        </pre
+                >
+            </code>
+        </fieldset>
+
+        <h3>xhr.onerror</h3>
+        <p>This is used for when the request raises an error</p>
+        <h3>Handling errors</h3>
+        <p>To handle errors, we use success codes in xhr</p>
+        <fieldset>
+            <code>
+                <pre>
+xhr.onload = () => {
+  if (xhr.status >= 400) {
+    reject(xhr.response)
+  }
+}
+        </pre
+                >
+            </code>
+        </fieldset>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>New way of creating protected routes</h3>
+    <fieldset>
+      <legend>Protected Route</legend>
+      <code>
+        <pre>
+import React, { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { Route, Navigate, Outlet } from "react-router-dom";
+
+const ProtectedRoute = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+  return isAuthenticated ? &lt;Outlet /> : &lt;Navigate to="/login" />;
+};
+
+export default ProtectedRoute;
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>The outlet tag is used to display the children of the component</p>
+    <p>
+      Also take note that the Redirect tag has been deprecated and has been
+      replaced by Navigate
+    </p>
+    <fieldset>
+      <legend>App.js</legend>
+      <code>
+        <pre>
+&lt;Route exact path="/" element={&lt;ProtectedRoute />}>
+  &lt;Route exact path="/" element={&lt;Home />} />
+&lt;/Route>
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

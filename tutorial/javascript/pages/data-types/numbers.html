@@ -1,0 +1,86 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Number DataType</h1>
+    <button><a href="dataTypes.html">Back</a></button>
+    <button><a href="">Next</a></button>
+    <br />
+    <br />
+    <fieldset>
+      <code
+        >let a, b, c; <br />
+        a = 5; <br />
+        b = 7; <br />
+        c = 5 + 7; // Now c is 12 <br />
+        c = a + b; // Is still the same as 12
+      </code>
+      <hr />
+      <code
+        >let a, b, c; <br />
+        a = 7; <br />
+        b = 5; <br />
+        c = 7 - 5; // Now c is 2 <br />
+        c = a - b; // Is still the same as 2
+      </code>
+      <hr />
+      <code>
+        <pre>
+let a, b, c; 
+a = 5; 
+b = 7; 
+c = 5 * 7; // Now c is 35
+c = a * b; // Is still the same as 35
+                </pre
+        >
+      </code>
+      <hr />
+      <code>
+        <pre>
+let a, b, c; 
+
+a = 10; 
+b = 5; 
+c = 10 / 5; // Now c is 2 
+c = a / b; // Is still the same as 2
+</pre
+        >
+      </code>
+      <hr />
+      <code>
+<pre>
+let a, b, c; 
+a = 7; 
+b = 5; 
+c = 7 % 5; // Now c is 2 
+c = a % b; // Is still the same as 12
+</pre>
+      </code>
+      <hr />
+    </fieldset>
+    <p>
+      Just like you were taught <q>BODMAS</q>, the same applies to JS numbers.
+      <br /><br />
+      Brackets have the highest precedence <br />
+      <br />
+      Multiplication and division are of the same precedence <br />
+      <br />
+      Addition and Subtraction are of the same importance
+    </p>
+    <h3>Javascript operation order</h3>
+    <p>
+      You should note that JS executes its code from left to right therefore,
+      <br />
+      <code>16 + 4 + "Hello" //Will produce "20Hello"</code><br />
+      but <br />
+      <code>"Hello" + 16 + 4 //Will produce "Hello164"</code>
+    </p>
+  </body>
+</html>

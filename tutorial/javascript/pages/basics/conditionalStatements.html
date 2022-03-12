@@ -1,0 +1,103 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    If, else, else if, ternary switch Using the and operator
+    <h3>syntaxes</h3>
+    <fieldset>
+      <code>
+        <pre>
+if (condition) {
+
+} else if (condition) {
+
+} else {
+    
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+//Ternary operator (?)
+
+condition ? expression1 : expression2;
+//The above is the same as
+if (condition === true) {
+    expression1
+} else {
+    expression2
+}
+            </pre
+        >
+      </code>
+    </fieldset>
+    <p>If the condition doesn't have an else part, do:</p>
+    <fieldset>
+      <code>
+        <pre>
+//using the and operator
+
+condition && expression;
+
+//It is the same as
+
+if (condition) {
+    expression
+}
+            </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+//Switch statement
+
+switch (key) {
+    case value1:
+        //some code 1
+        break;
+    case value2:
+        //some code 2
+        break;
+    default:
+        //some default code
+        break;
+}
+            </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      In the switch statment, the key is a particular expression. It could be a
+      codition or a value <br />
+      In switch statments, you can have many cases. What a case does is that for
+      every case, there is a value; so the case statement checks if that value
+      is equal to the key or is equal to the value returned by the key (if the
+      key is a condition)
+      <br />
+      Once the value equals the key, it runs the code in its block and then we
+      put the break statement. <br />
+      <br />
+      The reason the break statement is put is so that after the code in the
+      block has been executed, it doesn't go on to run other codes. If the break
+      statement is not put, after the condition has been met, any other case
+      below it will be executed
+      <br />
+      <br />
+      Now to the default statement. This statment is put so that if none of the
+      case value match the key, then the code in the default statement will be
+      ran
+    </p>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>useReducer hook</h3>
+    <p>
+      This is actually a replacement for the useState() hook. Both hooks
+      actually have the same purpose. <br />
+      However, in a situation where you have a trigger action (maybe a click
+      event on a button) and this action is supposed to perform two or more
+      events (i.e. change two or more states), you might consider the use
+      reducer hook so that you don't have to create multiple states
+    </p>
+
+    <fieldset>
+      <code>
+        <pre>
+import {useState} from react;
+
+const ReducerTutorial= () => {
+    const [count, setCount] = useState(0); //Notice that the useState() hook was used in the component
+    const [showText, setShowText] = useState(true);
+
+    return (
+        &lt;div&gt;
+        &lt;h1&gt;{count}&lt;/h1&gt;
+            &lt;button 
+            onClick={()=> {
+                setCount(count + 1)
+                setShowText(!showText)
+            }}
+            &gt;
+                Increment
+            &lt;/button&gt;
+
+            {showText && &lt;p&gt;This is a text&lt;/p&gt;}
+        &lt;/div&gt;
+    )
+
+}
+
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+import {useReducer} from react;
+
+const reducer = (state, action) => {
+    switch (action.type) {  //Notice the use of the switch statement
+        case "INCREMENT":  //INCREMENT is  the name of an action
+            return {count: state.count + 1, showText: !state.showText}  //Notice that we also returned all the states
+        case "toggleshowtext":
+            return {count: state.count, showText: !state.showText}
+        default: //This is used if we try to access a function that wasn't defined
+            return state
+    }
+}
+//The above is a reducer function that:
+//Uses the switch conditional statement
+const ReducerTutorial= () => {
+    const [state, dispatch] = useReducer(reducer,  {count: 0, showText: true})
+    
+    
+    return (
+        &lt;div&gt;
+        &lt;h1&gt;{state.count}&lt;/h1&gt;
+            &lt;button 
+            onClick={()=> {
+                dispatch({type: "INCREMENT"});  //The dispatch  function accepts the action parameter
+                dispatch({type: "toggleshowtext"})
+                //See how the type variable of the action attribute was passed into the dispatch function
+            }}
+            &gt;
+                Increment
+            &lt;/button&gt;
+
+            {state.showText && &lt;p&gt;This is a text&lt;/p&gt;}
+        &lt;/div&gt;
+    )
+
+}
+
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      <code>
+        <pre>
+//The useReducer() hook accepts two parameters
+//The first is a (reducer) function
+//The second parameter is an object containing the states to be changed
+
+//The useReducer returns an array containing the states and a function
+const [state, dispatch] = useReducer(reducer_function, {states: defaultValues})
+
+
+//The reducer function is defined outside of the component declaration
+//It accepts two parameters
+//The first parameter is the state object containing all the states we want to change
+//The second parameter is an action parameter.
+//This action parameter is actually passed by a dispatch function which calls the reducer function
+
+//The second parameter is used to specify  the name of the action you want and what happens in the action
+//The action parameter is also an object. To specify the type of action we use the switch statement
+
+
+//The dispatch function is called this way
+dispatch({type: "type_name"})
+//It is usually called on an event
+//Now we have one variable called state which contains all the states
+//The state variable is an object
+//The dispatch is a function that is called anytime we want to change a state. it's just like the setState function
+//The dispatch function goes to the reducer function to find an action
+
+
+</pre
+        >
+      </code>
+    </p>
+  </body>
+</html>

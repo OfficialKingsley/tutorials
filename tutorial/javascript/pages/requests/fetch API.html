@@ -1,0 +1,62 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>fetch API</h2>
+    <fieldset>
+      <code>
+        <pre>
+fetch("API") This sends a get request.
+//By default fetchAPI returns a promise so we can use the then method on it
+
+fetch("API")
+.then(response => {
+  console.log(response)
+  response.json(); The json method converts the data from json
+  //We also have the .text(), .
+  //These methods also return promises, so we can add other then methods as steps
+  //The .json method creates a promise and this promise is then attached to the chain
+  //The next
+  //The promises returned by the .json() and other methods like that are like when we resolve a promise. So the data from this can then be accessed by the next then method
+})
+.then(responseData => {
+  console.log(responseData)  //This request data is the data from the response.json()
+}) 
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Specifying the type of requests and other options</h3>
+    <p>
+      By default, the fetch request is making get requests. However, we can
+      specify the type of requests of the fetch <br />
+      Some of the requests include:
+    </p>
+    <ul>
+      <li>GET - This request is made to get data from the api</li>
+      <li>POST - This request is made to add data or post data to the api</li>
+      <li>DELETE - This is to delete data from the api</li>
+      <li>PUT - This request is used to update some data in the api</li>
+    </ul>
+
+    <fieldset>
+      <code>
+        <pre>
+const res = await fetch("api.link",{
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify( what you want to send)
+})
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,520 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Array like objects</h3>
+    <p>
+      First, what are array like object? <br />
+      Array like objects are object representations of arrays with a length
+      property
+    </p>
+    e.g.
+    <fieldset>
+      <fieldset>
+        <legend>Array</legend>
+        <code>
+          <pre>
+let realArray = ["a", "b", "c"]
+          </pre>
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>Array like</legend>
+        <code>
+          <pre>
+let arrayLike = {
+  0 : "a",
+  1 : "b",
+  2 : "c",
+  length : 3 //notice the length property
+}
+          </pre>
+        </code>
+      </fieldset>
+    </fieldset>
+    <p>
+      Common examples of array like objects are the array of arguments in
+      objects. So in essence it is an object containing the arguments where the
+      keys are the index and the values are the actual parameters
+    </p>
+    <p>
+      Another example is the list of nodes we get when we use methods like
+      document.querySelectorAll()
+    </p>
+    <p>
+      One major difference is that the array like objects are objects so they
+      inherit from the Object.prototype while arrays inherit from
+      Array.prototype. Therefore, array like objects don't have methods like:
+      <code>
+        <pre>
+          .forEach()
+          .push()
+          .map()
+          .filter()
+          .slice()
+          .indexOf()
+                </pre
+        >
+      </code>
+    </p>
+    <h3>Converting array like objects to arrays</h3>
+    <p>Method1:</p>
+    <fieldset>
+      <code>
+        <pre>
+const arrayLike = {
+  0 : "value2",
+  1 : "value1",
+  length : 2
+}
+
+//Now we loop
+
+const realArray = Array.from(arrayLike)
+//The Array is an object that has a method of from
+//This from method converts something into an array
+        </pre>
+      </code>
+    </fieldset>
+    <p>Method2: loop</p>
+    <fielset>
+      <code>
+        <pre>
+let realArray = [];
+
+for (const value of arrayLike) {
+  realArray.append(value);
+};
+        </pre>
+      </code>
+    </fielset>
+    <p>Method3: Using the spread operator</p>
+    <fieldset>
+      <code>
+        <pre>
+let realArray = [...arrayLike]
+        </pre>
+      </code>
+    </fieldset>
+    <p>Method4</p>
+    <fieldset>
+      <code>
+        <pre>
+realArray = Object.values(arrayLike)
+        </pre>
+      </code>
+    </fieldset>
+    <p>Method5</p>
+    <fieldset>
+      <code>
+        <pre>
+let realArray = Object.keys(arrayLike).map((key)=>arrayLike[key])
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>The reduce function</h3>
+    <p>
+      This is simply a function that reduces or accumulates all the values of an
+      array into one item in the array
+    </p>
+    <p>
+      For example, if you need to sum all the values of a particular array, you
+      can use a loop or something but the reduce function is available for that
+    </p>
+    <p>
+      How does it work? It loops through the array and does a something based on
+      a function defined in the code
+    </p>
+
+    <fieldset>
+      <legend>Syntax</legend>
+      <code>
+        <pre>
+arrayName.reduce(function(accumulator, current){}, startingValueForThe accumulator)
+//Accumulator is the value gotten so far from the reduce function
+//Current is the current value in the array that you are working with
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>
+      For example, if you have an array and you want to sum all the items of the
+      array together, we can do
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+let arr = [1, 2, 3];
+
+arr.reduce((a, c) => {
+  a + c
+}, 0)
+
+//here, a is the accumulator
+//c is the current (value)
+//So at first, the accumulator is 0
+//Since that is the starting value of the accumulator
+
+//So according to the above code, what we have done is that
+//We have set a to 
+//a = a + c
+//Then in the final iteration, it returns "a"
+
+In the first iteration, 
+a = 0 + 1
+//now a is 1
+//In the second iteration,
+a = 1 + 2
+//now a is 3
+//In the third, which is the last because there are only 3 values in the array
+a = 3 + 3;
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>The map method</h3>
+    <p>
+      The map method also loops through the array and performs a specific action
+    </p>
+    <fielset>
+      <code>
+        <pre>
+array.map(function (3 possible parameters) {}, optional object parameter)
+
+//the three possible parameters are 
+//1. the particular value in the array in the iteration
+//2. The index of that particular value
+//3. Represents the whole array that you are looping throgh
+
+//The optional object parameter is used if we want to use the this keyword in the map method
+//This object is used so that when we type the this keyword, 
+//it will refer to the optional object passed and not the global window object
+
+        </pre>
+      </code>
+    </fielset>
+
+    <p>example</p>
+    <fielset>
+      <code>
+        <pre>
+let myArray = [1, 2, 3, 4]
+
+myArray.map((value, index, arr) => {
+  console.log(`${value} has an index of ${index} in the array ${arr}` )
+})
+
+//With the optional object,
+
+myArray.map((value, index, arr) => {
+  console.log(`${value} has an index of ${index} in the array ${arr}`, this.documentation )
+}, {documentation: "this is the optional object"})
+//Output: 1 has an index of 0 in the array [1, 2, 3, 4] this is the optional object
+        </pre>
+      </code>
+    </fielset>
+
+    <h3>Filter method</h3>
+    <p>
+      As the name implies, it is used to filter or remove items from an array
+      based on a particular function
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+array.filter(function(){condition})
+        </pre>
+      </code>
+    </fieldset>
+    <p>Example</p>
+    <fieldset>
+      <code>
+        <pre>
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+arr.filter ((value)=>{
+  if (value % 2 !== 0)
+  return value; //remember to return the value
+})
+        </pre>
+      </code>
+    </fieldset>
+    <h3>The sort method</h3>
+    <p>
+      By default, the sort method sorts the items of an array according their
+      string unicode. It does not create a new array like other methods but it
+      modifies the original
+    </p>
+    <p>
+      It sorts items in this order,
+      <code>
+        <pre>
+Negative numbers
+Whole numbers
+Uppercase letters
+Lowercase
+        </pre>
+      </code>
+    </p>
+
+    <p>Alphabetical String Sort</p>
+    <fielset>
+      <code>
+        <pre>
+let thisArray = ["s", "t", "a", "c", "K", "o", "v", "E", "r", "f", "l", "w",
+"2", "1"];
+thisArray.sort((a, b)=> { return a.localCompare(b) });
+
+//Output
+
+["1", "2", "a", "c", "E", "f", "K", "l", "o", "r", "s", "t", "v", "W"]
+        </pre>
+      </code>
+    </fielset>
+    <p>
+      The above sort will throw an error if any array item is not a string.
+      <br />
+      If you know that the array may contain items that are not strings use the
+      safer version bellow
+    </p>
+    <fielset>
+      <code>
+        <pre>
+thisArray.sort((a, b) => {
+  return a.toString().localCompare(b)
+})
+        </pre>
+      </code>
+    </fielset>
+
+    <h2>Looping through an array</h2>
+    <p>
+      We can loop through an array using the following methods.
+      <code>
+        <pre>
+Using the for loop
+Using the while loop
+Using the for ... of loop
+Using the .forEach() method
+using the .every property
+Using the .some property
+        </pre>
+      </code>
+    </p>
+
+    <fielset>
+      <code>
+        <pre>
+const myArray = [1, 2, 3, 4, 5, 6, 7]
+for (item of myArray) {
+  console.log(item)
+}
+myArray.forEach((item) => {
+  console.log(item)
+})
+
+        </pre>
+      </code>
+    </fielset>
+    <h3>Reversing the order of an array</h3>
+    <p>This can be done using the <code>.reverse()</code> method</p>
+    <h3>Cloning an array</h3>
+    <p>Cloning an array means getting an exact copy of the array</p>
+    <p>
+      All the methods used to convert array like objects to arrays can be used
+      to clone an array
+    </p>
+
+    <fieldset>
+      <code>
+        <pre>
+let arrayToClone = [1, 2, 3, 4, 5];
+
+clone1 = Array.from(arrayToClone);
+clone2 = Array.of(...arrayToClone);
+clone3 = [...arrayToClone]
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Concatenating arrays</h3>
+    <fieldset>
+      <code>
+        <pre>
+array1.concat(array2)
+
+//If you want to add more arrays, we can do 
+
+let arrayConc = array1.concat(array2, array3, array4)
+
+//Another way is
+
+arrayConc = [...array1, ...array2, ...array3, ...array4]
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Searching in an array</h3>
+    <p>Method1: Using the <code>.find() method</code></p>
+    <fieldset>
+      <code>
+        <pre>
+let bob = people.find((person)=> {
+  person.name === "bob"
+})
+        </pre>
+      </code>
+    </fieldset>
+    <p>Method2: Using a loop</p>
+    <p>
+      Method3: using the <code>.findIndex() method</code> <br />
+      This returns the index of the item and if the item is not found, it
+      returns <output><code>-1</code></output>
+    </p>
+    <h3>Converting strings to arrays</h3>
+    <p>Method1: using the split method</p>
+    <fieldset>
+      <code>
+        <pre>
+string.split(delimeter)
+//The delimeter is what you want to use to separate each item By
+//If the delimeter is "", all the characters will be turned to array items
+//If the delimeter is " ", where ever a space " " is found,
+//then a new array item will be made
+
+//If the delimeter is ",", then where ever a comma "," is found,
+//then a new array item will be made
+        </pre>
+      </code>
+    </fieldset>
+    <fielset>
+      <code>
+        <pre>
+let myString = "He is a good boy, a very good one"
+let arr = myString.split("")
+//["H", "e", " ", "i", "s", " ", "a", " ",]
+let arr = myString.split(" ");
+//["He", "is", "a", "good", "boy,", "a"]
+        </pre>
+      </code>
+    </fielset>
+
+    <h3>Removing items from an array</h3>
+    <p>
+      Method1: Using the shift method: <br />
+      This removes a single item from the front of the array
+    </p>
+    <p>
+      Using the .pop() method: <br />
+      This removes an item from the back of the array
+    </p>
+    <p>
+      Using the splice method: <br />
+      This takes in two parameters. The first is the the index of where you want
+      to start deleting from and the second is the number of items you want to
+      delete
+    </p>
+    <p>
+      This second parameter is optional and if not provided, the splice method
+      will delete till the last element
+    </p>
+    <p>Note that the splice method returns an array of the</p>
+    <p>usig the delete keyword</p>
+    <fieldset>
+      <code><pre>delete array[indexOfItem]</pre></code>
+    </fieldset>
+    <p>Using the .length property</p>
+    <p>
+      If we have an array containing 10 items, if we set the length to let's say
+      8, this will remove the last 2 items in the array
+    </p>
+
+    <h3>Clearing all the items of an array</h3>
+    <p>To do this, we can</p>
+    <p>1: Set the length property to 0</p>
+    <p>Doing <code>array.splice(0)</code></p>
+    <p>Doing <code>array = []</code></p>
+
+    <h3>Finding the maximum and minimum values of an array</h3>
+    <p>For an array that contains just numeric values, we can do this</p>
+    <fielset>
+      <code>
+        <pre>
+Math.min.apply(null, myArray); //See that the first value was null
+Math.max.apply(null, myArray);
+        </pre>
+      </code>
+    </fielset>
+    <p>You can also simply just use the spread operator</p>
+    <fieldset>
+      <code>
+        <pre>
+Math.min(...myArray)
+Math.max(...myArray)</pre
+        >
+      </code>
+    </fieldset>
+
+    <h3>Turning items of an array into a string</h3>
+    <p>This can be done using the .join(delimeter) method</p>
+
+    <h3>Adding items to an array</h3>
+    <p>
+      Method1: Using the unshift method: This adds an item to the front of an
+      array i.e. it prepends the array.
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+let arr = [3, 4, 5, 6]
+arr.unshift(1, 2)
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Push, this adds an item to the back of the array i.e. it appends the array
+    </p>
+    <p>Method3: Using the .splice() method</p>
+    <p>
+      Although we saw that this method was used to remove items, it can also be
+      used to add items
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+arr.splice(i, 0, item)
+//I is the index where you want ot insert the items
+//The 0 is compulsory meaning do not remove any item
+//The item represents the item or items you wanna add to the array
+    </pre
+        >
+      </code>
+    </fieldset>
+    <h3>Checking if an object is an array</h3>
+    <fieldset>
+      <code>
+        <pre>
+arr = [];
+
+Array.isArray(arr)
+//you can also do
+arr instanceOf Array
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>The .entries method</h3>
+    <p>
+      This method returns an array containing each item in the array in an
+      index: value format
+    </p>
+  </body>
+</html>

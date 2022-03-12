@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><u>Linking Resources</u></h1>
+Attribute --- Details<br>
+<b>charset:</b> Speciﬁes the character encoding of the linked document 
+<b>crossorigin:</b> Speciﬁes how the element handles cross origin requests 
+<b>href:</b> Speciﬁes the location of the linked document 
+<b>hreflang:</b> Speciﬁes the language of the text in the linked document 
+<b>media:</b> Speciﬁes on what device the linked document will be displayed, often used with selecting stylesheets based on the device in question 
+<b>rel:</b> Required. Speciﬁes the relationship between the current document and the linked document 
+<b>rev:</b> Speciﬁes the relationship between the linked document and the current document 
+<b>sizes</b> Speciﬁes the size of the linked resource. Only when rel="icon" 
+<b>target:</b> Speciﬁes where the linked document is to be loaded 
+<b>type:</b> Speciﬁes the media type of the linked document 
+<b>integrity:</b> Speciﬁes a base64 encoded hash (sha256, sha384, or sha512) of the linked resource allowing the browser to verify its legitimacy.
+
+<p>While many scripts, icons, and stylesheets can be written straight into HTML markup, it is best practice and more eﬃcient to include these resources in their own ﬁle and link them to your document. This topic covers linking external resources such as stylesheets and scripts into an HTML document. </p>
+
+
+<h3><u>JavaScript</u></h3>
+<b>Synchronous:</b> 
+
+<fieldset>
+    &lt;script src="path/to.js"}&lt;/script}
+</fieldset>
+<script src="path/to.js"></script>
+
+<p>Standard practice is to place JavaScript &lt;script} tags just before the closing &lt;/body} tag. Loading your scripts last allows your site's visuals to show up more quickly and discourages your JavaScript from trying to interact with elements that haven't loaded yet.</p>
+
+<b>Asynchronous:</b>
+
+<fieldset>
+    &lt;script src="path/to.js" async}&lt;/script}
+</fieldset>
+
+<script src="path/to.js" async></script>
+
+<p>Another alternative, when the Javascript code being loaded is not necessary for page initialization, it can be loaded asynchronously, speeding up the page load. Using async the browser will load the contents of the script in parallel and, once it is fully downloaded, will interrupt the HTML parsing in order to parse the Javascript ﬁle.</p>
+
+<b>Deferred:</b>
+
+<fieldset>
+    &lt;script src="path/to.js" defer}&lt;/script}
+</fieldset>
+
+<script src="path/to.js" defer></script>
+
+<p>Deferred scripts are like async scripts, with the exception that the parsing will only be performed once the HTML is fully parsed. Deferred scripts are guaranteed to be loaded in the order of declaration, same way as synchronous scripts.</p>
+
+<noscript> <noscript>JavaScript disabled</noscript>
+The <noscript> element deﬁnes content to be displayed if the user has scripts disabled or if the browser does not support using scripts. The <noscript> tag can be placed in either the <head> or the <body>.
+
+<h3>External CSS Stylesheet</h3>
+
+<fieldset>
+    &lt;link rel="stylesheet" href="path/to.css" type="text/css"}
+</fieldset>
+
+<link rel="stylesheet" href="path/to.css" type="text/css">
+
+<p>The standard practice is to place CSS &lt;link} tags inside the &lt;head} tag at the top of your HTML. This way the CSS will be loaded ﬁrst and will apply to your page as it is loading, rather than showing unstyled HTML until the CSS is loaded. The typeattribute is not necessary in HTML5, because HTML5 usually supports CSS.</p>
+
+
+<fieldset>
+    &lt;link rel="stylesheet" href="path/to.css" type="text/css"}<br>
+    &lt;link rel="stylesheet" href="path/to.css"}
+</fieldset>
+<link rel="stylesheet" href="path/to.css" type="text/css">
+ <link rel="stylesheet" href="path/to.css">
+
+<p>The above do the same thing in HTML5.</p>
+
+<p>Another, though less common practice, is to use an @import statement inside direct CSS. Like this:</p>
+<fieldset>
+    <style type="text/css">    ("path/to.css"); </style>
+    <style>    ("path/to.css") </style>
+</fieldset>
+
+
+<h3>Favicon</h3>
+
+<fieldset>
+    &lt;link rel="icon" type="image/png" href="/favicon.png"}<br>
+    &lt;link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"}
+</fieldset>
+<link rel="icon" type="image/png" href="/favicon.png"><br>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+<p>Use the mime-type image/png for PNG ﬁles and image/x-icon for icon (*.ico) ﬁles. For the diﬀerence, see this SO question.</p>
+
+<p>A ﬁle named favicon.ico at the root of your website will typically be loaded and applied automatically, without the need for a &lt;link} tag. If this ﬁle ever changes, browsers can be slow and stubborn about updating their cache. </p>
+
+<h3><u>Alternative CSS</u></h3>
+
+<fieldset>
+    &lt;link rel="alternate stylesheet" href="path/to/style.css" title="yourTitle"}    
+</fieldset>
+
+<link rel="alternate stylesheet" href="path/to/style.css" title="yourTitle">
+
+<p>Some browsers allow alternate style sheets to apply if they are oﬀered. By default they will not be applied, but usually they can be changed through the browser settings:<br>
+Firefox lets the user select the stylesheet using the View > Page Style submenu<br>
+Internet Explorer also supports this feature (beginning with IE 8), also accessed from View > Page Style (at least as of IE 11)<br>
+Chrome however requires an extension to use the feature (as of version 48). The web page can also provide its own user interface to let the user switch styles.</p>
+
+<h3>Resource Hint: dns-prefetch, prefetch, prerender</h3>
+
+<h4><u>Preconnect</u></h4>
+<p>The preconnect relationship is similar to dns-prefetch in that it will resolve the DNS. However, it will also make the TCP handshake, and optional TLS negotiation. This is an experimental feature.</p>
+
+<fieldset>
+    &lt;link rel="preconnect" href="URL"} DNS-Prefetch
+
+</fieldset>
+
+<link rel="preconnect" href="URL"> DNS-Prefetch
+
+The above informs browsers to resolve the DNS for a URL, so that all assets from that URL load faster.
+
+<fieldset>
+    &lt;link rel="dns-prefetch" href="URL"} Prefetch
+</fieldset>
+
+<link rel="dns-prefetch" href="URL"> Prefetch
+
+The above informs the browsers that a given resource should be prefetched so it can be loaded more quickly.
+<link rel="prefetch" href="URL">
+DNS-Prefetch resolves only the domain name whereas prefetch downloads/stores the speciﬁed resources.
+Prerender
+Informs browsers to fetch and render the URL in the background, so that they can be delivered to the user instantaneously as the user navigates to that URL. This is an experimental feature.
+<link rel="prerender" href="URL"> Section 12.6: Link 'media' attribute
+<link rel="stylesheet" href="test.css" media="print">
+Media speciﬁes what style sheet should be used for what type of media. Using the print value would only display that style sheet for print pages.
+The value of this attribute can be any of the mediatype values (similar to a CSS media query). Section 12.7: Prev and Next
+When a page is part of a series of articles, for instance, one can use prev and next to point to pages that are coming before and after.
+<link rel="prev" href="http://stackoverflow.com/documentation/java/topics">
+<link rel="next" href="http://stackoverflow.com/documentation/css/topics"> Section 12.8: Web Feed
+Use the rel="alternate" attribute to allow discoverability of your Atom/RSS feeds.
+<link rel="alternate" type="application/atom+xml" href="http://example.com/feed.xml" /> <link rel="alternate" type="application/rss+xml" href="http://example.com/feed.xml" />
+
+See the MDN docs for RSS feeds and Atomic RSS.
+
+<h1><u>Include JavaScript Code in HTML</u></h1>
+
+Attribute --- Details
+<b>>src:</b> Speciﬁes the path to a JavaScript ﬁle. Either a relative or absolute URL. 
+<b>type:</b> Speciﬁes the MIME type. This attribute is required in HTML4, but optional in HTML5. 
+<b>async:</b> Speciﬁes that the script shall be executed asynchronously (only for external scripts). This attribute does not require any value (except of XHTML). 
+<b>defer:</b> Speciﬁes that the script shall be executed when the page has ﬁnished parsing (only for external scripts). This attribute does not require any value (except of XHTML). 
+<b>charset:</b> Speciﬁes the character encoding used in an external script ﬁle, e.g. UTF-8 
+<b>crossorigin:</b> How the element handles crossorigin requests nonce Cryptographic nonce used in Content Security Policy checks CSP3 
+
+<h3><u>Handling disabled Javascript</u></h3>
+
+<p>It is possible that the client browser does not support Javascript or have Javascript execution disabled, perhaps due to security reasons. To be able to tell users that a script is supposed to execute in the page, the &lt;noscript} tag can be used. The content of &lt;noscript} is displayed whenever Javascript is disabled for the current page.</p>
+
+<fieldset>
+    &lt;script}  document.write("Hello, world!"); &lt;/script} &lt;noscript}This browser does not support Javascript.&lt;/noscript} 
+</fieldset>
+
+<script>  document.write("Hello, world!"); </script> <noscript>This browser does not support Javascript.</noscript>
+
+<h3><u>Linking to an external JavaScript ﬁle</u></h3>
+
+<fieldset>
+    &lt;script src="example.js"}&lt;/script}    
+</fieldset>
+<script src="example.js"></script>
+
+<p>The src attribute works like the href attribute on anchors: you can either specify an absolute or relative URL. The example above links to a ﬁle inside the same directory of the HTML document. This is typically added inside the &lt;head} tags at the top of the html document</p>
+
+<h3><u>Directly including JavaScript code</u></h3>
+
+<p>Instead of linking to an external ﬁle, you can also include the JS code as-is in your HTML:</p>
+
+<fieldset>
+    &lt;script} // JavaScript code &lt;/script}
+</fieldset>
+<script> // JavaScript code </script>
+
+
+<h3><u>Including a JavaScript ﬁle executing asynchronously</u></h3>
+
+<fieldset>
+&lt;script type="text/javascript" src="URL" async}&lt;/script}
+</fieldset>
+<script type="text/javascript" src="URL" async></script>
+
+Chapter 14: Using HTML with CSS
+CSS provides styles to HTML elements on the page. Inline styling involves usage of the style attribute in tags, and is highly discouraged. Internal stylesheets use the &lt;style} tag and are used to declare rules for directed portions of the page. External stylesheets may be used through a &lt;link} tag which takes an external ﬁle of CSS and applies the rules to the document.<br>
+This topic covers usage of all three methods of attachment. 
+
+<h3><u>External Stylesheet Use</u></h3>
+
+Use the link attribute in the document's head:
+&lt;head}<br>
+&lt;link rel="stylesheet" type="text/css" href="stylesheet.css"}<br>
+&lt;/head}
+
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+You can also use stylesheets provided from websites via a content delivery network, or CDN for short. (for example, Bootstrap):
+
+
+<fieldset>
+    &lt;head}<br>
+        &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"}<br>
+    &lt;/head}
+</fieldset>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<p>Generally, you can ﬁnd CDN support for a framework on its website.</p>
+<h3><u>Internal Stylesheet</u></h3>
+
+You can also include CSS elements internally by using the &lt;style} tag:
+
+<fieldset>
+    Here, the tags <> are going to be represented with []<br>
+    <p>
+        [head]
+            [style type="text/css"]
+            body &lt;
+            background-color: gray;        
+            }    
+            [/style]  
+        [/head]
+    </p>
+</fieldset>
+
+<head>
+    <style type="text/css">        
+    body &lt;           
+    background-color: gray;        
+    }    
+    </style>  
+</head>
+<p>Multiple internal stylesheets can be included in a program as well.</p>
+
+
+<fieldset>
+    [head]
+        [style type="text/css"]        
+        body &lt;
+            background-color: gray;
+            }
+        [/style]
+        [style type="text/css"]
+        p &lt;
+            background-color: blue;
+            }
+            [/style]
+            [/head]
+</fieldset>
+
+&lt;head>
+&lt;style type="text/css">        
+    body {
+        background-color: gray;
+        }
+    
+
+    p {
+
+        background-color: blue;
+        }
+        &lt;/style>
+        &lt;/head>
+
+<h3><u>Inline Style</u></h3>
+<p>You can style a speciﬁc element by using the style attribute:</p>
+
+<fieldset>
+    &lt;span style="color: red">This text will appear in red.&lt;/span]
+</fieldset>
+&lt;span style="color: red">This text will appear in red.&lt;/span>
+
+
+Try to avoid this -- the point of CSS is to separate content from presentation.
+
+<h3><u>Multiple Stylesheets</u></h3>
+
+It's possible to load multiple stylesheets:
+
+<fieldset>
+    &lt;head}
+        &lt;link rel="stylesheet" type="text/css" href="general.css"}
+        &lt;link rel="stylesheet" type="text/css" href="specific.css"}
+    &lt;/head}
+</fieldset>
+<head>
+    <link rel="stylesheet" type="text/css" href="general.css">
+    <link rel="stylesheet" type="text/css" href="specific.css">
+</head>
+
+<p>Note that later ﬁles and declarations will override earlier ones. So if general.css contains:</p>
+body &lt;    background-color: red; }<br>
+and specific.css contains:<br>
+body &lt;    background-color: blue; }<br>
+if both are used, the background of the document will be blue.
+</body>
+</html>

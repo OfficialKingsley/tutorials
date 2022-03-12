@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Sectioning Elements In HTML
+        </title>
+    </head>
+    <body>
+        <p><b>Sectioning Elements</b></p>
+<p>Nav Element</p>
+<p>The (nav) element is primarily intended to be used for sections that contain main navigation blocks for the
+website, this can include links to other parts of the web page (e.g. anchors for a table of contents) or other pages
+entirely.</p>
+
+<p>Inline items</p>
+
+The following will display an inline set of hyperlinks.
+
+<fieldset>
+<p>
+    (nav)<br>
+    (a href="https://google.com")Google(/a)<br>
+    (a href="https://www.yahoo.com")Yahoo!(/a)<br>
+    (a href="https://www.bing.com")Bing(/a)<br>
+    (nav)
+    </p>
+</fieldset>
+
+<nav>
+<a href="https://google.com">Google</a><br>
+<a href="https://www.yahoo.com">Yahoo!</a><br>
+<a href="https://www.bing.com">Bing</a>
+</nav>
+
+Use list items when needed
+If the content represents a list of items, use a list item to show this and enhance the user experience.
+Note the role="navigation", more on this below.
+
+<fieldset>
+    <p>
+        (nav role="navigation")<br>
+            (ul)<br>
+            (li)(a href="https://google.com")Google(/a)(/li)<br>
+            (li)(a href="https://www.yahoo.com")Yahoo!(/a)(/li)<br>
+            (li)(a href="https://www.bing.com")Bing(/a)(/li)<br>
+            (/ul)<br>
+            (/nav)
+    </p>
+</fieldset>
+<nav role="navigation">
+<ul>
+<li><a href="https://google.com">Google</a></li>
+<li><a href="https://www.yahoo.com">Yahoo!</a></li>
+<li><a href="https://www.bing.com">Bing</a></li>
+</ul>
+</nav>
+
+You should try as much as possible to avoid unnecessary usage
+<p>
+(footer) elements may have a list of links to other parts of the site (e.g. FAQ, T&C, etc.). The footer element alone is
+sufficient in this case, you don't need to further wrap your links with a (nav) element in the (footer).</p>
+That is the (nav) is not required in the (footer)
+
+<fieldset>
+    <p>
+        (footer)
+            (nav)<br>
+            (a href="#")Hola(/a)<br>
+            (/nav)<br>
+            (/footer)<br>
+            <!-- The footer alone is sufficient -->
+            (footer)<br>
+            (a href="#")Wawu(/a)<br>
+            (/footer)
+    </p>
+</fieldset>
+
+<footer>
+<nav>
+<a href="#">Hola</a>
+</nav>
+</footer>
+<!-- The footer alone is sufficient -->
+<footer>
+<a href="#">Wawu</a>
+</footer>
+
+<p>Notes:</p>
+The "(main)" element descendants are not allowed within a (nav)
+<p>Adding a role="navigation" ARIA role to the (nav) element is advised to aid user agents that don't
+support HTML5 and also to provide more context for those that do.</p>
+<fieldset>
+    <p>
+        (nav role="navigation")<!-- ... -->(/nav)
+    </p>
+</fieldset>
+
+<nav role="navigation"><!-- ... --></nav>
+
+<p>Screen Readers: These are software that allows blind or visually impaired users to navigate the site </p>
+
+<p>User agents like screen readers will interpret the (nav) element differently depending on their
+requirements. It could give the (nav) element a higher priority when rendering the page or t could delay the rendering of the element. It could adapt the page in a specific way to tailor for the user's needs.</p>
+<p>Example: make the text links within the (nav) elements larger for someone who's visually impaired.</p>
+
+<p><b>Article Element</b></p>
+<p>The (article) element contains self-contained content like articles, blog posts, user comments or an interactive widget that could be distributed outside the context of the page. For example by RSS.
+When article elements are nested, the contents of the inner article node should be related to the outer article
+element.
+A blog (section) with multiple posts (article), and comments (article) might look something like this.
+<fieldset>
+    <p>
+        (section)<br>
+            <!-- Each individual blog post is an <article> -->
+            (article)<br>
+            (header)<br>
+            (h1)Blog Post(/h1)<br>
+            (time datetime="2016-03-13")13th March 2016(/time)<br>
+            (/header)<br>
+            (p)The article element represents a self contained article or document.(/p)<br>
+            (p)The section element represents a grouping of content.(/p)<br>
+            (section)<br>
+            (h2)Comments (small)relating to "Blog Post"(/small)(/h2)<br>
+            <!-- Related comment is also a self-contained article -->
+            (article id="user-comment-1")<br>
+            (p)Excellent!(/p)<br>
+            (footer)(p)...(/p)(time)...(/time)(/footer)<br>
+            (/article)<br>
+            (/section)<br>
+            (/article)<br>
+            <!-- ./repeat: <article> -->
+            (/section)<br>
+            <!-- Content unrelated to the blog or posts should be outside the section. -->
+            (footer)<br>
+            (p)This content should be unrelated to the blog.(/p)<br>
+            (/footer)
+            
+    </p>
+</fieldset>
+<section>
+<!-- Each individual blog post is an <article> -->
+<article>
+<header>
+<h1>Blog Post</h1>
+<time datetime="2016-03-13">13th March 2016</time>
+</header>
+<p>The article element represents a self contained article or document.</p>
+<p>The section element represents a grouping of content.</p>
+<section>
+<h2>Comments <small>relating to "Blog Post"</small></h2>
+<!-- Related comment is also a self-contained article -->
+<article id="user-comment-1">
+<p>Excellent!</p>
+<footer><p>...</p><time>...</time></footer>
+</article>
+</section>
+</article>
+<!-- ./repeat: <article> -->
+</section>
+<!-- Content unrelated to the blog or posts should be outside the section. -->
+<footer>
+<p>This content should be unrelated to the blog.</p>
+</footer>
+
+<p>You should avoid unnecessary usage</p>
+<p>When the main content of the page (excluding headers, footers, navigation bars, etc.) is simply one group of
+elements. You can omit the (article) in favour of the (main) element.</p>
+
+<fieldset>
+    <p>
+        (article)<br>
+            (p)This doesn't make sense, this article has no real `context`.(/p)<br>
+            (/article)<br>
+    </p>
+</fieldset>
+
+<article>
+<p>This doesn't make sense, this article has no real `context`.</p>
+</article>
+
+<p>Instead, replace the article with a (main) element to indicate this is the main content for this page.</p>
+
+<fieldset>
+    <p>
+        (main)<br>
+            (p))>I'm the main content, I don't need to belong to an article.(/p)<br>
+            (/main)
+    </p>
+</fieldset>
+
+<main>
+<p>I'm the main content, I don't need to belong to an article.</p>
+</main>
+
+<p>If you use another element, ensure you specify the (main) ARIA role for correct interpretation and rendering across
+multiple devices and non HTML5 browsers.</p>
+
+<fieldset>
+    <p>
+        (section role="main")<br>
+        (p)This section is the main content of this page.(/p)<br>
+        (/section)
+    </p>
+</fieldset>
+
+<section role="main">
+<p>This section is the main content of this page.</p>
+</section>
+
+<p>Notes:</p>
+
+<p>(main) element descendants are not allowed within a (article)</p>
+
+<p>Main Element</p>
+
+<p>The (main) element contains the main content for your web page. This content is unique to the individual page,
+and should not appear elsewhere on the site. Repeating content like headers, footers, navigation, logos, etc., is placed outside the element.</p>
+
+<p>The (main) element should only ever be used at most once on a single page.
+The (main) element must not be included as a descendant of an article, aside, footer, header or nav element.</p>
+
+<p>In the following example, we're displaying a single blog post (and related information like references and
+comments).</p>
+
+<fieldset>
+    <p>
+        (body)<br>
+            (header)<br>
+            (nav)...(/nav)<br>
+            (/header)<br>
+            (main)<br>
+            (h1)Individual Blog Post(/h1)<br>
+            (p)An introduction for the post.(/p)<br>
+            (article)<br>
+            (h2)References(/h2)<br>
+            (p)...(/p)<br>
+            (/article)<br>
+            (article)<br>
+                (h2)Comments(/h2) ...<br>
+            (/article)<br>
+            (/main)<br>
+            (footer)...(/footer)<br>
+            (/body)<br>
+            
+    </p>
+</fieldset>
+
+<body>
+<header>
+<nav>...</nav>
+</header>
+<main>
+<h1>Individual Blog Post</h1>
+<p>An introduction for the post.</p>
+<article>
+<h2>References</h2>
+<p>...</p>
+</article>
+<article>
+    <h2>Comments</h2> ...
+</article>
+</main>
+<footer>...</footer>
+</body>
+
+<p>The blog post is contained within the (main) element to indicate this is the main content for this page (and
+therefore, unique across the website).</p>
+<p>The (header) and (footer) tags are siblings to the (main) element.</p>
+
+<p>Notes:</p>
+
+<p>The HTML5 specification recognizes the (main) element as a grouping element, and not a sectioning
+element.</p>
+
+<p>ARIA role attributes: main (default), presentation</p>
+<p>Adding a role="main" ARIA role attribute to other elements intended to be used as main content is
+advised to aid user agents that don't support HTML5 and also to provide more context for those that do.</p>
+
+<p>The (main) element by default has the main role, and so does not need to be provided.</p>
+
+<p><b>Header Element</b></p>
+<p>The (header) element represents introductory content for its nearest ancestor sectioning content or sectioning
+root element. A (header) typically contains a group of introductory or navigational aids.</p>
+
+<p>Note: The header element is not sectioning content; it doesn’t introduce a new section.</p>
+
+Examples:
+
+<fieldset>
+    <p>
+        (header)<br>
+            (p)Welcome to...(/p)<br>
+            (h1)Voidwars!(/h1)<br>
+            (/header)<br>
+            In this example, the (article) has a (header).<br>
+            (article)<br>
+            (header)<br>
+            (h1)Flexbox: The definitive guide(/h1)<br>
+            (/header)<br>
+            (p)The guide about Flexbox was supposed to be here, but it turned out Wes wasn’t a Flexbox expert
+            either.</p>
+            </article>
+    </p>
+</fieldset>
+
+<header>
+<p>Welcome to...</p>
+<h1>Voidwars!</h1>
+</header>
+In this example, the <article> has a <header>.
+<article>
+<header>
+<h1>Flexbox: The definitive guide</h1>
+</header>
+<p>The guide about Flexbox was supposed to be here, but it turned out Wes wasn’t a Flexbox expert
+either.</p>
+</article>
+
+<p><b>Footer Element</b></p>
+<p>The (footer) element contains the footer part of the page.</p>
+<p>Here is an example for (footer) element that contain p paragraph tag.</p>
+
+<fieldset>
+    <p>
+        (footer)
+            (p)All rights reserved(/p)
+            (/footer)
+    </p>
+</fieldset>
+
+<footer>
+<p>All rights reserved</p>
+</footer>
+
+<p><b></b></p>Section Element</b></p>
+
+<p>The (section) element represents a generic section to thematically group content. Every section, typically, should
+be able to be identified with a heading element as a child of the section.</p>
+<p>You can use the (section) element within an (article) and vice-versa.</p>
+<p>Every section should have a theme (a heading element identifying this region)</p>
+<p>Don't use the (section) element as a general styling 'container'.</p>
+<p>If you need a container to apply styling, use a (div) instead.</p>
+<p>In the following example, we're displaying a single blog post with multiple chapters each chapter is a section (a set
+of thematically grouped content, which can be identified by the heading elements in each section).</p>
+
+<fieldset>
+    <p>
+        (article)<br>
+            (header)<br>
+            (h2)Blog Post(/h2)<br>
+            (/header)<br>
+            (p)An introduction for the post.(/p)<br>
+            (section)<br>
+            (h3)Chapter 1(/h3)<br>
+            (p)...(/p)<br>
+            (/section)<br>
+            (section)<br>
+            (h3)Chapter 2(/h3)<br>
+            (p)...(/p)<br>
+            (/section)<br>
+            (section)<br>
+            (h3)Comments(/h3) ...<br>
+            (/section)
+            (/article)
+    </p>
+</fieldset>
+
+<article>
+<header>
+<h2>Blog Post</h2>
+</header>
+<p>An introduction for the post.</p>
+<section>
+<h3>Chapter 1</h3>
+<p>...</p>
+</section>
+<section>
+<h3>Chapter 2</h3>
+<p>...</p>
+</section>
+<section>
+<h3>Comments</h3> ...
+</section>
+</article>
+
+<p>Notes:</p>
+
+<p>Developers should use the article element when it makes sense to syndicate the contents of the element.</p>
+
+    </body>
+</html>

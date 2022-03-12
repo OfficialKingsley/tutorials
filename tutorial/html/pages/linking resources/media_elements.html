@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Media elements in HTML
+        </title>
+    </head>
+    <body>
+<p><b><u>Media Elements</u></b></p>
+Attribute - Details
+<b>width:</b> Sets the element's width in pixels.<br>
+<b>height:</b> Sets the element's height in pixels.<br>
+<b>(source):</b> Defines resources of the audio or video files<br>
+<b>track:</b> Defines the text track for media elements<br>
+<b>controls:</b> Displays controls<br>
+<b>autoplay:</b> Automatically start playing the media<br>
+<b>loop:</b> Plays the media in a repeated cycle<br>
+<b>muted:</b> Plays the media without sound<br>
+<b>poster:</b> Assigns an image to display until a video is loaded
+
+<p><u>Audio</u></p>
+<p>HTML5 provides a new standard for embedding an audio file on a web page. You can embed an audio file to a page using the (audio) element:</p>
+
+<fieldset>
+    <p>
+        (audio controls)<br>
+            (source src="file.mp3" type="audio/mpeg")<br>
+            Your browser does not support the audio element.<br>
+            (/audio)
+    </p>
+</fieldset>
+
+<audio controls>
+<source src="file.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p><u>Video</u></p>
+You can embed also a video to a webpage using the (video) element:
+
+<fieldset>
+    <p>
+        (video width="500" height="700" controls)<br>
+            (source src="video.mp4" type="video/mp4")<br>
+            Your browser does not support the video tag.<br>
+            (/video)
+    </p>
+</fieldset>
+
+<video width="500" height="700" controls>
+<source src="video.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><u>Using `(video)` and `(audio)` element to display audio/video content</u></p>
+<p>Use the HTML or (audio) element to embed video/audio content in a document. The video/audio element contains
+one or more video/audio sources. To specify a source, use either the src attribute or the (source) element; the
+browser will choose the most suitable one.</p>
+
+<b>Audio tag example:</b>
+
+<fieldset>
+    <p>
+        Simple video example:<br>
+(video src="videofile.webm" autoplay poster="posterimage.jpg")<br>
+    Sorry, your browser doesn't support embedded videos, but don't worry, you can (a href="videofile.webm")download it(/a) and watch it with your favorite video player!<br>
+    </video>
+    </p>
+</fieldset>
+
+<!-- Simple video example -->
+<video src="videofile.webm" autoplay poster="posterimage.jpg">
+    Sorry, your browser doesn't support embedded videos,
+    but don't worry, you can <a href="videofile.webm">download it</a>
+    and watch it with your favorite video player!
+    </video>
+
+<fieldset>
+    <p>
+        Video with subtitles:<br>
+(video src="foo.webm")<br>
+    (track kind="subtitles" src="foo.en.vtt" srclang="en" label="English")<br>
+    (track kind="subtitles" src="foo.sv.vtt" srclang="sv" label="Svenska")
+    </video>
+    </p>
+    </fieldset>
+
+<!-- Video with subtitles -->
+<video src="foo.webm">
+    <track kind="subtitles" src="foo.en.vtt" srclang="en" label="English">
+    <track kind="subtitles" src="foo.sv.vtt" srclang="sv" label="Svenska">
+    </video>
+    
+<fieldset>
+    <p>
+        Simple video example:<br>
+(video width="480" controls poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif" )<br>
+    (source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm")<br>
+    (source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4")<br>
+(source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv" type="video/ogg")<br>
+    Your browser doesn't support HTML5 video tag.
+    </video>
+    </p>
+</fieldset>
+
+<!-- Simple video example -->
+<video width="480" controls poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif" >
+    <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm">
+    <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4">
+    <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv" type="video/ogg">
+    Your browser doesn't support HTML5 video tag.
+    </video>
+
+    <fieldset>
+    <p>
+        Audio tag example:<br>
+Simple audio playback:<br>
+(audio src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg" autoplay)<br>
+Your browser does not support the (code)audio(/code) element.<br>
+</audio>
+    </p>
+    </fieldset>
+    
+    Audio tag example:
+<!-- Simple audio playback -->
+<audio src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg" autoplay>
+Your browser does not support the <code>audio</code> element.
+</audio>
+
+
+<fieldset>
+    <p>
+        Audio playback with captions:<br>
+(audio src="foo.ogg")<br>
+    (track kind="captions" src="foo.en.vtt" srclang="en" label="English")<br>
+    (track kind="captions" src="foo.sv.vtt" srclang="sv" label="Svenska")<br>
+    </audio>
+    
+    </p>
+</fieldset>
+
+<!-- Audio playback with captions -->
+<audio src="foo.ogg">
+<track kind="captions" src="foo.en.vtt" srclang="en" label="English">
+<track kind="captions" src="foo.sv.vtt" srclang="sv" label="Svenska">
+</audio>
+
+
+<p><u><b>Video header or background</b></u></p>
+Adding a video that will autoplay on a loop and has no controls or sound. Perfect for a video header or background.<br>
+
+<fieldset>
+    <p>
+        (video width="1280" height="720" autoplay muted loop poster="video.jpg" id="videobg")<br>
+            (source src="video.mp4" type="video/mp4")<br>
+            (source src="video.webm" type="video/webm")<br>
+            (source src="video.ogg" type="video/ogg")<br>
+            (/video)
+    </p>
+</fieldset>
+
+
+<video width="1280" height="720" autoplay muted loop poster="video.jpg" id="videobg">
+<source src="video.mp4" type="video/mp4">
+<source src="video.webm" type="video/webm">
+<source src="video.ogg" type="video/ogg">
+</video>
+
+<p>This CSS provides a fallback if the video cannot be loaded. Note that is it recomended to use the first frame of the video as the poster video.jpg.</p>
+<filedset>
+    <p>
+        #videobg {<br>
+            background: url(video.jpg) no-repeat;<br>
+            background-size: cover;<br>
+            }
+    </p>
+</filedset>
+    </body>
+</html>

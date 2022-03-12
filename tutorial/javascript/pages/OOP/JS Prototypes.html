@@ -1,0 +1,116 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            Prototypes refer to the object references for other objects. <br />
+            A function used to create an object is called a constructor function. To create an object from the function,
+            we have to use the new keyword followed by the function name. <br />
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+function Cat() {
+    this.property = property value;
+    this.method = function methodName() {
+
+    }
+}
+
+//Accessing the function.
+
+const kitten = new Cat()
+                </pre>
+            </code>
+        </fieldset>
+
+        <p>
+            It should be noted that javascript already has an inbuilt construction function called Object() <br />
+            This object function is called when the an object is created from the object literals.
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+let myObj = {
+    name: "Hello",
+    surname: "World"
+}
+                </pre>
+            </code>
+        </fieldset>
+        <p>To access the constructor function of an object, we do this:</p>
+        <filedset>
+            <code>
+                <pre>
+console.log(myObj.constructor) //This will output [Function: Object]
+console.log(kitten.constructor) //This will output [Function: Cat]
+                </pre>
+            </code>
+        </filedset>
+        <p>
+            Constructors have a .prototype property which shows the object prototype. The inbuilt prototype is just an
+            empty object {}.
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+console.log(Object.prototype) //Output will be {}
+                </pre>
+            </code>
+        </fieldset>
+        <p>To access these prototypes from the object itself, we use the dunder-proto property (.__proto__)</p>
+        <fieldset>
+            <code>
+                <pre>console.log(myObj.__proto__)  //Output will be {}</pre>
+            </code>
+        </fieldset>
+        <p>
+            However, the prototype of an object created from a defined constructor is the object of the name of the
+            function
+        </p>
+        <fieldset>
+            <code>
+                <pre>console.log(kitten.__proto__) //Output will be Cat{}</pre>
+            </code>
+        </fieldset>
+        <p>The prototype of this cat function is the Object{} prototype and the prototype of this Object{} is null</p>
+        <fieldset>
+            <code>
+                <pre>
+Cat.prototype.__proto__  //Cat{}.__proto__
+//Output: {}
+Cat.prototype.__proto__.__proto__ //Output: null
+Object.prototype.__proto__ // Output:  null
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            From the above notes, it can be seen that no matter the way you call the prototypes or create objects, it
+            will always point to the predefined object prototype which is {} which has a prototype of null
+        </p>
+        <p>
+            You can also set your own prototype of a constructor or object but always know that it will still point to
+            the predefined object prototype
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+function Animal () {
+
+}
+Object.setPrototypeOf(Cat.prototype Animal.prototype)
+
+//Now we are setting the prototype of cat to animal
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

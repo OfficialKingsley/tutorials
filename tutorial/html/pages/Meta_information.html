@@ -1,0 +1,314 @@
+<body>
+<h1>Meta Information</h1>
+
+<p>Meta tags in HTML documents provide useful information about the document including a description, keywords,
+author, dates of modifications and around 90 other fields. This topic covers the usage and purpose of these tags.</p>
+
+<h3><u>Page Information</u></h3>
+<h4>application-name</h4>
+
+<p>Giving the name of the Web application that the page represents.</p>
+
+<fieldset>
+    (meta name="application-name" content="OpenStreetMap")
+</fieldset>
+
+<meta name="application-name" content="OpenStreetMap">
+
+<p>If it’s not a Web application, the application-name meta tag must not be used.</p>
+<h4><u>author</u></h4>
+
+Set the author of the page:
+
+<fieldset>
+    (meta name="author" content="Your Name")
+</fieldset>
+<meta name="author" content="Your Name">
+
+It should be noted that Only one name can be given.
+<h4><u>description</u></h4>
+This Sets the description of the page:
+
+<fieldset>
+    (meta name="description" content="Page Description")
+</fieldset>
+
+<meta name="description" content="Page Description">
+
+<p>The description meta tag can be used by various search engines while indexing your web page for searching
+purpose. Usually, the description contained within the meta tag is the short summary that shows up under the
+page/website's main title in the search engine results. Google usually uses only the first 20-25 words of your
+description.
+<h4><u>Generator</u></h4>
+<fieldset>
+    (meta name="generator" content="HTML Generator 1.42")
+</fieldset>
+
+<meta name="generator" content="HTML Generator 1.42">
+
+<p>Identifies one of the software packages used to generate the document. Only to be used for pages where the
+markup is automatically generated.</p>
+<h4><u>Keywords</u></h4>
+
+This sets keywords for search engines (comma-separated):
+
+<fieldset>
+    (meta name="keywords" content="Keyword1, Keyword2")
+</fieldset>
+<meta name="keywords" content="Keyword1, Keyword2">
+
+The keywords meta tag is sometimes used by search engines to know the search query which is relevant to your web page.<br>
+As a rule of thumb, it is probably a good idea to not add too many words, as most search engines that use this meta
+tag for indexing will only index the first ~20 words. Make sure that you put the most important keywords first.
+
+<h3><u>Character Encoding</u></h3>
+
+<p>The charset attribute specifies the character encoding for the HTML document and needs to be a valid character
+encoding (examples include windows-1252, ISO-8859-2, Shift_JIS, and UTF-8). UTF-8 (Unicode) is the most widely
+used and should be used for any new project.</p>
+
+<fieldset>
+    (meta charset="UTF-8")<br>
+    (meta charset="ISO-8859-1")
+</fieldset>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+
+<p>All browsers have always recognized the (meta charset) form, but if you for some reason need your page to be
+valid HTML 4.01, you can use the following instead:</p>
+
+<fieldset>
+    (meta http-equiv="content-type" content="text/html; charset=UTF-8")<br>
+    (meta http-equiv="content-type" content="text/html; charset=ISO-8859-1")
+</fieldset>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<p>See also the Encoding Standard, to view all available character encoding labels that browsers recognize.</p>
+
+<h4><u>Robots</u></h4>
+
+<p>The robots attribute, supported by several major search engines, controls whether search engine spiders are
+allowed to index a page or not and whether they should follow links from a page or not.</p>
+
+<fieldset>
+    (meta name="robots" content="noindex")
+</fieldset>
+<meta name="robots" content="noindex">
+<p>This example instructs all search engines to not show the page in search results. Other allowed values are:</p>
+<h4><u>Value/Directive Meaning</u></h4>
+<b>all:</b> Default. Equivalent to index, follow. See note below.<br>
+<b>noindex:</b> Do not index the page at all.<br>
+<b>nofollow:</b> Do not follow the links on this page<br>
+<b>follow:</b> The links on the page can be followed. See note below.<br>
+<b>none:</b> Equivalent to noindex, nofollow.<br>
+<b>noarchive:</b> Do not make a cached version of this page available in search results.<br>
+<b>nocache:</b> Synonym of noarchive used by some bots such as Bing.<br>
+<b>nosnippet:</b> Do not show a snippet of this page in search results.<br>
+<b>noodp:</b> Do not use metadata of this page from the Open Directory project for titles or snippets in search results.<br>
+<b>notranslate:</b> Do not offer translations of this page in search results.<br>
+<b>noimageindex:</b> Do not index images on this page.<br>
+<b>unavailable_after [RFC-850 date/time]:</b>
+Do not show this page in search results after the specified date/time. The
+date/time must be specified in the RFC 850 format.<br>
+<p>Note: Explicitly defining index and/or follow, while valid values, is not necessary as pretty much all search engines
+will assume they are allowed to do so if not explicitly prevented from doing so. Similar to how the robots.txt file
+operates, search engines generally only look for things they are not allowed to do. Only stating things a search
+engine isn't allowed to do also prevents accidentally stating opposites (such as index, ..., noindex) which not all
+search engines will treat in the same way.</p>
+
+<h4><u>Social Media</u></h4>
+<p>Open Graph is a standard for metadata that extends the normal information contained within a site's head
+markup. This enables websites such as Facebook to display deeper and richer information about a website in a
+structured format. This information is then automatically displayed when users share links to websites containing
+OG metadata on Facebook.</p>
+<fieldset>
+    <legend>Facebook / Open Graph</legend>
+    (meta property="fb:app_id" content="123456789")
+(meta property="og:url" content="https://example.com/page.html")
+(meta property="og:type" content="website")
+(meta property="og:title" content="Content Title")
+(meta property="og:image" content="https://example.com/image.jpg")
+(meta property="og:description" content="Description Here")
+(meta property="og:site_name" content="Site Name")
+(meta property="og:locale" content="en_US")
+(meta property="article:author" content="")
+<!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<!-- Open Graph: http://ogp.me/ -->
+</fieldset>
+
+<meta property="fb:app_id" content="123456789">
+<meta property="og:url" content="https://example.com/page.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Content Title">
+<meta property="og:image" content="https://example.com/image.jpg">
+<meta property="og:description" content="Description Here">
+<meta property="og:site_name" content="Site Name">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="">
+<!-- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<!-- Open Graph: http://ogp.me/ -->
+Facebook Open Graph Markup
+Open Graph protocol
+<fieldset>
+    <legend>Facebook / Instant Articles</legend>
+    (meta charset="utf-8")<br>
+(meta property="op:markup_version" content="v1.0")<br>
+<p></p>
+The URL of the web version of your article<br>
+<p></p>
+(link rel="canonical" href="http://example.com/article.html")<br>
+<p></p>
+The style to be used for this article<br>
+(meta property="fb:article_style" content="myarticlestyle")
+</fieldset>
+
+
+<meta charset="utf-8">
+<meta property="op:markup_version" content="v1.0">
+<!-- The URL of the web version of your article -->
+<link rel="canonical" href="http://example.com/article.html">
+<!-- The style to be used for this article -->
+<meta property="fb:article_style" content="myarticlestyle">
+Facebook Instant Articles: Creating Articles<br>
+Instant Articles: Format Reference<br>
+<p>Twitter uses its own markup for metadata. This metadata is used as information to control how tweets are
+displayed when they contain a link to the site.</p>
+<fieldset>
+    <legend>Twitter</legend>
+    (meta name="twitter:card" content="summary")<br>
+(meta name="twitter:site" content="@site_account")<br>
+(meta name="twitter:creator" content="@individual_account")<br>
+(meta name="twitter:url" content="https://example.com/page.html")<br>
+(meta name="twitter:title" content="Content Title")<br>
+(meta name="twitter:description" content="Content description less than 200 characters")<br>
+(meta name="twitter:image" content="https://example.com/image.jpg")<br>
+</fieldset>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@site_account">
+<meta name="twitter:creator" content="@individual_account">
+<meta name="twitter:url" content="https://example.com/page.html">
+<meta name="twitter:title" content="Content Title">
+<meta name="twitter:description" content="Content description less than 200 characters">
+<meta name="twitter:image" content="https://example.com/image.jpg">
+
+Twitter Cards: Getting Started Guide
+Twitter Card Validator
+<fieldset>
+    <legend>
+        Google+ / Schema.org
+    </legend>
+    (link href="https://plus.google.com/+YourPage" rel="publisher")<br>
+    (meta itemprop="name" content="Content Title")<br>
+    (meta itemprop="description" content="Content description less than 200 characters")<br>
+    (meta itemprop="image" content="https://example.com/image.jpg")
+</fieldset>
+<link href="https://plus.google.com/+YourPage" rel="publisher">
+<meta itemprop="name" content="Content Title">
+<meta itemprop="description" content="Content description less than 200 characters">
+<meta itemprop="image" content="https://example.com/image.jpg">
+
+<h4><u>Mobile Layout Control</u></h4>
+Common mobile-optimized sites use the (meta name="viewport") tag like this:
+
+<fieldset>
+    (meta name="viewport" content="width=device-width, initial-scale=1")
+</fieldset>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<p>The viewport element gives the browser instructions on how to control the page's dimensions and scaling based
+on the device you are using.<br>
+In the above example, content="width=device-width means that the browser will render the width of the page at
+the width of its own screen. So if that screen is 480px wide, the browser window will be 480px wide. initialscale=
+1 depicts that the initial zoom (which is 1 in this case, means it does not zoom).</p>
+<p>Below are the attributes this tag supports:</p>
+
+
+Attribute --- Description<br>
+
+<b>width:</b> The width of the virtual viewport of the device.<br>
+<b>Values1:</b> device-width or the actual width in pixels, like 480<br>
+<b>height:</b> The height of the virtual viewport of the device.<br>
+<b>Values2:</b> device-height or the actual width in pixels, like 600<br>
+<b>initial-scale:</b> The initial zoom when the page is loaded. 1.0 does not zoom.<br>
+<b>minimum-scale:</b> The minimum amount the visitor can zoom on the page. 1.0 does not zoom.<br>
+<b>maximum-scale:</b> The maximum amount the visitor can zoom on the page. 1.0 does not zoom.<br>
+<b>user-scalable:</b> Allows the device to zoom in and out. Values are yes or no. If set to no, the user is not able to zoom
+in the webpage. The default is yes. Browser settings can ignore this rule.<br>
+
+<p>Notes:<br>
+1 The width property can be either specified in pixels (width=600) or by device-width (width=device-width) which
+represents the physical width of the device's screen.<br>
+2 Similarly, the height property can be either specified in pixels (height=600) or by device-height
+(height=device-height) which represents the physical height of the device's screen.<br></p>
+<h4><u>Automatic Refresh</u></h4>
+To refresh the page every five seconds, add this meta element in the head element:
+
+<fieldset>
+(meta http-equiv="refresh" content="5">)   
+</fieldset>
+
+
+<p>CAUTION! While this is a valid command, it is recommended that you do not use it because of its negative effects
+on user experience. Refreshing the page too often can cause it to become unresponsive, and often scrolls to the
+top of the page. If some information on the page needs to be updated continuously, there are much better ways to
+do that by only refreshing a portion of a page.</p>
+
+
+<h4><u>Phone Number Recognition</u></h4>
+
+<p>Mobile platforms like iOS automatically recognize phone numbers and turn them into tel: links. While the feature
+is very practical, the system sometimes detects ISBN codes and other numbers as telephone numbers.<br>
+For mobile Safari and some other WebKit-based mobile browsers to turn off automatic phone number recognition
+and formatting, you need this meta tag:</p>
+
+<fieldset>
+    (meta name="format-detection" content="telephone=no")
+</fieldset>
+
+<meta name="format-detection" content="telephone=no">
+
+<h4><u>Automatic redirect</u></h4>
+<p>Sometimes your webpage needs a automatic redirect.<br>
+For example, to redirect to example.com after 5 seconds:</p>
+
+<fieldset>
+    (meta http-equiv="refresh" content="5;url=https://www.example.com/" /)
+</fieldset>
+
+<p>This is line will send you to the designated website (in this case example.com after 5 seconds.<br>
+If you need to change the time delay before a redirect, simply changing the number right before your ;url= will
+alter the time delay.</p>
+
+<h4><u>Web App</u></h4>
+<p>You can set up your web app or website to have an application shortcut icon added to a device's homescreen, and
+have the app launch in full-screen "app mode" using Chrome for Android’s "Add to homescreen" menu item.
+Below meta tag(s) will open web app in full-screen mode (without address bar).</p>
+<fieldset>
+    <legend>Android Chrome</legend>
+    (meta name="mobile-web-app-capable" content="yes")
+</fieldset>
+<meta name="mobile-web-app-capable" content="yes">
+<fieldset>
+    <legend>IOS</legend>
+    (meta name="apple-mobile-web-app-capable" content="yes")
+</fieldset>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<p>You can also set color for status bar and address bar in meta tag.</p>
+<fieldset>
+    <legend>Android Chrome</legend>
+    (meta name="theme-color" content="black")
+</fieldset>
+<meta name="theme-color" content="black">
+<fieldset>
+    <legend>
+        IOS
+    </legend>
+    (meta name="apple-mobile-web-app-status-bar-style" content="black")    
+</fieldset>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+</body>

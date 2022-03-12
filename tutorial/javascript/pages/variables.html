@@ -1,0 +1,137 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h2>Variables in JavaScript</h2>
+		<button><a href="intro.html">Back</a></button>
+		<button><a href="comments.html">Next</a></button>
+		<p>
+			A variable can simply be defined as a container for a particular
+			information. In javascript, we can declare variables using keywords
+			<code>let</code> <code>var</code> and <code>const</code>
+		</p>
+		<p>
+			Using the var keyword is the old way of defining variables so we use the
+			let and const
+		</p>
+
+		<h3>Difference between let and const</h3>
+		The major difference between let and const is that when let is declared, its
+		value can be changed but if the variable is declared with const, the value
+		can't be changed
+		<fieldset>
+			<code>
+				<pre>
+let name = "Kingsley"; 
+const age = 16; 
+
+name = "Oluchi"; //This is a valid re-declaration 
+
+age = 14; //This will result in an error because the const keyword was used
+</pre
+				>
+			</code>
+		</fieldset>
+		<h3>Rules for naming in JS</h3>
+		<ol>
+			<li>
+				It must start with a letter, underscore or a dollar sign but never a
+				number
+			</li>
+			<li>It should not have (mathematical) operators in its name</li>
+			<li>
+				Naming in javascript is case sensitive therefore,
+				<code>liveSpan</code> and <code>livespan</code> are not the same
+			</li>
+			<li>Javascript keywords cannot be used as variable names e.g. this</li>
+			<li>There are no spaces in javascript names</li>
+		</ol>
+		<h3>Declaration and initialization</h3>
+		<p> Declaring a variable is giving the variable a name without a value</p>
+		<fieldset>
+			<code>
+				<pre>let name;</pre>
+			</code>
+		</fieldset>
+		<p>The above is a declaration</p>
+		<fieldset>
+			<code>
+				<pre>let name = "My Name"</pre>
+			</code>
+		</fieldset>
+		<p>Now the above is an initializations</p>
+		<p
+			>It should however be noted that when using the const keyword, you cannot
+			have a declaration instead you can only have an initialization</p
+		>
+
+		<h3>Assigning Variable</h3>
+		<p
+			>A variable can be assigned after it has been declared even if the const
+			keyword is used</p
+		>
+		<fieldset>
+			<code>
+				let name; <br />
+				const age; <br />
+				name = "My Name"<br />
+				age = 37 //Now it can not be reassigned since the const was used
+			</code>
+		</fieldset>
+		<p
+			>I'm pretty sure that you've seen the equal to sign <q>=</q> So often but
+			you should note that the equal to sign in JS is known as the assignment
+			operator and not an equal to</p
+		>
+		<p
+			>You can make many declarations on the same line by separating them with
+			commas</p
+		>
+		<fieldset> let name, age = "16", car = "Lamborghini"; </fieldset>
+		<p
+			>Now you see that you don't have to declare all of them using the let
+			keyword. This rule also applies for the const and var keywords</p
+		>
+
+		<p
+			>If a variable is not assigned a value, it has a value of undefined by
+			default. <br />
+			Also, if you declare a variable after it has been assigned a value, then
+			it will still retain its old value</p
+		>
+
+		<h3>Operations in strings</h3>
+		<p
+			>We can perform mathematical operations and assign its value to the string
+			e.g.
+		</p>
+		<fieldset>
+			<code>
+				let x = 3 + 5 + 7; //Now x has a value of 15 <br />
+				console.log(x)
+			</code>
+		</fieldset>
+		<p
+			>We can also add strings but instead of performing mathematical operations
+			in concatenates the strings i.e. it puts the strings together to form a
+			new string</p
+		>
+		<fieldset>
+			<code>
+				<pre>
+let age = "1" + "6" //This won't give a value of 7 <br />
+console.log(age) //Instead it will give 16 <br />
+let name = "John" + " " + "Doe" <br />
+console.log(name) //This produces John Doe
+</pre>
+			</code>
+		</fieldset>
+	</body>
+</html>

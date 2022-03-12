@@ -1,0 +1,43 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>In local storage, items are stored in key value pairs</p>
+        <p>The local storage is a storage object with some methods and properties</p>
+        <fieldset>
+            <code>
+                <pre>
+localStorage.setItem(key,  value)
+//The above is the same as
+window.localStorage.setItem(key, value)
+                </pre>
+            </code>
+        </fieldset>
+
+        <fieldset>
+            <code>
+                <pre>
+localStorage.setItem("name", "myName")
+            </pre
+                >
+            </code>
+        </fieldset>
+        <p>Even if the code is deleted and the page is refreshed the item you set will still be in the local storage</p>
+        <h3>Removing and item</h3>
+        <p>This can be done by using the the .removeItem(key) method</p>
+        <h3>Getting an item from the local storage</h3>
+        <p>This can be done using the .getItem(key) method</p>
+        <p>It should be noted that the local storage automatically stringifies the values of the key-value pairs</p>
+
+        <h3>Getting the name of a key</h3>
+        <p>This can be done using the .key(index) method</p>
+        <p>This index is the index of the key you wanna get</p>
+    </body>
+</html>

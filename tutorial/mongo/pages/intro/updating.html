@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Updating</legend>
+      <code>
+        <pre>
+db.users.updateOne({age: 26}, {$set: {age: 27}})
+Same as 
+db.users.updateOne({age: 26}, {$inc: {age: 3}})
+To increment
+db.users.updateOne({age: 26}, {$rename: {name: "firstName"}})
+db.users.updateOne({age: 26}, {$unset: {age: ""}})
+This will remove the age
+db.users.updateOne({age: 26}, {$push: {hobbies: "Footballing"}})
+db.users.updateOne({age: 26}, {$pull: {hobbies: "Bowling"}})
+
+db.users.updateMany({address: {$exists: true}}, {$unset: {address: ""})
+
+db.users.replaceOne({age: 30}, {name: "John"})
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      The above will be used when we want to update the first item in the
+      collection
+    </p>
+  </body>
+</html>

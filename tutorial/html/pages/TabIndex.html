@@ -1,0 +1,42 @@
+<body>
+<h1><u>Tabindex</u></h1>
+Value --- Meaning
+negative element --- will be focusable, but it should not be reachable via sequential keyboard navigation<br>
+0 element --- will be focusable and reachable through keyboard sequential navigation, but it's relative order is
+defined by the platform convention<br>
+positive element --- must be focusable and accessible via sequential keyboard navigation; it's relative order will be
+defined by the attribute value: the sequential follow the increasing number of the tabindex<br>
+
+<h3><u>Add an element to the tabbing order</u></h3>
+
+<fielset>
+    (div tabindex="0)Some button(/div)
+</fielset>
+
+<div tabindex="0">Some button</div>
+
+<p>Note: Try to use a native HTML button or an a tag where appropriate.</p>
+
+<h3><u>Remove an element from the tabbing order</u></h3>
+
+<fieldset>
+    (button tabindex="-1")This button will not be reachable by tab(/button)
+</fieldset>
+
+<button tabindex="-1">This button will not be reachable by tab</button>
+The element will be removed from the tabbing order but will still be focusable.
+
+<h3><u>Define a custom tabbing order (not recommended)</u></h3>
+
+<fieldset>
+    (div tabindex="2")Second(/div)<br>
+    (div tabindex="1")First(/div)
+</fieldset>
+
+<div tabindex="2">Second</div>
+<div tabindex="1">First</div>
+<p>Positive values will insert the element at the tabbing order position of its respective value. Elements without
+preference (i.e. tabindex="0" or native elements such as button and a) will be appended after those with preference.</p>
+<p>Positive values are not recommended as they disrupt the expected behavior of tabbing and might confuse people
+who rely on screenreaders. Try to create a natural order by rearranging your DOM structure.</p>
+</body>

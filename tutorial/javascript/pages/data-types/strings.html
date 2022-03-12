@@ -1,0 +1,168 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Javascript strings</title>
+	</head>
+	<body>
+		<h1>Strings and String Methods</h1>
+		<p>
+			Anything written in quotes "" is a string. It could be a text, number or
+			even an equation or evaluation e.g.
+		</p>
+		<fieldset>
+			<code>
+				<pre>
+"A text string" 
+"20" //A string that is a number 
+var carname = "Volvo XC60";
+                </pre
+				>
+			</code>
+		</fieldset>
+		<p>
+			You can use quotes inside a string, as long as they don't match the quotes
+			surrounding the string:
+		</p>
+		<fieldset>
+			<code>
+				<pre>
+var answer = "It's alright"; 
+var answer = "He is called 'Johnny'"; 
+var answer = 'He is called "Johnny"';
+                </pre
+				>
+			</code>
+		</fieldset>
+		<p>
+			Because strings must be written within quotes, JavaScript will
+			misunderstand this string: <br />
+			<code>
+<pre>
+	var y = "We are the so-called "Vikings" from the north."
+The string will be chopped to "We are the so-called " and " from the north". 
+
+//The solution to avoid this problem, is to use the \ escape character.
+The backslash escape character turns special characters into string characters: 
+</pre>
+			<code>
+				var x = 'It\'s alright'; <br />
+				var y = "We are the so-called \"Vikings\" from the north."
+			</code>
+		</p>
+		<p>
+			The escape character (\) can also be used to insert other special
+			characters in a string. This is the list of special characters that can be
+			added to a text string with the backslash sign:
+		</p>
+		<table>
+			<tr>
+				<th>Code</th>
+				<th>Outputs</th>
+			</tr>
+			<tr>
+				<td>\'</td>
+				<td>single quote</td>
+			</tr>
+			<tr>
+				<td>\"</td>
+				<td>double quote</td>
+			</tr>
+			<tr>
+				<td>\\</td>
+				<td>backslash</td>
+			</tr>
+			<tr>
+				<td>\n</td>
+				<td>new line</td>
+			</tr>
+			<tr>
+				<td>\r</td>
+				<td>carriage return</td>
+			</tr>
+			<tr>
+				<td>\t</td>
+				<td>tab</td>
+			</tr>
+			<tr>
+				<td>\b</td>
+				<td>backspace</td>
+			</tr>
+			<tr>
+				<td>\f</td>
+				<td>form feed</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+
+		<h2>Strings As Objects</h2>
+		<p>
+			Strings Can be Objects. <br />
+			Normally, JavaScript strings are primitive values, created from literals:
+		</p>
+		<fieldset>
+			<code>
+				<pre>
+const name = "Kingsley"
+				</pre>
+			</code>
+		</fieldset>
+		<p>
+			But strings can also be defined as objects with the keyword <q>new:</q>
+		</p>
+		<fieldset class="code">
+			<code>var firstName = new String("John")</code>
+		</fieldset>
+		<fieldset class="code">
+			<legend>Example</legend>
+			<code>
+				var x = "John"; // typeof x will return string<br />
+				var y = new String("John"); // typeof y will return object</code
+			>
+			<fieldset class="note">
+				Note: <br />
+				Don't create strings as objects as it slows down the execution of code.
+				It also complicates code <br />
+				(x == y) is true because x and y have equal values <br />
+				(x === y) is false because x and y have different types and instances (string and object)
+			</fieldset>
+			<fieldset class="note">
+				Note: Objects cannot be compared: <br />
+				<fieldset class="code">
+					<legend>Example</legend>
+					<code>
+						var x = new String("John"); <br />
+						var y = new String("John");
+					</code>
+				</fieldset>
+
+				<code>
+					// (x == y) is false because x and y are different objects <br />
+					// (x == x) is true because both are the same object
+				</code>
+			</fieldset>
+		</fieldset>
+		<h2>String Properties and Methods</h2>
+		<p>There is just a slight difference between a property and a method.
+			Properties do not have parentheses while methods do. <br>
+		Methods are the functions defined in the object while properties are like the characteristics of the object</p>
+		<fieldset class="code">
+			<code>
+				var str = "This is a very nice string" <br />
+				console.log(str.length) //Length is a property <br />
+				var str1 = se
+			</code>
+		</fieldset>
+		<h3>String Length</h3>
+		<p>
+			The length of a string is found in the built in property length (.length):
+		</p>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset>
+            <code>
+                <pre>
+const app = express();
+
+app.get("route", (req, res) => {
+    res.send(some response)
+})
+
+app.use(bodyParser.json({embedded: true}))
+//The above is used to run middleware
+
+app.use(logger)
+
+app.use(express.static("public"))
+The above will set a static folder
+
+//So if there's an about.html in this static folder,
+//if we go to the /about route,
+// It will automatically load the about.html file
+            </pre
+                >
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+app.post()
+app.put()
+app.delete()
+                </pre>
+            </code>
+        </fieldset>
+
+        <fieldset>
+            <code>
+                <pre>
+app.listen(PORT, function() {
+    
+})
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

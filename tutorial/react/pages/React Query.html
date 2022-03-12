@@ -1,0 +1,77 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>React query</h2>
+    <p>
+      What is the meaning of querying. When you use the fetch api, you're the
+      browser cache. The concept of cache is not
+    </p>
+    <p>
+      React query is like this caching layer that just lives inside the memory
+      of your application. It doesn't take over the responsibility of using the
+      right headers and doserving er side and browser level caching. It's more
+      of a cache that improves the user experience and fill in some of those
+      gaps. It used to improve user experience and developer experience. <br />
+      React just need to know your promise <br />
+      caching <br />
+      hydrating the react app when it gets to a client<br />
+      You fetch data into a cache and you send that cache with your html to your
+      client and then you hydrate the client
+    </p>
+
+    <h3>Let's start</h3>
+    <p>
+      Nobody wants to see an application where everything you click has to load
+      especially when you're developing applications
+    </p>
+    <h3>Queries</h3>
+    <p>In react-query we have a hook called useQuery</p>
+
+    <fieldset>
+      <code>
+        <pre>
+import { useQuery } from "react-query";
+//useQuery(identifier, async_function)
+//return(
+  "posts",
+  ()=>axios.get("this.api.com"));
+//The identifier is the name of the thing you are fetching
+//The async function is a function that fetches your data
+//and returns an error if an error is found
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      The useQuery handles the state and reducers of your async work and
+      react-query also handles the life cycle around all of your fetching
+    </p>
+    <p>
+      useQuery returns an object containing everything like the status enums, it
+      has booleans, data property, error
+    </p>
+    <p>
+      What it does is that. If you've visited a page before, since it has been
+      loaded, it won't load again. It instantly gets your data. So it keeps your
+      data in a cache in your html so when you open the page, we see that the it
+      automatically loads
+    </p>
+    <h3>Introduction</h3>
+    <p>
+      React query is a library for fetching. Since react is a UI library, ther
+      is no specific pattern for data fetching
+    </p>
+    <fieldset>
+      <code>
+        <pre></pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

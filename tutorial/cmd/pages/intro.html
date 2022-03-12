@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Why use a command line</h3>
+    <p>
+      The command line is faster than the
+      <abbr title="Graphical User Interface">GUI</abbr>
+      <br />
+      Some tools are only used in the command line
+    </p>
+    <p>To move into a directory</p>
+    <fieldset>
+      <code>
+        <pre>
+cd Directory_name
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+cd ..
+This will take us back
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+cd Desktop\Videos
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+cd ../..
+        </pre>
+      </code>
+    </fieldset>
+    <p>Pressing tab for an auto complete and also help your self with typos</p>
+
+    <h3>TO view the contents of a directory,</h3>
+    <fieldset>
+      <code>
+        <pre>
+cd Desktop
+>dir
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+>dir Desktop\Slingshot
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+>dir /a
+This will show the hidden files
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+cls
+//To clear the screen
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+dir *.png
+
+//This will bring out any files with the extension in png
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      If you type just the name of a file without any commad, it is going to
+      open the file in the default app that you use for it
+    </p>
+
+    <h3>Creating and Deleting files</h3>
+    <fieldset>
+      <code>
+        <pre>
+mkdir Bacon
+
+//This will create a Ba con directory
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+rmdir Directory
+
+This will delete a directory 
+(if there's nothing in the directory)
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+rmdir /s Directory_name
+
+//This will delete everything in the directory
+and then delete the directory
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+cd "C:\Program Files\Some folder"
+
+Notice the quotes
+        </pre>
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+wmic logicaldisk get name
+
+//This will give you the names of all your drives
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+e:
+
+This will change drive to the e drive
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+tree
+
+This will show all the files and folders in a 
+directory in a tree format
+        </pre>
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+del file_name
+
+This will delete the file
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+type bacon.txt
+
+This will open the content of the file
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+echo thenewboston > bacon.txt
+
+This way is the way to create or overwrite the file
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+echo tunafish >> bacon.txt
+
+This will append the tunafish to the text
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+dir > detail.txt
+
+This will run the dir command
+Get the result and then
+adds it to detail.txt
+        </pre>
+      </code>
+    </fieldset>
+
+    <fieldset>
+      <code>
+        <pre>
+To copy a file
+we type
+
+copy source end-position
+copy kingsley.txt my_folder
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+xcopy source_folder end_folder
+
+This will copy the content of the folder while 
+copy will copy the source_folder to end_folder
+        </pre>
+      </code>
+    </fieldset>
+    <p>Note that the default behaviour of xcopy is to copy the files</p>
+    <fieldset>
+      <code>
+        <pre>
+xcopy source_folder end_folder /s
+
+This will copy both files and sub-directories
+in the source_folder
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+move Apples Bacon
+
+rename Bacon Ham
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<body>
+<p><b><u>Progress Element</u></b></p>
+Parameter ----- Value<br>
+<b>max:</b> How much work the task requires in total<br>
+<b>value:</b> How much of the work has been accomplished already<br>
+<b>position:</b> This attribute returns the current position of the (progress) element<br>
+<b>labels:</b> This attribute returns a list of (progress) element labels (if any)<br>
+
+<p>Progress</p>
+<p>The (progress) element is new in HTML5 and is used to represent the progress of a task as shown below</p>
+<progress></progress>
+
+<p>It can also show a particular place where an operation has reached. In the example below the operation has reached 22%</p>
+<fieldset>
+    <p>
+        (progress value="22" max="100")(/progress)
+    </p>
+</fieldset>
+<p>The above creates a bar filled 22% as shown below</p>
+<progress value="22" max="100"></progress>
+
+<p>Changing the color of a progress bar</p>
+<p>Progress bars can be styled with the progress[value] selector. This example gives a progress bar a width of 250px and a height of 20px</p>
+
+<fieldset>
+    <p>
+        progress[value] { <br>
+            width: 250px;<br>
+            height: 20px;<br>
+            }
+    </p>
+</fieldset>
+<p>Progress bars can be especially difficult to style.</p>
+Chrome / Safari / Opera<br>
+These browsers use the -webkit-appearance selector to style the progress tag. To override this, we can reset the
+appearance.<br>
+
+<fieldset>
+    progress[value] {<br>
+        -webkit-appearance: none;<br>
+        appearance: none;<br>
+        }<br>
+</fieldset>
+Now, we can style the container itself
+<fieldset>
+    <p>
+        progress[value]::-webkit-progress-bar {<br>
+        background-color: "green";<br>
+        }<br>
+        </p>
+</fieldset>
+<p><b><u>Firefox</u></b></p>
+Firefox styles the progress bar a little differently. We have to use these styles<br>
+
+<fieldset>
+    <legend>Firefox</legend>
+    <p>
+        progress[value] {<br>
+            -moz-appearance: none;<br>
+            appearance: none;<br>
+            border: none; /* Firefox also renders a border */<br>
+            }
+    </p>
+</fieldset>
+
+<p><b><u>Internet Explorer</u></b></p>
+Internet Explorer 10+ supports the progress element. However, it does not support the background-color
+property. You'll need to use the color   property instead.<br>
+<fieldset>
+    <legend>Internet Explorer</legend>
+    <p>
+        progress[value] {<br>
+            -webkit-appearance: none;<br>
+            -moz-appearance: none;<br>
+            appearance: none;<br>
+            border: none; /* Remove border from Firefox */<br>
+            width: 250px;<br>
+            height: 20px;<br>
+            color: blue;<br>
+            }<br>
+    </p>
+</fieldset>
+
+<p><b><u>HTML Fallback</u></b></p>
+For browsers that do not support the progress element, you can use this as a workaround.
+
+<fieldset>
+    <p>
+        (progress max="100" value="20")
+            (div class="progress-bar")
+            (span style="width: 20%;")Progress: 20%(/span)
+            (/div)
+            (/progress)
+    </p>
+</fieldset>
+<progress max="100" value="20">
+    <div class="progress-bar">
+    <span style="width: 20%;">Progress: 20%</span>
+    </div>
+    </progress>
+
+<p>Browsers that support the progress tag will ignore the div nested inside.<br>
+Legacy browsers which cannot identify the progress tag will render the div instead.
+</p>
+</body>

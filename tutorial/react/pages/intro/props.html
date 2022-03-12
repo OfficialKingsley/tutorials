@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Props</h3>
+    <p>
+      Since we are using functions, the props are the parameters of the function
+      components
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const Header = (props) => {
+    return {
+        &lt;header&gt;
+            &lt;h1&gt;{props.title}&lt;/h1&gt;
+        &lt;/header&gt;
+    }
+}
+export default Header //Notice that we exported it
+            </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>depending on where it is imported, you can do this</p>
+    <fieldset>
+      <code>
+        <pre>
+import Header from "Header"
+&lt;Header title="my Title" /&gt;
+</pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      What the above will do is that it will display my Title which was defined
+      as <code>props.title</code> in the h1 element.
+    </p>
+    <p>
+      You can also give default values to the props since the props is an
+      object. This can be done as follows
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+Header.defaultProps = {
+    title: 'Task Tracker'
+}
+
+//This should be done in the Header.js</pre
+        >
+      </code>
+    </fieldset>
+    <p>So if the props.title is not given, then the default is used</p>
+
+    <p>Since the props is an object, we can destructure and the above can be done as follows:</p>
+    <fieldset>
+      <code>
+        <pre>
+const Header = ({ title }) => { 
+  //See that we used an object
+  //In better terms, we destructured the props object
+    return {
+        &lt;header&gt;
+            &lt;h1&gt;{title}&lt;/h1&gt; //We removed props
+        &lt;/header&gt;
+    }
+}
+export default Header</pre
+        >
+      </code>
+    </fieldset>
+    <h2>Prop types</h2>
+    <fieldset>
+      <code>
+        <pre>
+import PropTypes from 'prop-types'
+
+Header.propTypes = {
+    title: PropTypes.string
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+import PropTypes from 'prop-types'
+
+//If it is required,
+Header.propTypes = {
+    title: PropTypes.string.isRequired
+}</pre
+        >
+      </code>
+    </fieldset>
+    <p>So if we do this</p>
+    <fieldset>
+      <code>
+        <pre>
+&lt;Header title={2} /&gt; //Notice the use of curly braces
+
+//We use curly braces when the prop is not a string</pre
+        >
+      </code>
+    </fieldset>
+    <p>An error will be generated</p>
+    <p>
+      Note that when putting in props if they are not strings, we use curly
+      braces
+    </p>
+  </body>
+</html>

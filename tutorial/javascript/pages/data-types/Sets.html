@@ -1,0 +1,72 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Javascript Sets</title>
+    </head>
+    <body>
+        <h1>Sets</h1>
+        <p>
+            A set can be defined a list of items without a repitition. A set is very similar to arrays only that it does
+            not repeat. A new set can be created as follows:
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+let mySet = new Set()          //Note the capital letter
+                </pre>
+            </code>
+        </fieldset>
+        <p>You can also get a set from an array like</p>
+        <fieldset>
+            <code>
+                <pre>
+let myArray =[1, 2, 3, 4, 5, 5, 6, 7, 9, ,9, 9,10] //Notice the repitition
+let mySet = new Set(myArray)          //Note the capital letter
+
+//Now mySet will be (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+//Notice that it has braces and the numbers are not repeated
+                </pre>
+            </code>
+        </fieldset>
+        <p>Sets can also hold multiple data types</p>
+        <fieldset>
+            <code>
+                <pre>
+let mySet = new Set(1, 2, "100", {a: 1, b: 2}, [1, 2,])
+                </pre>
+            </code>
+        </fieldset>
+        <h3>Set methods</h3>
+        <ul>
+            <li>.add(item) - This is used to add an item to the set</li>
+            <li>.delete(item)</li>
+            <li>.clear()</li>
+            <li>.has(value) - Checks if it has the value</li>
+            <li>.size</li>
+        </ul>
+
+        <h3>Converting a set to an array</h3>
+        <fieldset>
+            <code>
+                <pre>
+const uniqueArray = [...mySet]
+                </pre>
+            </code>
+        </fieldset>
+        <h3>Looping through a set</h3>
+        <ul>
+            <li>Using the .forEach() method</li>
+        </ul>
+        <h3>Uses of sets</h3>
+        <ul>
+            <li>Removing duplicates from an array</li>
+            <li></li>
+            <li></li>
+        </ul>
+    </body>
+</html>

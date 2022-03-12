@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Using the react-router-dom</h3>
+    <p>
+      To use react-router, we have to install react-router-dom. When it has been
+      installed, we have to wrap everything in the highest component which is
+      the App.js with the
+      <code> &lt;BrowserRouter&gt;&lt;/BrowserRouter&gt;</code> tag <br />
+      We do this so that we can create routes in the App.js
+    </p>
+    <fieldset>
+      <legend>App.js</legend>
+      <code>
+        <pre>
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+
+function App() {
+    return (
+        &lt;BrowserRouter&gt;
+            &lt;div className="App"&gt;
+                &lt;Home /&gt;
+                &lt;About /&gt;
+                &lt;Contact /&gt;
+                &lt;Blog /&gt;
+            &lt;/div&gt;
+        &lt;/BrowserRouter&gt;
+    );
+}
+
+export default App;
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    <p>
+      To make a component a route, we have to wrap it around the
+      &lt;Route&gt;&lt;/Route&gt; tag as such
+    </p>
+
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import About from "./components/About";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+
+function App() {
+    return (
+        &lt&lt;BrowserRouter>
+            &lt&lt;div className="App">
+                &lt&lt;Route path="/home">
+                    &lt&lt;Home />
+                &lt&lt;/Route>
+                &lt&lt;Route path="/about">
+                    &lt&lt;About />
+                &lt&lt;/Route>
+
+                &lt&lt;Route path="/contact">
+                    &lt&lt;Contact />
+                &lt&lt;/Route>
+                &lt&lt;Route path="/blog">
+                    &lt&lt;Blog />
+                &lt&lt;/Route>
+            &lt&lt;/div>
+        &lt;/BrowserRouter>
+    );
+}
+
+export default App;
+
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>The path attribute signifies the route in the url</p>
+  </body>
+</html>

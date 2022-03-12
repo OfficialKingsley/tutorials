@@ -1,0 +1,211 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>React Links</h2>
+    <p>
+      What we normally do is that we create links with the anchor tag. This
+      works fine but it sends a get request to the server and the server always
+      returns the index.html and then it loads the component and it makes the
+      page to reload. <br />
+      The disadvantage of this method is that it sends requests to the server
+      and reloads the page which we do not want in a single page application.
+      <br />
+      Also, when the page is refreshed, we lose our state of our application at
+      that point to the default state
+    </p>
+
+    <p>To prevent this, we use the Link tags from the react router dom</p>
+
+    <fieldset>
+      <fieldset>
+        <legend>Navbar.js</legend>
+        <code>
+          <pre>
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
+    return (
+        <ul>
+            <li>
+                <a href="/" className="">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/about" className="">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="/contact" className="">
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a href="/blog" className="">
+                    Blog
+                </a>
+            </li>
+        </ul>
+    );
+};
+
+export default Navbar;
+                    </pre>
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre></pre>
+        </code>
+      </fieldset>
+    </fieldset>
+
+    <p>
+      What we normally do is that we create links with the anchor tag. This
+      works fine but it sends a get request to the server and the server always
+      returns the index.html and then it loads the component and it makes the
+      page to reload. <br />
+      The disadvantage of this method is that it sends requests to the server
+      and reloads the page which we do not want in a single page application.
+      <br />
+      Also, when the page is refreshed, we lose our state of our application at
+      that point to the default state
+    </p>
+
+    <p>
+      To prevent this, we use the Link tags from the react router dom. We should
+      note that the Link tag does not have an href attribute but we have a to
+      attribute and both of them perform the same action
+    </p>
+
+    <p>When the link tag is rendered in the dom, it outputs as an anchor tag</p>
+
+    <fieldset>
+      <fieldset>
+        <legend>Navbar.js</legend>
+        <code>
+          <pre>
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Navbar = () => {
+    return (
+        <ul>
+            <li>
+                &lt;Link to="/" className="">
+                    Home
+                &lt;/Link>
+            </li>
+            <li>
+                &lt;Link to="/about" className="">
+                    About
+                &lt;/Link>
+            </li>
+            <li>
+                &lt;Link to="/contact" className="">
+                    Contact
+                &lt;/Link>
+            </li>
+            <li>
+                &lt;Link to="/blog" className="">
+                    Blog
+                &lt;/Link>
+            </li>
+        </ul>
+    );
+};
+
+export default Navbar;
+                    </pre>
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre></pre>
+        </code>
+      </fieldset>
+    </fieldset>
+
+    <h3>NavLinks</h3>
+    <p>
+      These are very similar to the Link tags but the difference is that
+      NavLinks provide the active class to the active link. With this, we can
+      style our links with the active class and any link that we click will then
+      go to the route and then it gets styled as the active class will be passed
+      to it
+    </p>
+    <p>
+      If you want to change the className of the active link, you can specify
+      this by adding an attribute called the activeClassName attribute. Note
+      that this attribute has to be added to all the NavLinks in the specified
+      navbar
+    </p>
+
+    <h3>Sub links or sub routes</h3>
+    <p>
+      We can create routes in routes. To do this, we use the hook called the
+      useRouteMatch hook from the react-router-dom
+    </p>
+    <p>
+      The useRouteMatch hook gets the path (e.g /contacts) and url (e.g.
+      localhost:300/contacts) of the current Component in the form of an object
+    </p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+import React from "react";
+import Cars from "./Cars";
+import Dogs from "./Dogs";
+import Recipes from "./Recipes";
+
+const Blog = () => {
+    const { path, url } = useRouteMatch();
+    return (
+        <div>
+            <ul>
+                <li>
+                    &lt;Link to={`${url}/recipes`}>Recipes&lt;/Link>
+                </li>
+                <li>
+                    &lt;Link to={`${url}/dogs`}>Dogs&lt;/Link>
+                </li>
+                <li>
+                    &lt;Link to={`${url}/cars`}>Cars&lt;/Link>
+                </li>
+            </ul>
+
+            &lt;Switch>
+                &lt;Route path={`${path}/recipes`}>
+                    <Recipes />
+                &lt;/Route>
+                &lt;Route path={`${path}/dogs`}>
+                    <Dogs />
+                &lt;/Route>
+                &lt;Route path={`${path}/cars`}>
+                    <Cars />
+                &lt;/Route>
+            &lt;/Switch>
+        </div>
+    );
+};
+
+export default Blog;
+
+                </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

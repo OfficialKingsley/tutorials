@@ -1,0 +1,369 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Anchors and links</title>
+    </head>
+    <body>
+        <h1><u>Anchors and Hyperlinks</u></h1>
+        <h4>Some attributes of the anchor tag include</h4>
+        <h5>href attribute</h5>
+        <p>
+            Specifies the destination address. It can be an absolute or relative URL, or the name of
+            an anchor. <br />
+            An absolute URL is the complete URL of a website like http://example.com/. A relative
+            URL points to another directory and/or document inside the same website, e.g. /about-us/
+            points to the directory “about-us” inside the root directory (/). <br />
+            When pointing to another directory without explicitly specifying the document, web
+            servers typically return the document “index.html” inside that directory.
+        </p>
+        <h5>hreflang attribute</h5>
+        <p>
+            Specifies the language of the resource linked by the href attribute (which must be
+            present with this one). Use language values from BCP 47 for HTML5 and RFC 1766 for HTML
+            4.
+        </p>
+        <h5>rel:</h5>
+        <p>
+            Specifies the relationship between the current document and the linked document. For
+            HTML5, the values must be defined in the specification or registered in the
+            Micro-formats wiki.
+        </p>
+        <h5>target:</h5>
+        <p>Specifies where to open the link, e.g. in a new tab or window. Possible values are</p>
+        <ul>
+            <li>_blank</li>
+            <li>_self</li>
+            <li>_parent</li>
+            <li>_top</li>
+            <li>framename (deprecated)</li>
+        </ul>
+
+        <p>
+            Forcing such behavior (i.e. using the target attribute) is not recommended since it
+            violates the control of the user over a website.
+        </p>
+        <h5>title:</h5>
+        <p>
+            Specifies extra information about a link. The information is most often shown as a
+            tooltip text when the cursor moves over the link. This attribute is not restricted to
+            links, it can be used on almost all HTML tags.
+        </p>
+        <h5>download</h5>
+        <p>
+            Specifies that the target will be downloaded when a user clicks on the hyperlink. The
+            value of the attribute will be the name of the downloaded ﬁle. There are no restrictions
+            on allowed values, and the browser will automatically detect the correct ﬁle extension
+            and add it to the ﬁle (.img, .pdf, etc.). If the value is omitted, the original ﬁlename
+            is used.<br />
+        </p>
+
+        <p>
+            Anchor tags are commonly used to link separate webpages, but they can also be used to
+            link between different places in a single document, often within table of contents or
+            even launch external applications. This topic explains the implementation and
+            application of HTML anchor tags in various roles. Section 6.1: Link to another site
+        </p>
+        This is the basic use of the &lt;a> (anchor element) element:
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="http://example.com/">Link to example.com&lt;/a>
+            </pre
+                >
+            </code>
+        </fieldset>
+        <!-- <output><a href="http://example.com/">Link to example.com</a></output> -->
+
+        <p>
+            It creates a hyperlink, to the URL http://example.com/ as specified by the href
+            (hypertext reference) attribute, with the anchor text "Link to example.com". It would
+            look something like the following:<br />
+            Link to example.com
+        </p>
+        <p>
+            To denote that this link leads to an external website, you can use the set the rel
+            attribute to external
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="http://example.com/" rel="external">example site&lt;/a>
+            </pre
+                >
+            </code>
+        </fieldset>
+        <!-- <output><a href="http://example.com/" rel="external">example site</a></output> -->
+        <p>
+            You can link to a site that uses a protocol other than HTTP or HTTPS. For example, to
+            link to an FTP site, you can do
+        </p>
+
+        <fieldset>
+            &lt;a href="ftp://example.com/">This could be a link to an FTP site&lt;/a>
+        </fieldset>
+        <a href="ftp://example.com/">This could be a link to a FTP site</a>
+
+        <p>
+            In this case, the difference is that this anchor tag is requesting that the user's
+            browser connect to example.com using the File Transfer Protocol (FTP) rather than the
+            Hypertext Transfer Protocol (HTTP).<br />
+        </p>
+
+        <h3>Linking to specific parts of the page</h3>
+        <p>
+            Anchors can be used to jump to specific tags on an HTML page. The &lt;a> tag can point
+            to any element that has an id attribute. Anchors are mostly used to jump to a subsection
+            of a page and are used in conjunction with header tags.<br />
+            Suppose you've created a page (page1.html) on many topics:
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;h2>First topic&lt;/h2> 
+&lt;p>Content about the first topic&lt;/p><br />
+&lt;h2>Second topic&lt;/h2>
+&lt;p>Content about the second topic&lt;/p>
+                </pre>
+            </code>
+        </fieldset>
+
+        <h2>First topic</h2>
+        <p>Content about the first topic</p>
+        <h2>Second topic</h2>
+        <p>Content about the second topic</p>
+
+        <p>
+            Once you have several sections, you may want to create a Table of Contents at the top of
+            the page with quick-links (or bookmarks) to specific sections.<br />
+            If you gave an id attribute to your topics, you could then link to them
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;h2 id="Topic1">First topic&lt;/h2> 
+&lt;p>Content about the first topic&lt;/p><br />
+&lt;h2 id="Topic2">Second topic&lt;/h2> 
+&lt;p>Content about the second topic
+                </pre>
+            </code>
+        </fieldset>
+
+        <h2 id="Topic1">First topic</h2>
+        <p>Content about the first topic</p>
+        <h2 id="Topic2">Second topic</h2>
+        <p>Content about the second topic</p>
+
+        <p>Now you can use the anchor in your table of contents:</p>
+
+        <fieldset>
+            <legend>Table of Contents</legend>
+            &lt;a href='#Topic1'>Click to jump to the First Topic&lt;/a><br />
+            &lt;a href='#Topic2'>Click to jump to the Second Topic&lt;/a>
+        </fieldset>
+
+        <p></p>
+
+        <h1>Table of Contents</h1>
+        <a href="#Topic1">Click to jump to the First Topic</a>
+        <a href="#Topic2">Click to jump to the Second Topic</a>
+
+        <p>
+            These anchors are also attached to the web page they're on (page1.html). So you can link
+            across the site from one page to the other by referencing the page and anchor name.
+        </p>
+
+        <fieldset>
+            Remember, you can always
+            <code>&lt;a href="page1.html#Topic1">look back in the First Topic&lt;/a></code> for
+            supporting information.
+        </fieldset>
+        Remember, you can always <a href="page1.html#Topic1">look back in the First Topic</a> for
+        supporting information.
+
+        <h3><u>Link to a page on the same site</u></h3>
+        <p>You can use a relative path to link to pages on the same website.</p>
+
+        <fieldset>&lt;a href="/example">Text Here&lt;/a></fieldset>
+
+        <a href="/example">Text Here</a>
+
+        <p>
+            The above example would go to the ﬁle example at the root directory (/) of the
+            server.<br />
+            If this link was on http://example.com, the following two links would bring the user to
+            the same location
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="/page">Text Here&lt;/a> &lt;a href="http://example.com/page">Text Here&lt;/a>
+                </pre>
+            </code>
+        </fieldset>
+
+        <a href="/page">Text Here</a>
+        <a href="http://example.com/page">Text Here</a>
+        <p>Both of the above would go to the page ﬁle at the root directory of example.com.</p>
+
+        <h3>Link that dials a number</h3>
+        <p>
+            If the value of the href-attribute begins with tel:, your device will dial the number
+            when you click it. This works on mobile devices or on computers/tablets running software
+            – like Skype or FaceTime – that can make phone calls.
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="tel:11234567890">Call us&lt;/a>
+            </pre
+                >
+            </code>
+        </fieldset>
+        <a href="tel:11234567890">Call us</a>
+        <p>
+            Most devices and programs will prompt the user in some way to confirm the number they
+            are about to dial.
+        </p>
+
+        <h3>Open link in new tab/window</h3>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="example.com" target="_blank">Text Here&lt;/a>
+            </pre
+                >
+            </code>
+        </fieldset>
+
+        <a href="example.com" target="_blank">Text Here</a>
+
+        <p>
+            The target attribute specifies where to open the link. By setting it to _blank, you tell
+            the browser to open it in a new tab or window (per user preference).
+        </p>
+
+        <h4><u>SECURITY VULNERABILITY WARNING!</u></h4>
+        <p>
+            Using target="_blank" gives the site that you're opening site partial access to the
+            window.opener object via JavaScript, which allows that page to then access and change
+            the window.opener.location of your page and potentially redirect users to malware or
+            phishing sites.<br />
+            Whenever using this for pages you do not control, add rel="noopener" to your link to
+            prevent the window.opener object from being sent with the request.
+            <br />
+            Currently, Firefox does not support noopener, so you will need to use
+            <code>rel="noopener noreferrer"</code> for maximum effect.
+        </p>
+
+        <h3><u>Link that runs JavaScript</u></h3>
+
+        <p>
+            Simply use the javascript: protocol to run the text as JavaScript instead of opening it
+            as a normal link:
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="javascript:myFunction();">Run Code&lt;/a>
+                </pre>
+            </code>
+        </fieldset>
+        <p>You can also achieve the same thing using the onclick attribute:</p>
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="#" onclick="myFunction(); return false;">Run Code&lt;/a>
+            </pre
+                >
+            </code>
+        </fieldset>
+
+        <p>
+            The return false; is necessary to prevent your page from scrolling to the top when the
+            link to # is clicked. Make sure to include all code you'd like to run before it, as
+            returning will stop execution of further code.<br />
+            Also noteworthy, you can include an exclamation mark ! after the hashtag in order to
+            prevent the page from scrolling to the top. This works because any invalid slug will
+            cause the link to not scroll anywhere on the page, because it couldn't locate the
+            element it references (an element with id="!"). You could also just use any invalid slug
+            (such as <code>#scrollsNowhere</code> ) to achieve the same effect. <br />
+            In this case, <code>return false;</code> is not required:
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+&lt;a href="#!" onclick="myFunction();">Run Code&lt;/a>
+                </pre>
+            </code>
+        </fieldset>
+
+        <p>
+            Should you be using any of this? The answer is almost certainly no. Running JavaScript
+            inline with the element like this is fairly bad practice. Consider using pure JavaScript
+            solutions that look for the element in the page and bind a function to it instead.<br />
+            Listening for an event Also consider whether this element is really a button instead of
+            a link. If so, you should use &lt;button>.
+        </p>
+
+        <h3><u>Link that runs email client</u></h3>
+
+        <p>
+            <strong><u>Basic usage</u></strong>
+        </p>
+
+        <p>
+            If the value of the href-attribute begins with mailto: it will try to open an email
+            client on click:
+        </p>
+
+        <fieldset>&lt;a href="mailto:example@example.com">Send email&lt;/a></fieldset>
+        <a href="mailto:example@example.com">Send email</a>
+
+        This will put the email address example@example.com as the recipient for the newly created
+        email.
+
+        <b
+            ><u><p>Cc and Bcc</p></u></b
+        >
+
+        <p>You can also add addresses for cc- or bcc-recipients using the following syntax:</p>
+
+        <fieldset>
+            &lt;a href="mailto:example@example.com?cc=john@example.com&bcc=jane@example.com">Send
+            email&lt;/a>
+        </fieldset>
+
+        <a href="mailto:example@example.com?cc=john@example.com&bcc=jane@example.com">Send email</a>
+
+        <h3><u>Subject and body text</u></h3>
+
+        <p>You can populate the subject and body for the new email as well:</p>
+
+        <fieldset>
+            &lt;a href="mailto:example@example.com?subject=Example+subject&body=Message+text">Send
+            email&lt;/a>
+        </fieldset>
+
+        <a href="mailto:example@example.com?subject=Example+subject&body=Message+text"
+            >Send email</a
+        >
+
+        <p>Those values must be URL encoded.</p>
+
+        <p>
+            Clicking on a link with mailto: will try to open the default email client speciﬁed by
+            your operating system or it will ask you to choose what client you want to use. Not all
+            options speciﬁed after the recipient's address are supported in all email clients.
+        </p>
+    </body>
+</html>

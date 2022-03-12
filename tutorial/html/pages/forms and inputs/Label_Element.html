@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Label Element in HTML
+        </title>
+    </head>
+    <body>
+<p>Label Element</p>
+<p>Attributes --> Description</p>
+<p>for --> Reference to the target ID Element. I.e: for="surname"</p>
+<p>form --> HTML5, [Obsolete] Reference to the form containing the Target Element. Label elements are expected
+within a (form) Element. If the form="someFormId" is provided this allows you to place the Label anywhere in the document.</p>
+
+<p>About Label</p>
+<p>The (label) element is used to reference a form action element. In the scope of User Interface, it's used to ease the target / selection of elements like Type radio or checkbox.</p>
+<p><b>(label) as wrapper</b></p>
+
+<p>It can enclose the desired action element</p>
+
+<fieldset>
+    <p>
+        (label)<br>
+            (input type="checkbox" name="Cats")<br>
+            I like Cats!<br>
+        (/label)
+    </p>
+</fieldset>
+
+<label>
+<input type="checkbox" name="Cats">
+I like Cats!
+</label>
+<p>(Clicking on the text the target input will toggle it's state / value)</p>
+<p><u><b>(label) as reference</b></u></p>
+<p>Using the for attribute you don't have to place the control element as descendant of label - but the for value must match it's ID</p>
+
+<fieldset>
+    <p>
+        (input id="cats" type="checkbox" name="Cats")<br>
+        (label for="cats" )I like Cats!(/label)
+    </p>
+</fieldset>
+<input id="cats" type="checkbox" name="Cats">
+<label for="cats" >I like Cats!</label>
+<p><b>Note</b></p>
+<p>Don't use more than one Control Element within a (label) element</p>
+
+<p>Basic Use</p>
+<p>Simple form with labels...</p>
+
+<fieldset>
+    <p>
+        (form action="/login" method="POST")<br>
+            (label for="username")Username:(/label)<br>
+            (input id="username" type="text" name="username" /)<br>
+            (label for="pass")Password:(/label)<br>
+            (input id="pass" type="password" name="pass" /)<br>
+            (input type="submit" name="submit" /)<br>
+            (/form)
+    </p>
+    <p>
+        (form id="my-form" action="/login" method="POST")<br>
+            (input id="username" type="text" name="username" /)<br>
+            (label for="pass")Password:(/label)<br>
+            (input id="pass" type="password" name="pass" /)<br>
+            (input type="submit" name="submit" /)<br>
+            (/form)<br>
+            (label for="username" form="my-form")Username:(/label)     
+    </p>
+</fieldset>
+
+<form action="/login" method="POST"><br>
+<label for="username">Username:</label><br>
+<input id="username" type="text" name="username" /><br>
+<label for="pass">Password:</label><br>
+<input id="pass" type="password" name="pass" /><br>
+<input type="submit" name="submit" /><br>
+</form>
+<p><form id="my-form" action="/login" method="POST"><br>
+<input id="username" type="text" name="username" /><br>
+<label for="pass">Password:</label><br>
+<input id="pass" type="password" name="pass" /><br>
+<input type="submit" name="submit" /><br>
+</form>
+<label for="username" form="my-form">Username:</label>
+</p>
+
+    </body>
+</html>

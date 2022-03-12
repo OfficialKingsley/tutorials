@@ -1,0 +1,77 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      An object is the representation a real life representation object. Objects
+      can have properties and methods. <br />
+      Properties describe the object. Like a name, age height. etc. <br />
+      Methods are the functions or actions that the object can perform e.g. run,
+      walk, eat etc. When creatinig objects
+    </p>
+    <h3>Ways of defining objects</h3>
+    <ul>
+      <li>Using the keyword new</li>
+      <li>Using object literals</li>
+      <li>Using functions</li>
+      <li>Using a singleton</li>
+    </ul>
+    <fieldset>
+      <code>
+        <pre>
+let Book = new Object()
+Book.property = "value";
+Book.method = function() {};
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+let Book = {
+  property: "value";
+  method: function () {}
+}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+function Book () {
+  this.property = "value";
+  this.method = function () {}
+  this.method = method;
+}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+Bok.prototype.method() {}
+let Book = new Book()
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+//singleton
+
+let Book = new function () {
+  this.property = "value";
+  this.method = function () { };
+}</pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

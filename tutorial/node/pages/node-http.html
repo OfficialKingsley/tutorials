@@ -1,0 +1,147 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Creating HTTP servers with node js</h1>
+    <fieldset>
+      <code>
+        <pre>
+const http = require("http");
+const server = http.createServer((req, res)=>{
+  req - request - this is what the client requests from the server
+  After we get the response we can get send back a response
+  res.write("Hello world from js"); This is the response we wanna send
+  res.end() Now, we've sent the response
+})
+
+//To start the server
+//server.listen(port-number)
+server.listen("3000")
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+const server = http.createServer((req, res)=>{
+  if (req.url === "/") {
+//The url property represents the route of the request
+    res.write("Hello world from js"); This is the response we wanna send
+    res.end() Now, we've sent the response
+  }
+
+  //We said if the route is the home route then we should show that text 
+
+  
+  
+})
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Serving Static Files with Http and File system modules</h3>
+    <fieldset>
+      <code>
+        <pre>
+const http = require("http");
+const fs = require("fs");
+const server = http.createServer((req, res)=> {
+  const readStream =fs.createReadStream("./static/index.html")
+  res.writeHead(200, {
+    "Content-type": "text/html"
+  });
+  readStream.pipe(res)
+
+  //The res is also a writable stream
+})
+server.listen(3000)
+
+//Content types
+//html- text/html
+//json - applicaion/json
+//image/png
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Creating a package.json with npm init</h3>
+    <p>The package.json holds all the meta data for our app. The meta data</p>
+    <fieldset>
+      <code>
+        <pre>
+//in the terminal
+
+npm init
+
+This will bring out a set of options to fill like
+package_name
+version
+description
+entry point: This tells us which file to start out node application
+//Just like the index.js in react
+test command
+git repository
+keywords
+author
+license
+
+Is this ok? (yes)
+
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Installing packages with nom</h3>
+    <p>A package can be defined as a folder with modules in it</p>
+    <fieldset>
+      <code>
+        <pre>
+npm i package_name
+
+//in the package.json, you will see a new property called dependencies
+"dependencies": {
+  "package_name": "package_version"
+}
+
+//Another folder called node_modules is where all the downloaded dependencies can be found
+
+To use the node_module all you need to do is to just require it
+
+//to uninstall a module, you can just type
+
+npm uninstall package_name
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Semantic Versioning</h3>
+    <p>This is a standard that node packages follow</p>
+    <p>
+      In the package version e.g. if the version of loadash is <br />
+      "^4.17.11" <br />
+      //They represent major_version.minor_version.patch_version
+    </p>
+    <p>
+      If the patch version changes that means that there was a patch update and
+      that they implementedsome bug fixes. <br />
+      If the minor update occurs, new functionality has been added and old
+      functionality has been deprecated but the old functionality can still be
+      used <br />
+      If the major_version is changed, that means there was a breaking change.
+      Tha <br />
+      <br />
+      The caret (^) character infront of the number tells npm to install the
+      latest versions of the package as long as its still the main version. So
+      if there's any update in the minor version or patch version, it will be
+      updated but not the major version <br />
+      The tilder (~) This means you want only the patch update <br />
+      And if none of those signs are used, there will be no update
+    </p>
+  </body>
+</html>

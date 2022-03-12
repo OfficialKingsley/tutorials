@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Readline Module</h3>
+    <p>This helps us to prompt the user and to also get info from the user</p>
+    <fieldset>
+      <code>
+        <pre>
+const readline = require("readline")
+const rl = readline.createInterface({
+  input: process.stdin
+  output: process.stdout
+})
+
+let num1 = Math.floor((Math.random()*10)+1)
+let num2 = Math.floor((Math.random()*10)+1)
+
+let answer = num1 + num2
+
+rl.question(`What is ${ num1 } + ${ num2 }? \n`, 
+//First we take the user input
+(userInput) => {
+  if (userInput() == answer) {
+    rl.close(); //This close method emits the close event
+  } else {
+    rl.setPrompt("Incorrect response please try again \n")
+    //in the above line, we have set the text to prompt the user
+    rl.prompt();
+    //Now we call the prompt to prompt the user
+    rl.on("line", (userInput)=>{
+      Do something with the userInput
+    })
+  }
+})
+
+//rl is an instance of the 
+//EventEmitter class so we can use the on property on it
+rl.on("close", ()=>{
+  console.log("Correct!!!!!")
+})
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Express JS</h3>
+    <p>
+      This is a web framework for node js. Previously, we used http and file
+      system module to set up a web server. With express, it is easier and it
+      does even more
+    </p>
+    <p>
+      Express is a fast, un-opinionated and minimalist web framework for node JS
+      <br />
+      It's not a high level framework like laravel or django it's very basic at
+      its core. You have full control to the
+      <br />
+      It is backend/ server-side framework. IT's not a client-side framework
+    </p>
+    <ul>
+      <li>Makes building web applications with node js much easier</li>
+      <li>Used for both server rendered apps as well as API/Micro-servers</li>
+      <li>Extremely light, fast and free</li>
+      <li>Full control of request and response</li>
+      <li>Uses JS</li>
+      <li>By far the most popular</li>
+    </ul>
+
+    <fieldset>
+      <legend>Basic Syntax</legend>
+      <code>
+        <pre contenteditable="true">
+const express = require("express")
+
+//init express
+const app = express();
+
+//create your endpoints/route handlers
+
+app.get('/', function(req, res) {
+  res.send("Hello world");
+});
+
+//listen on a port
+app.listen(3000 )
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <legend>Basic route handling</legend>
+      <code>
+        <pre>
+app.get()
+app.post()
+app.put()
+app.delete()
+
+app.get("/", function(req, res) {
+  //fetch from database
+  //Load pages
+  //Return JSON
+  //Full access to request and response
+});
+
+//In express, we also have access to params,
+//query strings, url parts as part of the request object etc.
+
+//Express also has a router so we can store routes
+//in separate files and export
+//We can also parse incoming data with the Body Parser
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Middleware functions are functions that have access to the request and
+      response object. Express has built in middleware but middleware also comes
+      from 3rd party packages <br />
+      Execute any code <br />
+      Makes changes <br />
+      End response cycle <br />
+      Call next middleware in the stack
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+npm install express (in the terminal)
+
+const express = require("express"); //This is a function
+const app = express(); This function will return an object
+
+//syntax
+app.get("/", (req, res)=> {
+  res.send("Hello world")
+})
+
+app.listen(3000)
+        </pre>
+      </code>
+    </fieldset>
+
+    <h3>Working with express GET requests</h3>
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express"); //This is a function
+const app = express(); This function will return an object
+
+app.get("/", (req, res)=> {
+  res.send("Hello world")
+})
+
+app.get("/example", (req, res)=> {
+  res.send("This is the example route")
+})
+
+app.listen(3000)
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Route Parameters</h3>
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express"); //This is a function
+const app = express(); This function will return an object
+
+app.get("/", (req, res)=> {
+  res.send("Hello world")
+})
+
+app.get("/example", (req, res)=> {
+  res.send("This is the example route")
+})
+app.get("/example/:name/:age", (req, res)=> {
+  The params can be gotten from
+  req.params
+
+  This will return an object
+  {name: "my name passed in the url", age: "age_passed_in_the_url"}
+  res.send("This is the example route")
+})
+app.listen(3000)
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Query strings</h3>
+    <fieldset>
+      <code>
+        <pre>
+const express = require("express"); //This is a function
+const app = express(); This function will return an object
+
+app.get("/", (req, res)=> {
+  res.send("Hello world")
+})
+
+app.get("/example", (req, res)=> {
+  res.send("This is the example route")
+})
+app.get("/example/:name/:age", (req, res)=> {
+  The params can be gotten from
+  req.query
+  //This will return an object
+  //In the url, if we now type
+  
+  localhost:3000/hello_world?tutorial=my_tutorial,
+  
+  //we will see that if we console.log the req.query now, we will get
+  {tutorial: "my_tutorial"}
+  If you want to add another query, you should add and and sign &
+  <code>&size=100kb</code>
+  res.send("This is the example route")
+})
+app.listen(3000)
+        </pre>
+      </code>
+    </fieldset>
+
+    <p>If the data from the url is compulsory, we use the route parameters</p>
+    <p>If we want to use something optional, we use query string</p>
+  </body>
+</html>

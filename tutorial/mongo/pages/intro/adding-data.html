@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Actually, anything that you store inside mongo db is called a document.
+      Documents are in collections and collections in databases <br />
+      Since there is no schema, you don't have to worry about the type of data
+      you add to your collections
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+db.users.insertOne({name: "Sally", age:19, address: {street: "1982 street"}, hobbies: ["Running"]})
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+//We can insert one item into the db With that function
+//The above also created a users collection 
+//and added one item (or record) to the collection
+//The database also adds an _id to the item added
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <legend>Adding many items to the collection</legend>
+      <code>
+        <pre>
+db.users.insertMany([{name: "111"}, {name: "mike"}])
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

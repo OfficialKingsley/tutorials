@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Protected Routes</h3>
+    <p>
+      These are routes that can only be accessed if a certain condition is
+      passed. For example, if we want an admin or account page to be accessed
+      only if the user is signed in
+    </p>
+    <p>There are many ways of making a protected route</p>
+    <p>The first way is to use a condition to satisfy an authentication.</p>
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+if (!isAuthenticated) {
+    return <Redirect to="/" />
+}
+return (
+    <div>
+        <Admin />
+    </div>
+)
+                </pre>
+      </code>
+    </fieldset>
+
+    <p>Another way is by using a special route component</p>
+    <p>For example, if we create a new component like PrivateRoute.js</p>
+    <p>
+      This is going to be a special route component that returns another route
+      component. It is just like any other route component
+    </p>
+    <p>
+      Using an extra component can be useful as we can add some extra logic. Ao
+      we can say if the user is not logged in, do something and if he is do
+      another (like allow the user to view the admin page)
+    </p>
+
+    <fieldset>
+      <legend></legend>
+      <code>
+        <pre>
+import React, { useContext } from "react";
+
+const PrivateRoute = ({children, ...rest}) => {
+    const {isLoggedIn} = useContext(AuthContext)
+
+    return (
+    &lt;Route {...rest} render={(props) =&gt; {
+        return isLoggedIn ? children : &lt;Redirect to="/" />} }/>
+)
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

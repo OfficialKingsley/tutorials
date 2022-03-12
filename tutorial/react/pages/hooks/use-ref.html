@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>useRef hook</h3>
+    <p>
+      This hook is the easiest way to access dom elements<br />
+      This hook is used when you want to focus on an input whenever an action is
+      taken. <br />
+      Normally is react, we do not have to access dom elements because of the
+      virtual dom. However, there are some situations where you would need to
+      manipulate or at least add some functionality to certain dom elements and
+      the useRef helps in that
+    </p>
+
+    <p>
+      To use the useRef hook, the element that we want to access must have a ref
+      attribute
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+import {useRef} from "react";
+
+const RefTutorial = () => {
+    const inputRef = useRef(null);
+
+    const clickEvent = () => {
+        console.log(inputRef.current.value); //Notice that we had to access the current value
+    }
+
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Pedro&lt;/h1&gt;
+            &lt;input type="text" placeholder="Some random text here ref={inputRef}/&gt; 
+            //You pass in the name of the created ref created using the useRef hook
+            &lt;button onClick={clickEvent}&gt;Change Name&lt;button&gt;
+        &lt;/div&gt;
+    );
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

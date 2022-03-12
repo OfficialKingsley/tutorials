@@ -1,0 +1,58 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        CSS units are divided into:
+        <ul>
+            <li>Absolute units</li>
+            <li>
+                Relative units e.g. %, em, rem, vh (view-height: height of the screen),
+                vw(view-width: width of the screen)
+            </li>
+        </ul>
+        <h3>Pixel</h3>
+        <p>
+            Pixel is an absolute unit where 1 pixel represents approximately 1 dot on the value
+            <br />
+            The reason pixel is an absolute value is that no matter the screen size, it does not
+            change. It is always constant
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+h1 {
+    font-size: 60px;
+    width: 300px;
+    height: 400px;
+    background: blue;
+}
+                </pre>
+            </code>
+        </fieldset>
+        <h3>% value</h3>
+        <fieldset>
+            <code>
+                <pre>
+.div1 {
+    width: 600px;
+}
+.div2 {
+    width: 50%;
+}
+/* The width of div2 is going to be 50% relative to the parent element*/
+                </pre>
+            </code>
+        </fieldset>
+
+        <h3>calc() function in css</h3>
+        <p>This helps us to calculate values <code>min-height: calc(100vh - 100px)</code></p>
+        <p>Properties of height include height, min-height</p>
+    </body>
+</html>
