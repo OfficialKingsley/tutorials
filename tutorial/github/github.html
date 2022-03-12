@@ -9,10 +9,35 @@
         <title>Document</title>
     </head>
     <body>
+        <h3>Connecting your local computer to your github account</h3>
+        <p>
+            To do this, we'll need what is known as SSH keys. <br />
+            We have to first start by typing in a command in the following way: <br />
+            <code
+                >ssh-keygen -t type-of-encryption -b strength-of-encryption -C
+                "github-email-address@email.com"</code
+            >
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+ssh-keygen -t rsa -b 4096 -C "example@email.com"
+        </pre
+                >
+            </code>
+        </fieldset>
+        <p>
+            After this an ssh-key will be generated. <br />
+            The default file is in a file (C:/Users/user-name/.ssh/id_rsa). However you can change
+            the file where it would be saved <br />
+            Next, you pass in a passphrase and repeat the passphrase <br />
+            In that folder you will have two keys which are id_rsa and id_rsa.pub <br />
+            The one that you are going to upload is the one with the .pub and it is your public key
+        </p>
         <p>
             Create a repository on github <br />
             Give it a name and a description <br />
-            You can set your repo type to
+            You can set your repo type to either private or public
         </p>
         <p>
             We can push our local repository to our github repo <br />
@@ -21,7 +46,7 @@
         <fieldset>
             <code>
                 <pre>
-git remote add origin https://github.com/
+git remote add origin url_of_your_repo
 //This says that our remote repo is called origin
 
 git push -u origin master
@@ -30,5 +55,9 @@ This pushes your local repository
                 </pre>
             </code>
         </fieldset>
+        <p>
+            The reason the -u flag is added is so that the you just type <code>git push</code> when
+            you're in the master branch and then it is added to the
+        </p>
     </body>
 </html>

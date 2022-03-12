@@ -9,113 +9,13 @@
         <title>Document</title>
     </head>
     <body>
+        <p>Git is what is called a version control system</p>
+        <p>Version control is a way we track the changes to our code</p>
         <p>
-            First we open our terminal and we navigate to our desktop <br />
-            We make a directory called story <code>mkdir Story</code> <br />
-            Then you cd into Story <br />
-            make a file called chapter1.txt <br />
-            open the file <br />
-            Next write something in it
+            Git is the tool that is used for the tracking of the changes while github is a website
+            where you host and commit these saves that you make and
         </p>
-        <fieldset>
-            <code>
-                <pre>
-git init //This will create a local git repository to track our changes
-
-It will create a file called .git (a hidden file that tracks your file)
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            In order to start tracking the changes of your file, you have to add the file to what's
-            called a staging area and that is basically an intermediate place where you can choose
-            the files in the working directory that you want to commit
-        </p>
-        <p>
-            To see what is currently in your staging area, you can type the command
-            <code>git status</code>
-        </p>
-        <fieldset>
-            <code>
-                <pre>
-git status
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            Un-tracked files will be shown in red and this is something something in your working
-            area but not in your staging area <br />
-            In order to add it to the staging area, we have to type the command <code>git add</code>
-        </p>
-        <fieldset>
-            <code>
-                <pre>
-git add chapter1.txt
-
-
-git status will show that chapter1.txt has been added
-                </pre>
-            </code>
-        </fieldset>
-        <p>NOw to commit it, you type this</p>
-        <fieldset>
-            <code>
-                <pre>
-git commit -m "Git message"
-                </pre>
-            </code>
-        </fieldset>
-        <p>You should always use present tense for your git messages</p>
-        <p>You can see the commits that you have made by typing the <code>git log</code> command</p>
-        <fieldset>
-            <code>
-                <pre>
-git log
-                </pre>
-            </code>
-        </fieldset>
-        <p>now we can create more files and make changes to these files</p>
-        <fieldset>
-            <code>
-                <pre>
-git status
-
-git add .
-
-//This means add everything in this working directory
-
-git commit -m "We Complete Chapter 2 and three"
-
-git log
-Now we have two different commits 
-//and each commit has a unique hash
-                </pre>
-            </code>
-        </fieldset>
-        <p>If you make a mistake in your work</p>
-        <fieldset>
-            <code>
-                <pre>
-git status
-
-git diff chapter3.txt
-This shows the difference between the files
-
-git checkout chapter3.txt
-This rolls back chapter3.txt to the last state stored in the local repository
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            You can actually simply just type the code below to add (or track) the code and then
-            commit it. However, it is advised that you actually add and then commit
-        </p>
-        <fieldset>
-            <code>
-                <pre>
-git commit -a -m "Commit message"
-                </pre>
-            </code>
-        </fieldset>
+        <p>A repository is basically a project</p>
+        <p>To know if git is installed you can type the command <code>git --version</code></p>
     </body>
 </html>
