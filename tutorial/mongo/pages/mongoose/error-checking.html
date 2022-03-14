@@ -1,0 +1,35 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset>
+            <code>
+                <pre>
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost:27017/database");
+
+const db = mongoose.connection;
+
+// check connection
+db.once("open", function(){
+    console.log("Connected to mongoDB")
+})
+
+//Check errors
+db.on("error", function(err){
+    console.log(err)
+})
+            </pre
+                >
+            </code>
+        </fieldset>
+    </body>
+</html>

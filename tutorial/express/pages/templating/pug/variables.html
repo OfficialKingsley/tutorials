@@ -1,0 +1,60 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            In pug, we can accept variables from the express app. <br />
+            To pass in the variables into pug, when we render a template, we can pass in an optional
+            object (parameter) and in there we pass in the variables we want to use
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+const app = express()
+
+app.set("views", path.join(__dirname, "views/"))
+app.set("view engine", "pug")
+
+//Adding a route
+app.get("/", function (req, res) {
+    res.render("index", {
+        //This object contains the variables
+        title: "Memories",
+        description: "This is a wonderful description of memories"
+    })
+})
+</pre
+                >
+            </code>
+        </fieldset>
+        <p>
+            Now to use those variables, all you have to do is to put it in curly braces with a pound
+            sign in front of the curly braces as so: <br />
+            <code>#{variable}</code>
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        h1 #{title}
+            span
+        p #{description}
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

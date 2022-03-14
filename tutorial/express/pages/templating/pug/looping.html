@@ -1,0 +1,33 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>You can loop through an array in pug</p>
+        <fieldset>
+            <code>
+                <pre>
+extends layout
+
+block content
+    h1 #{title}
+    ul
+        each item, i in array
+            li= item.name
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            If you look at that <code>li</code> element, you will see that we added an equal to
+            sign. <br />
+            That equal to sign is need to tell pug that the text coming after the element is not
+            just a text but a variable
+        </p>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            Sometimes, you may find yourself repeating some code or some markup in almost all your
+            views. In order to stop or reduce this, you can create a general layout and then make
+            other views to extend that layout
+        </p>
+        <fieldset>
+            <legend>layout.pug</legend>
+            <code>
+                <pre>
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Knowledge base
+    body
+        block content
+        br
+        hr
+        footer
+            p Copyright &copy; 2017
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            That <code>block content</code> is added so that we tell the engine that is where we
+            want to output other views
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+extends layout
+
+block content
+    h1 #{}
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            Notice that we first extended this index view to the layout view and then we used the
+            block content and then tabbed into it and put our content there
+        </p>
+    </body>
+</html>

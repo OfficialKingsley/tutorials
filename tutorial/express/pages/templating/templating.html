@@ -1,0 +1,43 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            To use a templating engine like pug, you have to load the view engine and specify the
+            folder where your views or templates will be kept
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+app.set("views", path.join(__dirname, "views"))
+app.set("view engine", pug)            
+
+//New route
+app.get("/", function(req, res)=> {
+    res.render("index")
+})
+
+//We are rendering the index template when
+//A request is made to the home or "/" route
+</pre
+                >
+            </code>
+        </fieldset>
+        <p>
+            It should be noted that the pug engine uses indentation to work and not normal html tags
+        </p>
+        <fieldset>
+            <legend>index.pug</legend>
+            <code>
+                <pre></pre>
+            </code>
+        </fieldset>
+    </body>
+</html>
