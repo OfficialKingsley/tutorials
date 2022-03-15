@@ -1,0 +1,66 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Strings are basically anything within quotes</p>
+        <fieldset>
+            <code>
+                <pre>
+print("Hi, How are you")
+#Output: Hi, How are you
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+print("Hi, \nHow are you")
+#Output:
+Hi, 
+How are you
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            Notice that the <q>How are you</q> was placed on a new line and that was because of the
+            special character <code>\n</code>. Special characters basically start with a backslash
+        </p>
+        <p>
+            You should note that when using single quotes for your strings, you should not have
+            single quotes in there
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+print('He's good')
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            The above will give an error because python will think that you have ended the string
+            after He and then treat s and good as variables or something like that <br />
+            To avoid this, we can do the following
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+print("He's good")
+#Output: He's good
+#We used double quotes for the strings
+
+print('He\'s good')
+#Output: He's good
+#We escaped that ' with the backslash
+
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>
