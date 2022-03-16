@@ -1,0 +1,52 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h3>Installing packages with nom</h3>
+        <p>A package can be defined as a folder with modules in it</p>
+        <fieldset>
+            <code>
+                <pre>
+npm i package_name
+
+//in the package.json, you will see a new property called dependencies
+"dependencies": {
+    "package_name": "package_version"
+}
+
+//Another folder called node_modules is where all the downloaded dependencies can be found
+
+To use the node_module all you need to do is to just require it
+        </pre
+                >
+            </code>
+        </fieldset>
+        <h3>Semantic Versioning</h3>
+        <p>This is a standard that node packages follow</p>
+        <p>
+            In the package version e.g. if the version of loadash is <br />
+            "^4.17.11" <br />
+            //They represent major_version.minor_version.patch_version
+        </p>
+        <p>
+            If the patch version changes that means that there was a patch update and that they
+            implemented some bug fixes. <br />
+            If the minor update occurs, new functionality has been added and old functionality has
+            been deprecated but the old functionality can still be used <br />
+            If the major_version is changed, that means there was a breaking change. Tha <br />
+            <br />
+            The caret (^) character in front of the number tells npm to install the latest versions
+            of the package as long as its still the main version. So if there's any update in the
+            minor version or patch version, it will be updated but not the major version <br />
+            The tilder (~) This means you want only the patch update <br />
+            And if none of those signs are used, there will be no update
+        </p>
+    </body>
+</html>
