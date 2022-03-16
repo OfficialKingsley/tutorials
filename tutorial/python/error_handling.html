@@ -1,0 +1,70 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>
+            The try except helps us to handle errors before the code even runs so that our code
+            doesn't break
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+x = int(input("Input an integer"))
+print(x)
+
+try:
+    x = int(input("Input an integer"))
+    print(x)
+except:
+    print("Something went wrong... Please try again")
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+try:
+    x = int(input("Input an integer"))
+    print(x)
+except ValueError:
+    print("Something went wrong... Please try again")
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+try:
+    x = int(input("Input an integer"))
+    print(x)
+except ValueError:
+    print("Something went wrong... Please try again")
+else:
+    print("Nothing went wrong")
+    #If everything is okay
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+try:
+    x = int(input("Input an integer"))
+    print(x)
+except ValueError:
+    print("Something went wrong... Please try again")
+finally:
+    print("Try except finished")
+    #This will run regardless of if there's an error or not
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>
