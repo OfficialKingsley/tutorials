@@ -1,0 +1,84 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>Functions are block of codes that perform certain tasks</p>
+        <fieldset>
+            <code>
+                <pre>
+def function_name(params):
+    block of code here
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+def greetings_function():
+    print("Welcome user")
+
+#you have to call the function to make it run
+greetings_function()
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            You can add parameters to the function to make the user input variables and we can do
+            things with these
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+def greetings_function(name):
+    print("Welcome user")
+
+greetings_function()
+#The above will give an error because we passed in a parameter in the function definition
+greetings_function("John")
+                </pre>
+            </code>
+        </fieldset>
+        <p>You can also pass in more than one parameter</p>
+        <fieldset>
+            <code>
+                <pre>
+def greetings_function(name, age):
+    print("Welcome" , name, "You are", age, "Years old")
+
+greetings_function("kingsley", 27)
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            If you want the function to accept multiple variables or parameters, you can add the
+            asterisk operator. After doing that, the parameters will be a list
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+def greetings_function(*names):
+    print("Welcome " + names[1])
+
+greetings_function("John", "Tim", "Tom")
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+def greetings_function(name, age):
+    print(name, "is", age)
+
+greetings_function(name="Kingsley", age = 27)
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

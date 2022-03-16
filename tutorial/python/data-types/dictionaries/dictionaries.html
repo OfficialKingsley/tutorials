@@ -1,0 +1,60 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>These are like objects in javascript . They store data in key-value pairs</p>
+        <fieldset>
+            <code>
+                <pre>
+my_dict = {
+    "name": "Tim",
+    "nationality": "African",
+    "age": 23,
+    "qualification": "College"
+}
+            </pre
+                >
+            </code>
+        </fieldset>
+        <p>To get a particular value of dictionary, you need to get the value by using the key</p>
+        <fieldset>
+            <code>
+                <pre>
+print(my_dict["name"]) #Tim
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            If you have two values with the same key, the most recent one is what is going to be
+            taken
+        </p>
+
+        <fieldset>
+            <code>
+                <pre>
+my_dict = {
+    "name": "Tim",
+    "name": "John",
+    "nationality": "African",
+    "age": 23,
+    "qualification": "College",
+    "is_tall": True,
+    "friends": ["Peter", "paul", "Precious"]
+}
+
+print(my_dict["name"]) #John
+print(len(my_dict))
+print(type(my_dict)) #&lt;class dict&gt;
+            </pre
+                >
+            </code>
+        </fieldset>
+    </body>
+</html>
