@@ -1,0 +1,110 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>A class can be defined as a constructor of objects</p>
+        <fieldset>
+            <code>
+                <pre>
+class NewClass:
+    //Add attributes and methods to the object
+                </pre>
+            </code>
+        </fieldset>
+        <p>To create an object from the class, we initialize it</p>
+        <fieldset>
+            <code>
+                <pre>
+p1 = NewClass()
+                </pre>
+            </code>
+        </fieldset>
+        <p>To assign attributes to the class,</p>
+        <fieldset>
+            <code>
+                <pre>
+class Line:
+    #attribute_name = attribute_value
+    x = 1
+    y = 4
+                </pre>
+            </code>
+        </fieldset>
+        <p>These attributes can be gotten from the object using the dot operator</p>
+        <fieldset>
+            <code>
+                <pre>
+myLine = Line()
+
+print(myLine.x) #1
+print(myLine.y) #4
+                </pre>
+            </code>
+        </fieldset>
+        <h3>init function</h3>
+        <p>
+            This allows us to initialize the class and allow the class to accept parameters to
+            create the object. <br />
+            When creating the <code>__init__</code> function in a class, it has a compulsory self
+            parameter that must be added. After that, still in the definition of the
+            <code>__init__</code> if we want the class to accept any more parameters, we pass it
+            there
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+class Person:
+    def __init__(self):
+        self.x = 1
+
+p1 = Person()
+print(p1.x) #1
+                </pre>
+            </code>
+        </fieldset>
+        <fieldset>
+            <code>
+                <pre>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+p1 = Person("Kingsley", 17) #You have to now pass in the name and age parameters
+print(p1.name) #Kingsley
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            If you've worked with Javascript, that self statement is like the <q>this</q> statement
+            in here. You do not control it. <br />
+            Also you will notice that the <code>__init__</code> function is similar to the
+            <code>constructor</code> function in Javascript classes
+        </p>
+        <h3>pass statement</h3>
+        <p>
+            Incase you define a class and you're not sure of the attributes or methods yet or you
+            want to keep that till another time, you can use the pass statement to tell python to
+            overlook that class definition
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+class Person:
+    #Nothing here will generate an error when ran
+
+class Person:
+    pass
+    #Now this code will run without an error
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

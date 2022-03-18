@@ -1,0 +1,129 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>You might want to work with some external files like a spreadsheet or something</p>
+        <p>
+            For example, if we create a new file in the same directory as our python file, and let's
+            name it countries.txt
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+Ghana
+Mexico
+France
+Nigeria
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            To read a file, we call the open function and pass in two parameters. The first
+            parameter is the location of the file and the second parameter is what we want to do to
+            the file like to read, write, append etc.
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+my_file = open("file", "r")
+
+my_file.close()
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            #In the above, the second parameter is r which means <q>read</q>. <br />
+            Other (second) parameters include <br />
+            "w" - To write (or edit) the file <br />
+            "r+" - To read and write <br />
+            "a" - To append to the file ""
+        </p>
+        <p>
+            Notice that we also closed the file after we were done with what we were doing. It is
+            always good to close the file after you are done with it
+        </p>
+        <p>
+            To check whether the file is readable, you can use the <code>.readable()</code> method
+        </p>
+        <fieldset>
+            <legend>python file</legend>
+            <code>
+                <pre>
+countries_file = open("file", "r")
+
+print(countries_file.readable()) #returns True or False
+
+countries_file.close()
+                </pre>
+            </code>
+        </fieldset>
+        <p>To reading the first line</p>
+        <fieldset>
+            <code>
+                <pre>
+countries_file = open("file", "r")
+
+print(countries_file.readline()) 
+#returns the first line
+
+countries_file.close()
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            Note that we can call the <code>.readline()</code> method many times, everytime we call
+            it, it returns the next line <br />
+            For example if we call the <code>readline()</code> method 3 times, it is going to return
+            the first three lines and for each time we call it, it returns just one line
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+countries_file = open("file", "r")
+
+print(countries_file.readline()) #returns the first line
+print(countries_file.readline()) #returns the second line
+print(countries_file.readline()) #returns the third line
+
+
+countries_file.close()
+                </pre>
+            </code>
+        </fieldset>
+        <p>
+            However, we can simply get all the lines of the file by using the
+            <code>.readlines()</code> method. <br />
+            Notice I wrote readlines and not readline <br />
+            The <code>.readlines()</code> method returns all the lines in the form of an array.
+            Therefore, we can index out the line that we want
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+countries_file = open("file", "r")
+
+print(countries_file.readlines())
+#Returns an array of all lines
+
+print(countries_file.readlines()[0])
+#prints first line
+
+print(countries_file.readlines()[2])
+#prints third line
+
+for line in countries_file.readlines():
+    print("line")
+
+countries_file.close()
+                </pre>
+            </code>
+        </fieldset>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <fieldset>
+            <code>
+                <pre>
+const countries_file = open("./countries.txt", "w")
+
+countries_file.write("This is some text that will override whatever is already written in the file")
+            </pre
+                >
+            </code>
+        </fieldset>
+        <p>
+            Notice that the second parameter that we passed into the open function was "w" which
+            means to write. <br />Note also that the write method overrides what ever is already in
+            the file and whatever that was there before will be replaced by this new text
+        </p>
+        <p>
+            However, if the file specified does not exist, it will create the file and write to it
+        </p>
+        <fieldset>
+            <code>
+                <pre>
+const country_file = open("./country.txt", "w")
+
+country_file.write("This is some text that will added to the newly created file since it did not exist before")
+            </pre
+                >
+            </code>
+        </fieldset>
+    </body>
+</html>
