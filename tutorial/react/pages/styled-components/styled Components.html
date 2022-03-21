@@ -132,8 +132,8 @@ export default App;
           <pre>
         import { Container } from ".components/styled/Container.styled"
         import { ThemeProvider } from "styled-components";
-        //Notice that it was imoprted in the App.js
-        //The ThemeProivider takes in a prop called theme which accepts an object
+        //Notice that it was imported in the App.js
+        //The ThemeProvider takes in a prop called theme which accepts an object
         
         const theme = {
             colors: {
@@ -160,29 +160,7 @@ export default App;
           >
         </code>
       </fieldset>
-      <fieldset>
-        <legend>Container.styled.js</legend>
-        <code>
-          <pre>
-              import styled from "styled-components"
-              
-              export const Container = styled.div`
-                  width: 100px;
-                  max-width: 100%;
-                  padding: 0 20px;
-                  margin: 0 auto;
-                  //If we want to use it here,
-                  background-color: ${({ theme }) => theme.colors.header}
-                  //now the background-color will be red
-                  //You can also do:
-                  background-color: ${({ bg }) => bg}
-              `
-                      </pre
-          >
-        </code>
-      </fieldset>
-    </fieldset>
-
+      
     <h3>Global styles</h3>
     <p>
       If you want a style to be global or to be applied to all components, we
@@ -207,7 +185,7 @@ exprt default GlobalStyles;
     <fieldset>
       <code>
         <pre>
-import GlobalSyles from "Globals.styled.js";
+import GlobalStyles from "Globals.styled.js";
 
 //right after it has been wrapped, by the ThemeProvider,
 //We make it the first component.
