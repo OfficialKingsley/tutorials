@@ -1,0 +1,68 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      A module is a folder that contains files which contain similar functions
+      and other properties. <br />
+      These functions can be exported <br />
+      You can create your own modules. <br />
+      Imagine a supermarket, each section in the supermarket is like a module.
+      In each section we could see subsections for particular companies which
+      are like the files
+    </p>
+    <fieldset>
+      <fieldset>
+        <legend>new.py</legend>
+        <code>
+          <pre>
+def say_hi():
+    print("Hi")
+                    </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend></legend>
+        <code>
+          <pre>
+import new
+#import new.py
+#you've imported the whole module like an object
+
+new.say_hi() #Hi
+                    </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <code>
+          <pre>
+from new import say_hi
+
+say_hi()
+#Hi
+                    </pre
+          >
+        </code>
+      </fieldset>
+    </fieldset>
+    <p>
+      The advantage of modules is that sometimes you don't have to write all the
+      code for some projects. It might be that someone out there has done a
+      similar project and might have written a function you want to write. You
+      can simply install the person's module and import it into your file
+    </p>
+    <p>
+      A lot of modules are hosted online and so you can install them using the
+      python pip (which is like npm for node)
+    </p>
+  </body>
+</html>

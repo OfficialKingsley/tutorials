@@ -2,83 +2,115 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>Functions are block of codes that perform certain tasks</p>
-        <fieldset>
-            <code>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Functions are block of codes that perform certain tasks</p>
+    <fieldset>
+      <code>
+        <pre>
 def function_name(params):
     block of code here
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 def greetings_function():
     print("Welcome user")
 
 #you have to call the function to make it run
 greetings_function()
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            You can add parameters to the function to make the user input variables and we can do
-            things with these
-        </p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      You can add parameters to the function to make the user input variables
+      and we can do things with these
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 def greetings_function(name):
     print("Welcome user")
 
 greetings_function()
 #The above will give an error because we passed in a parameter in the function definition
 greetings_function("John")
-                </pre>
-            </code>
-        </fieldset>
-        <p>You can also pass in more than one parameter</p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>You can also pass in more than one parameter</p>
+    <fieldset>
+      <code>
+        <pre>
 def greetings_function(name, age):
-    print("Welcome" , name, "You are", age, "Years old")
+    print("Welcome" , name, "you are", age, "years old")
 
-greetings_function("kingsley", 27)
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            If you want the function to accept multiple variables or parameters, you can add the
-            asterisk operator. After doing that, the parameters will be a list
-        </p>
-        <fieldset>
-            <code>
-                <pre>
+greetings_function("Kingsley", 27)
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      If you want the function to accept multiple variables or parameters, you
+      can add the asterisk operator. After doing that, the parameters will be a
+      list
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 def greetings_function(*names):
     print("Welcome " + names[1])
 
 greetings_function("John", "Tim", "Tom")
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 def greetings_function(name, age):
     print(name, "is", age)
 
 greetings_function(name="Kingsley", age = 27)
-                </pre>
-            </code>
-        </fieldset>
-    </body>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+#make sure to always define a function before you use it
+#If not it will give you an error
+
+greet_user("Kingsley")
+
+#The above will give an error since it was called before the function was defined
+def greet_user(user):
+  print(f"Hello {user}")
+  print("Welcome aboard")
+
+print("Start")
+greet_user("John")
+            </pre
+        >
+      </code>
+    </fieldset>
+    <h3>Difference between parameters and arguments</h3>
+    <p>
+      Parameters are the variables created during the function definition while
+      the argument is the object passed when the function is being called so
+      take note
+    </p>
+  </body>
 </html>

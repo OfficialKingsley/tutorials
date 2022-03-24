@@ -1,0 +1,70 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Like I said in the function tutorials, parameters are the variables of the
+      function
+    </p>
+    <ul>
+      <li>positional arguments</li>
+      <li>keyword arguments</li>
+      <li></li>
+    </ul>
+    <h3>
+      Positional arguments are the arguments passed in which their position
+      matters
+    </h3>
+    <fieldset>
+      <code>
+        <pre>
+def greet_user(first_name, last_name):
+  print(f"Hello {first_name} {last_name}")
+  print("Welcome aboard")
+
+print("Start")
+greet_user("John", "Smith")
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      In the above it can be seen that if we change the position of the
+      arguments, Smith becomes the first_name and John becomes the last_name.
+      That means that the position of these arguments actually matter
+    </p>
+    <h3>Keyword arguments</h3>
+    <p>In these the position do not matter</p>
+    <fieldset>
+      <code>
+        <pre>
+def greet_user(first_name, last_name):
+  print(f"Hello {first_name} {last_name}")
+  print("Welcome aboard")
+
+print("Start")
+greet_user('Smith', first_name="John")
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      As you can see, we explicitly set the first name to John. The argument
+      where you assign the parameter to the argument is called a keyword
+      argument. <br />
+      It is however that advised that you mostly use positional arguments but
+      there are some cases where you may need to pass in some keyword arguments
+      <br />
+      When you are using functions that use numerical values you might want to
+      use keyword arguments to increase readability of the code
+    </p>
+    <p>
+      Make sure positional arguments always come before the keyword arguments
+    </p>
+  </body>
+</html>

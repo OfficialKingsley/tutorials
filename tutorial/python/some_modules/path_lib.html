@@ -1,0 +1,52 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <code>
+        <pre>
+from pathlib import Path #A class
+
+#Next we create an object which references a path
+path = Path("ecommerce")
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+path.exists() True
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+path.mkdir()
+path.rmdir()
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+path = Path() #Accessing the current directory
+for file in path.glob("*.py"):
+  #Every python file  in the current directory
+  print(file) #an array like object
+
+for file in path.glob("*"):
+  #Every python file  in the current directory
+  print(file) #an array like object
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

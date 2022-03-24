@@ -184,7 +184,7 @@ a = 3 + 3;
     <p>
       The map method also loops through the array and performs a specific action
     </p>
-    <fielset>
+    <fieldset>
       <code>
         <pre>
 array.map(function (3 possible parameters) {}, optional object parameter)
@@ -200,10 +200,10 @@ array.map(function (3 possible parameters) {}, optional object parameter)
 
         </pre>
       </code>
-    </fielset>
+    </fieldset>
 
     <p>example</p>
-    <fielset>
+    <fieldset>
       <code>
         <pre>
 let myArray = [1, 2, 3, 4]
@@ -220,7 +220,7 @@ myArray.map((value, index, arr) => {
 //Output: 1 has an index of 0 in the array [1, 2, 3, 4] this is the optional object
         </pre>
       </code>
-    </fielset>
+    </fieldset>
 
     <h3>Filter method</h3>
     <p>
@@ -266,7 +266,7 @@ Lowercase
     </p>
 
     <p>Alphabetical String Sort</p>
-    <fielset>
+    <fieldset>
       <code>
         <pre>
 let thisArray = ["s", "t", "a", "c", "K", "o", "v", "E", "r", "f", "l", "w",
@@ -278,14 +278,14 @@ thisArray.sort((a, b)=> { return a.localCompare(b) });
 ["1", "2", "a", "c", "E", "f", "K", "l", "o", "r", "s", "t", "v", "W"]
         </pre>
       </code>
-    </fielset>
+    </fieldset>
     <p>
       The above sort will throw an error if any array item is not a string.
       <br />
       If you know that the array may contain items that are not strings use the
       safer version bellow
     </p>
-    <fielset>
+    <fieldset>
       <code>
         <pre>
 thisArray.sort((a, b) => {
@@ -293,7 +293,7 @@ thisArray.sort((a, b) => {
 })
         </pre>
       </code>
-    </fielset>
+    </fieldset>
 
     <h2>Looping through an array</h2>
     <p>
@@ -305,7 +305,7 @@ Using the while loop
 Using the for ... of loop
 Using the .forEach() method
 using the .every property
-Using the .some property
+Using the .some property this returns true if the condition specified is true
         </pre>
       </code>
     </p>

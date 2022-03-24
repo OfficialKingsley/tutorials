@@ -1,0 +1,56 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>What is TypeScript</h2>
+    <p>
+      It is a javascript superset. This means that typescript is a language that
+      builds on javascript. It makes writing javascript easier and adds features
+      and advantages to it. <br />
+      It should however be noted that typescript cannot run on the client side
+      or browser and node js also can't execute typescript
+    </p>
+    <p>
+      Typescript is a compiler which compiles into javascript. You write code in
+      typescript and then you get an output in javascript. <br />
+      Typescript also adds types and helps you to give you extra error checking
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const button = document.querySelector("button");
+const input1 = document.getElementById("input1")
+const input2 = document.getElementById("input2")
+
+function add(num1, num2) {
+  return num1 + num2
+}
+
+button.addEventListener("click", function() {
+  console.log(add(input1.value, input2.value))
+})
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      In the above, you will realize that the function will concatenate because
+      the values gotten from an input are always strings no matter the type of
+      input it is even if it's of type number. <br />
+      The error is not as a result of bad code but however this can be avoided
+      in typescript because it is going to give errors there
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+npm i -g typescript
+        </pre>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!-- @format  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Functions</title>
+  </head>
+  <body>
+    <p>
+      A function is a code designed to perform a specific task. <br />
+      A javascript function only executes if it has been called or invoked.
+      <br />
+      In javascript, functions can be defined using the function keyword.
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+function nameOfFunction () = { 
+	Code to be executed when the function is called 
+}
+				</pre
+        >
+      </code>
+    </fieldset>
+    <h3>Invoking a function</h3>
+    To invoke or call a function, all you need do is to write the function name
+    with parentheses. e.g.
+    <fieldset>
+      <code>
+        <pre>
+function myFunction() { 
+	console.log("Hello world") 
+}
+
+
+myFunction() //Here the function has been called
+				</pre
+        >
+      </code>
+    </fieldset>
+    <h3>Parameters</h3>
+    <p>A parameter can be defined as a variable defined with a function.</p>
+    <fieldset>
+      <code>
+        <pre>
+function myFunction(parameter) { 
+	console.log(parameter) 
+}
+				</pre
+        >
+      </code>
+
+      <br />
+      <q
+        ><em
+          >When calling the function, you also have to specify the parameter
+          i.e. pass in an argument</em
+        ></q
+      >
+      <code>
+        <pre>
+myFunction("Kingsley") //This will log out Kingsley
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>You can also specify multiple parameters</p>
+    <fieldset>
+      <code>
+        function myFunction(name, age) { <br />
+        console.log(name + " is" + age + " years old") <br />
+        }
+      </code>
+    </fieldset>
+
+    <p>You can also predefine the parameter values</p>
+    <fieldset>
+      <code>
+        <pre>
+function myFunction(name = "Kingsley", age) {
+    console.log(name + " is" + age + " years old") 
+}
+</pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      If you know that the user can input multiple parameters, you can use the
+      rest operator to achieve that
+    </p>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Object Oriented Programming</h1>
+    <p>
+      This is a <strong>paradigm</strong> (or style) of programming that is
+      centered around objects rather than functions
+    </p>
+    <h2>Pillars of object oriented programming</h2>
+    <ul>
+      <li>Encapsulation</li>
+      <li>Abstraction</li>
+      <li>Inheritance</li>
+      <li>Polymorphism</li>
+    </ul>
+    <p>
+      Before object oriented programming, there was procedural programming that
+      had to deal with a lot of functions. We had variables and functions
+      separately and is usually the basic of programming language that you
+      learn. <br />
+      In object oriented programming, we define an object and define functions
+      (known and methods) for the object. and we also define variables(known as
+      properties) in the object. The process of doing this is
+      <mark><strong>ENCAPSULATION</strong></mark>
+    </p>
+    <p>
+      From this we can say that functions perform actions whileproperties return
+      values
+    </p>
+
+    For Example,
+    <fieldset class="code">
+      <legend>Procedural</legend>
+      <code>
+        <pre>
+let baseSalary = 30000;
+let overtime = 10; 
+let rate = 20; 
+function getWage(baseSalary, overtime, rate) {
+  return baseSalary + (overtime + rate); 
+}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset class="code">
+      <legend>Object Oriented</legend>
+      <code>
+        <pre>
+let employee = {
+  baseSalary: 30000, 
+  overtime: 10 
+  rate: 20, 
+  getWage: function() { 
+    return this.baseSalary + (this.overtime * this.rate);
+  }
+};
+employee.getWage()
+                </pre
+        >
+      </code>
+    </fieldset>
+
+    Abstraction: This involves having some properties that are not going to be
+    in use. This is helpful as these parameters can be changed or even deleted
+    and since they were not defined outside the object or were not called they
+    do not affect the work flow.
+    <p>
+      Abstraction means hiding the details and complexity and show the
+      essentials
+    </p>
+    <h3>Private properties and methods</h3>
+    <p>This involves using the let to declare variables in JS.</p>
+    <h3>Difference between closure and scope</h3>
+    <p>
+      Closure is for inner functions being able to access variables in the
+      parent function. Scope is only showing how accessible the variable is. A
+      local variable is one declared within a function and can't be accessed
+      outside the function.
+    </p>
+
+    <p>
+      Inheritance: This allows you to eliminate redundant code as an element can
+      inherit properties from a parent
+    </p>
+    <p>Polymorphism: This helps you get rid of excess conditional statements</p>
+  </body>
+</html>

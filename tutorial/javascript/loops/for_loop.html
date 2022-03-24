@@ -1,0 +1,137 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>The For Loop</h3>
+    <p>
+      The for loop is often the tool you will use when you want to create a
+      loop. The for loop has the following syntax:
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+for (statement 1; statement 2; statement 3) {
+    //code block to be executed
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <ol>
+      <li>
+        <p>
+          Statement 1 is executed before the loop (the code block) starts. So
+          that statement 1 is usually an assignment of the iterator to a value
+          (since it is run before the loop starts)
+        </p>
+      </li>
+      <li>
+        Statement 2 defines the condition for running the loop (the code block).
+        That means the loop will keep running as long as that condition is true
+      </li>
+      <li>
+        Statement 3 is executed each time after the loop (the code block) has
+        been executed. It is usually an increment so that we keep increasing the
+        value till a point where the condition becomes false <br />
+        It should also be noted that the loop will stop after each item in the
+        list has been iterated over
+      </li>
+    </ol>
+
+    <fieldset>
+      <legend>Example</legend>
+      <code>
+        <pre>
+for (let i = 0; i &lt; 5; i++) {
+    text += "The number is " + i + " ";
+}
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      Statement 1 sets a variable before the loop starts (var i = 0). <br />
+      Statement 2 defines the condition for the loop to run (i must be less than
+      5). <br />
+      Statement 3 increases a value (i++) each time the code block in the loop
+      has been executed.
+    </p>
+
+    <p>
+      Statement 1 Normally you will use statement 1 to initiate the variable
+      used in the loop (let i = 0). This is not always the case, JavaScript
+      doesn't care <br />
+      Statement 1 is optional. You can initiate many values in statement 1
+      (separated by comma):
+    </p>
+    <fieldset>
+      <legend>Example</legend>
+      <code>
+        <pre>
+for (i = 0, len = cars.length, text = ""; i &lt; len; i++) { <br />
+    text += cars[i] + ""; <br />
+}
+                </pre>
+      </code>
+    </fieldset>
+    <p>
+      And you can omit statement 1 (like when your values are set before the
+      loop starts):
+    </p>
+    <fieldset>
+      <legend>Example</legend>
+      <code>
+        <pre>
+var i = 2; 
+var len = cars.length; 
+var text = ""; 
+for (; i &lt; len; i++) { 
+    text += cars[i] + ""; 
+}
+</pre
+        >
+      </code>
+    </fieldset>
+    <h4>Statement 2</h4>
+    <p>
+      Often statement 2 is used to evaluate the condition of the initial
+      variable. This is not always the case, JavaScript doesn't care. Statement
+      2 is also optional. If statement 2 returns true, the loop will start over
+      again, if it returns false, the loop will end.
+    </p>
+    <strong>Note</strong> If you omit statement 2, you must provide a break
+    inside the loop. Otherwise the loop will never end. This will crash your
+    browser.
+    <h4>Statement 3</h4>
+    <p>
+      Often statement 3 increases the initial variable. This is not always the
+      case, JavaScript doesn't care, and statement 3 is optional.
+    </p>
+    <p>
+      Statement 3 can do anything like negative increment (i--), positive
+      increment <code>(i = i + 15)</code>, or anything else.
+    </p>
+    Statement 3 can also be omitted (like when you increment your values inside
+    the loop):
+    <fieldset>
+      <legend>Example</legend>
+      <code>
+        <pre>
+var i = 0; 
+var len = cars.length; 
+for (; i < len; ) { 
+    text += cars[i] + ""; i++; 
+}
+</pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>
