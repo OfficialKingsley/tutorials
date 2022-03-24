@@ -1,0 +1,39 @@
+<!-- @format -->
+
+<h3>Global styles</h3>
+<p>
+  If you want a style to be global or to be applied to all components, we use
+  the createGlobalStyle from styled-component
+</p>
+
+<fieldset>
+  <code>
+    <pre>
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+    * {
+        box-sizing: border-box;
+    }
+`
+export default GlobalStyles;
+            </pre
+    >
+  </code>
+</fieldset>
+<fieldset>
+  <code>
+    <pre>
+import GlobalStyles from "Globals.styled.js";
+
+//right after it has been wrapped, by the ThemeProvider,
+//We make it the first component.
+
+function App() {
+    <ThemeProvider>
+        <GlobalStyles />
+    </ThemeProvider>
+}
+            </pre>
+  </code>
+</fieldset>

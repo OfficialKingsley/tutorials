@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Using themes in styled components</h3>
+    <p>To do this, we import the ThemeProvider from styled components</p>
+    <fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre>
+        import { Container } from ".components/styled/Container.styled"
+        import { ThemeProvider } from "styled-components";
+        //Notice that it was imported in the App.js
+        //The ThemeProvider takes in a prop called theme which accepts an object
+        
+        const theme = {
+            colors: {
+                header: "#ebfbff"
+                body: "#fff"
+                footer: "#003333"
+            }
+        }
+        function App() {
+            return (
+                &lt;ThemeProvider theme={theme}&gt;
+                    &lt;Container bg="red"&gt;
+                        &lt;h1&gt;Hello&lt;/h1&gt;
+                    &lt;/Container&gt;
+                &lt;/ThemeProvider&gt;
+            )
+            //So we wrap everything around the ThemeProvider
+        }
+        
+        export default App;
+        
+        //You'll see that when it is compiled, it will be compiled to a div
+        </pre
+          >
+        </code>
+      </fieldset>
+</body>
+</html>

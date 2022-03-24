@@ -2,109 +2,121 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>You can join lists together using the extendlist</p>
-        <fieldset>
-            <code>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>You can join lists together using the extendlist</p>
+    <fieldset>
+      <code>
+        <pre>
 list1 = [1, 2, 3, 4, 5]
 fruits = ["banana", "apples", "mango", "oranges"]
 
 list1.extend(fruits)
 print(list1)
             </pre
-                >
-            </code>
-        </fieldset>
-        <p>To append (or add to the back) of a list</p>
-        <fieldset>
-            <code>
-                <pre>
+        >
+      </code>
+    </fieldset>
+    <p>To append (or add to the back) of a list</p>
+    <fieldset>
+      <code>
+        <pre>
 fruits.append("Cherry")
-                </pre>
-            </code>
-        </fieldset>
-        <p>You can also insert it at a certain index</p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>You can also insert it at a certain index</p>
+    <fieldset>
+      <code>
+        <pre>
 fruits.insert(1, "cherry")
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+#fruits.insert(index, item)
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 fruits.remove("banana");
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 fruits.clear()
-                </pre>
-            </code>
-        </fieldset>
-        <p>To get the index number of an element</p>
-        <fieldset>
-            <code>
-                <pre>
+</pre
+        >
+      </code>
+    </fieldset>
+    <p>To get the index number of an element</p>
+    <fieldset>
+      <code>
+        <pre>
 fruits.index("mango")
-                </pre>
-            </code>
-        </fieldset>
-        <p>To know the number of times something appears in a list, we type</p>
-        <fieldset>
-            <code>
-                <pre>
+</pre
+        >
+      </code>
+    </fieldset>
+    <p>To know the number of times something appears in a list, we type</p>
+    <fieldset>
+      <code>
+        <pre>
 fruits.count("mango")
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 nums = [4, 7, 0, 6, 26]
 
 nums.sort() #[0, ]
+#This doesn't return an
 nums.reverse()
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 list3 = nums.copy()
 list3 will become a copy of the nums variable
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 nums.pop() #Removes the last value in the list
 nums.pop(1) #This deletes the item with the index passed
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 del nums[0]
 
 del nums
 #This completely deletes the list 
 and if you try to access this list, 
 #the list becomes undefined
-                </pre>
-            </code>
-        </fieldset>
-    </body>
+                </pre
+        >
+      </code>
+    </fieldset>
+  </body>
 </html>

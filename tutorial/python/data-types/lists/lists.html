@@ -2,103 +2,114 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>
-            Lists as the name implies is a list of items. A list is usually placed in square
-            brackets [] <br />Each list item is separated by a comma
-        </p>
-        <fieldset>
-            <code>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Lists as the name implies is a list of items. A list is usually placed in
+      square brackets [] <br />
+      Each list item is separated by a comma
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 countries = ["United Kingdom", "Ghana", "Nigeria", "Australia"]
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 print(countries[0]) #United Kingdom
-                </pre>
-            </code>
-        </fieldset>
-        You can also chain indexing
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    You can also chain indexing
+    <fieldset>
+      <code>
+        <pre>
 print(countries[2][0]) #N
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 print(countries[2:]) This gets the item starting from index 2 till the end
 print(countries[2:4])) This gets from item index of 2 to item index of (4-1) 3
-                </pre>
-            </code>
-        </fieldset>
-        <h3>Negative indexing</h3>
-        <p>
-            You can also index with negative numbers. The index of the last item in the list is (-1)
-            the second to the last will have an index of -2
-        </p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <h3>Negative indexing</h3>
+    <p>
+      You can also index with negative numbers. The index of the last item in
+      the list is (-1) the second to the last will have an index of -2
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 print(countries[-1])
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 countries = ["United Kingdom", "Ghana", "Nigeria", "Australia"]
 countries[0] = "United States"
 print(countries)
 #["United States", "Ghana", "Nigeria", "Australia"]
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 countries = ["United Kingdom", "Ghana", "Nigeria", "Australia"]
 countries[0] = "United States"
 print(countries)
 #["United States", "Ghana", "Nigeria", "Australia"]
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 print(len(countries)) #4
-                </pre>
-            </code>
-        </fieldset>
-        <p>YOu can also have multiple data-types in a list</p>
-        <fieldset>
-            <coe>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>YOu can also have multiple data-types in a list</p>
+    <fieldset>
+      <coe>
+        <pre>
 countries = ["UK", 2, True, {"name": "Kingsley"}]
-                </pre>
-            </coe>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </coe>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 countries = list(("UK", 2, True, {"name": "Kingsley"}))
 
 print(countries)
 ["UK", 2, True, {"name": "Kingsley"}]
-                </pre>
-            </code>
-        </fieldset>
-    </body>
+                </pre
+        >
+      </code>
+    </fieldset>
+  </body>
 </html>

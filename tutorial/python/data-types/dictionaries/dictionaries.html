@@ -2,17 +2,19 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>These are like objects in javascript . They store data in key-value pairs</p>
-        <fieldset>
-            <code>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      These are like objects in javascript . They store data in key-value pairs
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 my_dict = {
     "name": "Tim",
     "nationality": "African",
@@ -20,25 +22,29 @@ my_dict = {
     "qualification": "College"
 }
             </pre
-                >
-            </code>
-        </fieldset>
-        <p>To get a particular value of dictionary, you need to get the value by using the key</p>
-        <fieldset>
-            <code>
-                <pre>
+        >
+      </code>
+    </fieldset>
+    <p>
+      To get a particular value of dictionary, you need to get the value by
+      using the key
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 print(my_dict["name"]) #Tim
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            If you have two values with the same key, the most recent one is what is going to be
-            taken
-        </p>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      If you have two values with the same key, the most recent one is what is
+      going to be taken
+    </p>
 
-        <fieldset>
-            <code>
-                <pre>
+    <fieldset>
+      <code>
+        <pre>
 my_dict = {
     "name": "Tim",
     "name": "John",
@@ -53,8 +59,29 @@ print(my_dict["name"]) #John
 print(len(my_dict))
 print(type(my_dict)) #&lt;class dict&gt;
             </pre
-                >
-            </code>
-        </fieldset>
-    </body>
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+customer = {
+  "name": "John Smith",
+  "age": 30,
+  "is_verified": True
+}
+print(customer["birthdate"])
+#KeyError "birthdate"
+
+print(customer.get("birthdate")) #None
+print(customer.get("birthdate", "Jan 1 1980")) #Jan 1 1980
+#That output will be the default 
+#if the item with that key does not exist
+
+customer["birthday"] = "Jan 3rd" #Assigning a new key-value pair
+</pre
+        >
+      </code>
+    </fieldset>
+  </body>
 </html>

@@ -1,0 +1,80 @@
+<!-- @format -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <fieldset>
+        <legend>Container.styled.js</legend>
+        <code>
+          <pre>
+      import styled from "styled-components"
+      
+      //const name_of_component = styled.name_of_element_you_want_it_to_be``
+      //inside the backticks (``), we have our styles or css
+      
+      export const Container = styled.div`
+          width: 100px;
+          max-width: 100%;
+          padding: 0 20px;
+          margin: 0 auto;
+      `
+              </pre
+          >
+        </code>
+      </fieldset>
+      <fieldset>
+        <legend>App.js</legend>
+        <code>
+          <pre>
+import { Container } from ".components/styled/Container.styled"
+
+//Note that we put it in curly braces. This is because we didn't say export default for it. So it is not the default export <br/>
+
+function App() {
+    return (
+        &lt;Container&gt;
+            &lt;h1&gt;Hello&lt;/h1&gt;
+        &lt;/Container&gt;
+    )
+}
+
+export default App;
+
+//You'll see that when it is compiled, it will be compiled to a div
+</pre>
+        </code>
+      </fieldset>
+    </fieldset>
+    <p>You can also nest in styled components just like in sass or less</p>
+
+    <fieldset>
+      <legend>Container.styled.js</legend>
+      <code>
+        <pre>
+      import styled from "styled-components"
+      
+      export const Container = styled.div`
+          width: 100px;
+          max-width: 100%;
+          padding: 0 20px;
+          margin: 0 auto;
+
+          h1 {
+              color: red;
+          }
+          &:hover {
+              background-color: green;
+          }
+      `
+              </pre
+        >
+      </code>
+    </fieldset>
+  </body>
+</html>

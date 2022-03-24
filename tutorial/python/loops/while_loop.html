@@ -2,26 +2,91 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>A loop is something that keeps running if a particular condition is true</p>
-        <p>The while loop runs a block of code while a condition is true</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      A loop is something that keeps running if a particular condition is true
+    </p>
+    <p>The while loop runs a block of code while a condition is true</p>
 
-        <fieldset>
-            <code>
-                <pre>
+    <fieldset>
+      <code>
+        <pre>
 i = 1
 while i &lt; 6:
     print(i)
     i = i + 1
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      If we do not increase the value of i at the end, the loop will keep
+      running because the loop will keep running
+    </p>
+    <p>
+      You can break a while loop if some condition is true or you just want to
+      terminate the whole loop
+    </p>
+    <p>
+      The while loop can also have an else part which will be executed if the
+      whole loop ends without any break statements or without any conditions in
+      the code block being met
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+secret_number = 9
+guess_count = 0
+guess_limit = 3
 
-                </pre>
-            </code>
-        </fieldset>
-    </body>
+while guess_count < guess_limit:
+  guess = int(input("Guess: "))
+  guess_count += 1
+  if guess == secret_number:
+    print("Yayy, you won!")
+    break
+else:
+  print("Sorry, you are out of trials")
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+car_is_running = False
+while True:
+  command = input("> ").lower()
+  if command == "help":
+    print("""
+help - For help
+start - To start the car
+stop: To stop the car
+quit - To quit the game
+""")
+  elif command == "start":
+    if not car_is_running:
+      car_is_running = True
+      print("Car has started")
+    else:
+      print("The car is already running")
+  elif command == "stop":
+    if car_is_running:
+      car_is_running = False
+      print("The car has stopped")
+    else:
+      print("The car is not even on 😂😂")
+  elif command == "quit":
+    break
+  else:
+    print("Please I do not understand the command")
+        </pre>
+      </code>
+    </fieldset>
+  </body>
 </html>

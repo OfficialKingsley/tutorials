@@ -1,0 +1,51 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Formatted strings</h3>
+    <p>
+      These make strings easier to visualize and also prevents the excess
+      concatenation of strings
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+first = "John"
+last = "Smith"
+message = first + " [" + last + "] is a coder"
+      </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      The above can be simplified to formatted strings. Formatted strings always
+      begin with an f just before the strings. This is similar to template
+      strings in javascript. <br />
+      Anytime we want to add some code (like a variable), we enclose it in curly
+      braces {}
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+first = "John"
+msg = f'{first} [{last}] is a coder'
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+msg = f'''{first} can see that we can also use
+formatted strings with multiple line strings'''
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

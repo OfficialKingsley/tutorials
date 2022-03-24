@@ -2,40 +2,67 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>
-            The index of the item in a string refers to the position of the item in the string and
-            indexing generally refers to getting an item based on its index. <br />
-            In python, or generally in programming, indexes start from <q>0</q> <br />
-            That is, the first item has a position of 0, the second will have an index of 1, the
-            third has an index of 2 and so on <br />
-            You can do the indexing process using square brackets
-        </p>
-        <fieldset>
-            <code>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      The index of the item in a string refers to the position of the item in
+      the string and indexing generally refers to getting an item based on its
+      index. <br />
+      In python, or generally in programming, indexes start from <q>0</q> <br />
+      That is, the first item has a position of 0, the second will have an index
+      of 1, the third has an index of 2 and so on <br />
+      You can do the indexing process using square brackets
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 name = "Kingsley"
 print(name[0]) #K
 print(name[1]) #i
 print(name[3]) #g
-                </pre>
-            </code>
-        </fieldset>
-        <p>If I try to get something that its index is not possible, I get an index error</p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      If I try to get something that its index is not possible, I get an index
+      error
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 name = "Kingsley"
 
 print(name[10]) #IndexError
-                </pre>
-            </code>
-        </fieldset>
-    </body>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <h3>Negative indexing</h3>
+    <fieldset>
+      <code>
+        <pre>
+print(name[-1]) #y
+print(name[-2]) #e
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+print(name[1:])
+print(name[1:5])
+print(name[:5])
+print(name[:]) #This will print the whole string
+                </pre
+        >
+      </code>
+    </fieldset>
+  </body>
 </html>

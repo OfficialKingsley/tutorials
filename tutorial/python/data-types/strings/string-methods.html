@@ -2,76 +2,129 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <fieldset>
-            <code>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Multi line strings</h3>
+    <fieldset>
+      <code>
+        <pre>
+"""
+As you see we can write text
+In multiple lines
+"""
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Getting length of a string</h3>
+    <fieldset>
+      <code>
+        <pre>
+name = "Junior"
+name_length = len(name)
+print(name_length) #6
+            </pre
+        >
+      </code>
+    </fieldset>
+    <p>One thing to know is that most string methods do not</p>
+    <fieldset>
+      <code>
+        <pre>
 title = "this is Title"
 
 print(title.upper()) #THIS IS TITLE
 print(title.lower()) #this is title
 print(title.capitalize()) #This Is Title
             </pre
-                >
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 title = "this is Title"
 
 print(title.isupper()) False
 print(title.islower()) False
 print(title.iscapitalize()) False
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 title = "this is Title"
 
 print(title.lower().islower()) True 
-                </pre>
-            </code>
-        </fieldset>
-        <p>You can get the length of a string</p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>You can get the length of a string</p>
+    <fieldset>
+      <code>
+        <pre>
 print(len(title))
-                </pre>
-            </code>
-        </fieldset>
-        <p>
-            The len function is a generally inbuilt function like the print function. It returns the
-            number of items in what is passed to it
-        </p>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      The len function is a generally inbuilt function like the print function.
+      It returns the number of items in what is passed to it
+    </p>
+    <fieldset>
+      <code>
+        <pre>
 name = "Kingsley"
 
 print(name.index("i")) #1
 
 #This will print the index of the first occurrence of i
-                </pre>
-            </code>
-        </fieldset>
-        <fieldset>
-            <code>
-                <pre>
+                </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
 print(name.replace("K", "T"))
 
-Tingsley
-                </pre>
-            </code>
-        </fieldset>
-    </body>
+#Tingsley
+                </pre
+        >
+      </code>
+    </fieldset>
+    <h3>Know these</h3>
+    <fieldset>
+      <code>
+        <pre>
+course = "Python course for beginners"
+course.lower()
+course.upper()
+course.find() 
+#Index of first occurrence of the characters passed
+#Returns -1 if not found
+course.replace("beginners", "Absolute Beginners")
+            </pre
+        >
+      </code>
+    </fieldset>
+    <p>You can generally check if something is in a string</p>
+    <fieldset>
+      <code>
+        <pre>
+"Python" in course #Returns True
+"python" in course #Returns False
+            </pre
+        >
+      </code>
+    </fieldset>
+  </body>
 </html>
