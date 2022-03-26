@@ -1,0 +1,30 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      You might not want to keep repeating writing the types for some code. Like
+      for example, you might not want to keep repeating
+      <code>string | number</code> so many times so what you can do is to create
+      an alias
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+//type name_of_your_customizable = type (or types);
+
+type Combinable = number | string
+type ConversionDescriptor = "as-number" | "as-string"
+        </pre>
+      </code>
+    </fieldset>
+    <p>So you don't need to keep writing those unions and literal types</p>
+  </body>
+</html>

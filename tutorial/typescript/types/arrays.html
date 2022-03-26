@@ -1,0 +1,67 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <code>
+        <pre>
+hobbies = ["Sports", "Cooking"]
+
+//What typescript will infer is that 
+//hobbies is an array of strings which will be written as
+
+hobbies: string[]
+      </pre
+        >
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+let favoriteActivities: string[];
+
+favoriteActivities = "Sports" //Gives error
+favoriteActivities = ["sports", 1]; //Gives error
+favoriteActivities = ["sports"] //No error
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      If you want it to accept multiple data types, you can do the following
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+let favoriteActivities: any[];
+
+favoriteActivities = "Sports" //Gives error
+favoriteActivities = ["sports", 1]; //No error
+favoriteActivities = ["sports"] //No error
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Another advantage of typescript inference is that when we loop through, it
+      automatically detects what type of data each item in the iterable is
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+
+const hobbies = ["Football","Coding"]
+for (const hobby of hobbies) {
+  console.log(hobby)
+}
+//Typescript automatically infers that the hobby is a string
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

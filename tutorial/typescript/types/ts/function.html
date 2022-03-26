@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <code>
+            <pre>
+let combineValues: Function
+            </pre>
+        </code>
+    </fieldset>
+    <p>Function types are types the describe a function regarding</p>
+    <fieldset>
+        <code>
+            <pre>
+variable = (...paramTypes) => return type
+let combineValues: () => number
+            </pre>
+        </code>
+    </fieldset>
+    <p>For the above code, we are telling typescript that combineValues should be a variable that takes in no parameters and returns a number from the return statement</p>
+    <fieldset>
+        <code>
+            <pre>
+let combineValues: (number, string) => number
+//Here, you're telling TypeScript that
+//combineValues variable should accept a function
+//Which has two parameters
+//Where the first is a number and the next is string
+            </pre>
+        </code>
+    </fieldset>
+    <fielsdset>
+        <code>
+            <pre>
+These function types are useful in call backs
+            </pre>
+        </code>
+    </fielsdset>
+    <p>You should also note that when the type of a function return is set to void, even if the function returns a value, that value will be avoided</p>
+</body>
+</html>

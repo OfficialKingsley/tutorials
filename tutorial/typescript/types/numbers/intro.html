@@ -1,0 +1,109 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>This is one of the core concepts in javascript and also in typescript</p>
+    <fieldset>
+      <code>
+        <pre>
+function add(n1, n2) {
+  return n1 + n2
+}
+const number1 = '5'
+const number2 = 2.8
+
+const result = add(number1, number2)
+
+console.log(result)
+
+//Output: 52.8
+//This is because of the concatenation
+      </pre
+        >
+      </code>
+    </fieldset>
+    <p>
+      To prevent this, we can add the types that we want the parameters to be
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+function add(n1: number, n2: number) {
+  return n1 + n2
+}
+const number1 = '5'
+const number2 = 2.8
+
+const result = add(number1, number2)
+//We get an error that we can't add string arguments to number parameters
+
+console.log(result)
+
+//Output: 52.8
+//This is because of the concatenation
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+  const result = n1 + n2;
+  if (showResult) {
+    console.log(phrase + result)
+  } else {
+    return result
+  }
+}
+const number1 = '5'
+const number2 = 2.8
+const printResult = true
+const resultPhrase = 'Result is:'
+
+const result = add(number1, number2, printResult)
+//We get an error that we can't add string arguments to number parameters
+
+console.log(result)
+
+//Output: 52.8
+//This is because of the concatenation
+        </pre>
+      </code>
+    </fieldset>
+    <h3>Type inference</h3>
+    <p>
+      Typescript always does its best to get the type of data stored in a
+      variable
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+let number1: number = 5; //This is bad practice
+
+let number2: number;
+
+number2 = "5" //Error
+number2 = 5 //This then works
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+let phrase = "This is my phrase"
+
+phrase = 0; 
+//This produces an error because
+//typescript inferred that the first declaration was a string
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

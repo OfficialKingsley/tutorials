@@ -1,0 +1,53 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      In a case where you might want a variable to hold more than one type of
+      variable, you can use the | operator
+    </p>
+    <p>You might want to have a function that will have</p>
+    <fieldset>
+      <code>
+        <pre>
+let values: string | number
+
+value = "Kingsley"
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+function (input1: string | number, input2: string | number) {
+  return input1 + input2
+  //You get an error
+}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+You can add some run time check
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+You can also add multiple unions
+
+roles: string | number | boolean
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

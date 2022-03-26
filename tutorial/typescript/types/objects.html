@@ -1,0 +1,95 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <code>
+        <pre>
+const person = {
+  name: "Kingsley",
+  age: 30
+}
+
+console.log(person.nickname) 
+//This will give you an error
+//It has no nickname value
+      </pre
+        >
+      </code>
+    </fieldset>
+    <p>If you hover over that person declaration, you see something like</p>
+    <fieldset>
+      <code>
+        <pre>
+const person: {
+  name: string;
+  age: number;
+}
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      The above is not an object. As you can see the semicolons that are there
+      show that it's not an object. <br />
+      The above is an object type inferred by typescript. Object types are
+      written in key: type pairs with semicolons. They are there to tell what
+      type of object and the type of properties and methods it has
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+const person: object = { name: "Maximilian", age: 30 }
+
+console.log(person.name) //This will return an errot
+//Because we just told types that the type of data
+//Is just an ordinary object with no attributes
+
+//The above is the same as
+const person: {} = { name: "Maximilian", age: 30 }
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      Also take note that the number of attributes passed in the type has to be
+      equal to the number of attributes being assigned else you will get an
+      error at compilation
+    </p>
+    <p>You can then specify the type of values string</p>
+    <fieldset>
+      <code>
+        <pre>
+const person: {
+  name: string;
+} = {
+  name: "Kingsley",
+  age: 30 //You get an error here at the age
+}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+const person: {
+  name: string;
+  age: number;
+} = {
+  name: "Kingsley",
+  age: 30
+}
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      It is however advised that you allow typescript to infer the type of
+      object being passed to a variable
+    </p>
+  </body>
+</html>

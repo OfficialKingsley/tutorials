@@ -1,0 +1,73 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      This is one of the new types that is added to typescript but is not in
+      javascript. It will be compiled to a javascript array <br />
+      A tuple can be said to be an array with a definite length and definite
+      types
+    </p>
+    <p>
+      For example for some reason you want you want an array that has only two
+      elements
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+role = [2, "author"]
+
+//The inference shows
+role: (string | number)[]
+        </pre>
+      </code>
+    </fieldset>
+    <p>However, this is not the type that we are looking for</p>
+    <fieldset>
+      <code>
+        <pre>
+role.push("admin")
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      The above code will run even though we don't want to add items to the
+      array (or tuple)
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+let role: [number, string]
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      The above is therefore setting the type of the data to a tuple. <br />
+      We are explicitly setting the datatypes in the array is what is called a
+      tuple
+    </p>
+    <p>
+      If you type <code>role.push("admin")</code> this will work because push is
+      an exception to tuples even though we have explicitly said that we want
+      just two element in the tuple
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+let role: [number, string]
+
+role = [1, "author", "captain"]
+//The above will create an error
+//So you see that you can't add another item
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

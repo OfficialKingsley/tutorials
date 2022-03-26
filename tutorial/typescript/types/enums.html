@@ -1,0 +1,53 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      In a case where you may like to have some global variables for some
+      numbers or for some strings that's where enums come in
+    </p>
+    <p>This is a custom type</p>
+    <fieldset>
+      <code>
+        <pre>
+enums {NAME1, NAME2}
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+enum Role {ADMIN, READ_ONLY, AUTHOR}
+Role.ADMIN //0
+Role.READ_ONLY //1
+Role.AUTHOR //2
+        </pre>
+      </code>
+    </fieldset>
+    <p>
+      If for some reason you don't want that to start from 0, you can do this
+    </p>
+    <fieldset>
+      <code>
+        <pre>
+enum Role {ADMIN=12, READ_ONLY, AUTHOR}
+//Now Role.READ_ONLY == 13
+        </pre>
+      </code>
+    </fieldset>
+    <fieldset>
+      <code>
+        <pre>
+enum Role {ADMIN="ADMIN", READ_ONLY=1, AUTHOR=23}
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>
