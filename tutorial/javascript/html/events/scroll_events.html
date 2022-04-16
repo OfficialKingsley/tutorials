@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    The following are codes that can be used in javascript to scroll your page
+    <fieldset>
+      <code>
+        <pre>
+scrollBy(x, y); //Takes in only integers (pixels)
+scrollTo(x, y); Moves to a particular position
+scrollX()
+scrollY()
+//onscroll method
+      </pre
+        >
+      </code>
+    </fieldset>
+    <p>Some properties also come with the scroll event</p>
+    <fieldset>
+      <code>
+        <pre>
+window.addEventListener("scroll", (e) => {
+  console.log("client", e.clientX, e.clientY); 
+  //Top of the visible screen
+  console.log("page", e.pageX, e.pageY);
+  //Top of the page
+  console.log("offset", h1.offsetLeft, h1.offsetTop);
+
+  console.log("screen window", window.screenX, window.screenY);
+  console.log("screen ev", e.screenX, e.screenY);
+})
+        </pre>
+      </code>
+    </fieldset>
+  </body>
+</html>

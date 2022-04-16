@@ -11,7 +11,7 @@ If for example we want to create a button that will get a complementary color as
 ```scss
 @function light-comp($color) {
   $complement = complement($color);
-  $light-complement: lighten($complement, 30%)
+  $light-complement: lighten($complement, 30%);
   @return $light-complement;
 }
 ```
